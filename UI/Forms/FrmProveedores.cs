@@ -7,7 +7,7 @@ using CarniceriaPOS.Utilities;
 
 namespace CarniceriaPOS.UI.Forms
 {
-    public partial class FrmProveedores : Form
+    public partial class FrmProveedores : FormBase
     {
         private RepositorioProveedor repProveedor;
         private bool esNuevo = true;

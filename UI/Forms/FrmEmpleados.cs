@@ -9,7 +9,7 @@ using CarniceriaPOS.Utilities;
 
 namespace CarniceriaPOS.UI.Forms
 {
-    public partial class FrmEmpleados : Form
+    public partial class FrmEmpleados : FormBase
     {
         private RepositorioEmpleado repEmpleado;
         private RepositorioDepartamento repDepartamento;

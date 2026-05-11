@@ -57,7 +57,7 @@ namespace CarniceriaPOS.UI.Forms
                         $"${v.Subtotal:N2}",
                         $"${v.TotalITBIS:N2}",
                         $"${v.Total:N2}",
-                        v.MetodoPago ?? "a”"
+                        v.MetodoPago ?? "a""
                     );
 
                 DgvDatos.DataSource = dt;

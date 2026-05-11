@@ -71,7 +71,7 @@ namespace CarniceriaPOS.UI.Forms
 
             var lblSeparador = new Label
             {
-                Text = "a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”,
+                Text = "a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a"a",
                 Dock = DockStyle.Top,
                 AutoSize = true,
                 Margin = new Padding(0, 10, 0, 5)

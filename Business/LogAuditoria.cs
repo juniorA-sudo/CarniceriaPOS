@@ -64,7 +64,7 @@ namespace CarniceriaPOS.Business
         public static void RegistrarInventarioActualizado(int idProducto, string nombreProducto,
                                                           int stockAnterior, int stockNuevo, string razon)
         {
-            string detalles = $"Producto: {nombreProducto}, Stock: {stockAnterior} a’ {stockNuevo}, Razon: {razon}";
+            string detalles = $"Producto: {nombreProducto}, Stock: {stockAnterior} a' {stockNuevo}, Razon: {razon}";
             Registrar("INVENTARIO_ACTUALIZADO", "INVENTARIO", detalles);
         }
 
@@ -128,7 +128,7 @@ namespace CarniceriaPOS.Business
         public static void RegistrarCambioConfiguracion(string clave, string valorAnterior, string valorNuevo)
         {
             string detalles = $"Configuracion: {clave}, Anterior: {valorAnterior}, Nuevo: {valorNuevo}";
-            Registrar(“CONFIGURACION_CAMBIO”, “ADMINISTRACION”, detalles);
+            Registrar("CONFIGURACION_CAMBIO", "ADMINISTRACION", detalles);
         }
     }
 }

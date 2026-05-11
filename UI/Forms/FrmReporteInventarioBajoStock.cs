@@ -46,7 +46,7 @@ namespace CarniceriaPOS.UI.Forms
 
                     dt.Rows.Add(
                         p.Nombre,
-                        p.Categoria ?? "a”",
+                        p.Categoria ?? "a"",
                         p.StockActual,
                         p.StockMinimo,
                         faltante,

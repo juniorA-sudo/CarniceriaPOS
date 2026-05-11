@@ -17,7 +17,7 @@ namespace CarniceriaPOS.UI.Forms
 
         protected override void FrmReporteBase_Load(object sender, EventArgs e)
         {
-            lblTituloReporte.Text = "REPORTE DE PRODUCTOS a” CATaLOGO Y PRECIOS";
+            lblTituloReporte.Text = "REPORTE DE PRODUCTOS a" CATaLOGO Y PRECIOS";
             GenerarReporte();
         }
 
@@ -46,7 +46,7 @@ namespace CarniceriaPOS.UI.Forms
                     dt.Rows.Add(
                         rank++,
                         p.Nombre,
-                        p.Categoria ?? "a”",
+                        p.Categoria ?? "a"",
                         p.StockActual,
                         $"${p.PrecioCompra:N2}",
                         $"${p.PrecioVenta:N2}",

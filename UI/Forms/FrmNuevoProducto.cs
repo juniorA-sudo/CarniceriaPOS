@@ -80,6 +80,7 @@ namespace CarniceriaPOS.UI.Forms
                 if (_repo.AgregarProducto(p))
                 {
                     MessageBox.Show("Producto agregado correctamente");
+                    LimpiarCampos();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -88,6 +89,18 @@ namespace CarniceriaPOS.UI.Forms
             {
                 MessageBox.Show("Error al guardar: " + ex.Message);
             }
+        }
+
+        private void LimpiarCampos()
+        {
+            FormateadorTextBox.LimpiarTextBoxesEspecificos(
+                txtCodigo, txtNombre, txtDescripcion,
+                txtPrecioCompra, txtPrecioVenta,
+                txtStockActual, txtStockMinimo
+            );
+            chkItbis.Checked = false;
+            if (cmbCategoria.Items.Count > 0)
+                cmbCategoria.SelectedIndex = 0;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

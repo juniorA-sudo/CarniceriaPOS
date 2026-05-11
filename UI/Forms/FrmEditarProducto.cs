@@ -91,6 +91,7 @@ namespace CarniceriaPOS.UI.Forms
                 if (_repo.ActualizarProducto(_producto))
                 {
                     MessageBox.Show("Producto actualizado correctamente");
+                    LimpiarCampos();
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -99,6 +100,18 @@ namespace CarniceriaPOS.UI.Forms
             {
                 MessageBox.Show("Error al actualizar: " + ex.Message);
             }
+        }
+
+        private void LimpiarCampos()
+        {
+            FormateadorTextBox.LimpiarTextBoxesEspecificos(
+                txtCodigo, txtNombre, txtDescripcion,
+                txtPrecioCompra, txtPrecioVenta,
+                txtStockActual, txtStockMinimo
+            );
+            chkItbis.Checked = false;
+            if (cmbCategoria.Items.Count > 0)
+                cmbCategoria.SelectedIndex = 0;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

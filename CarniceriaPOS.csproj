@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="Utilities\Validador.cs" />
     <Compile Include="Utilities\SesionActual.cs" />
+    <Compile Include="Utilities\FormateadorTextBox.cs" />
     <Compile Include="Utilities\UtilExportPDF.cs" />
     <Compile Include="Utilities\UtilCrystalReports.cs" />
     <Compile Include="Utilities\UtilImpresion.cs" />
@@ -181,6 +182,15 @@
     <Compile Include="UI\Forms\FrmEmpleados.Designer.cs">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\FrmBuscadorClienteCedula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\FrmBuscadorClienteCedula.Designer.cs">
+      <DependentUpon>FrmBuscadorClienteCedula.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\FrmReporteBase.cs" />
     <Compile Include="UI\Forms\FrmReporteBase.Designer.cs">
       <DependentUpon>FrmReporteBase.cs</DependentUpon>
@@ -190,6 +200,18 @@
     </Compile>
     <Compile Include="UI\Forms\FrmReportes.Designer.cs">
       <DependentUpon>FrmReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\FrmReporteProductos.cs" />
+    <Compile Include="UI\Forms\FrmReporteProductos.Designer.cs">
+      <DependentUpon>FrmReporteProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\FrmReporteEmpleados.cs" />
+    <Compile Include="UI\Forms\FrmReporteEmpleados.Designer.cs">
+      <DependentUpon>FrmReporteEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Forms\FrmReporteProveedores.cs" />
+    <Compile Include="UI\Forms\FrmReporteProveedores.Designer.cs">
+      <DependentUpon>FrmReporteProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\FrmReporteInventario.cs" />
     <Compile Include="UI\Forms\FrmReporteInventario.Designer.cs">
@@ -214,24 +236,6 @@
     <Compile Include="UI\Forms\FrmReporteIngresosEgresos.cs" />
     <Compile Include="UI\Forms\FrmReporteIngresosEgresos.Designer.cs">
       <DependentUpon>FrmReporteIngresosEgresos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\FrmReporteProductos.cs" />
-    <Compile Include="UI\Forms\FrmReporteProductos.Designer.cs">
-      <DependentUpon>FrmReporteProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\FrmReporteEmpleados.cs" />
-    <Compile Include="UI\Forms\FrmReporteEmpleados.Designer.cs">
-      <DependentUpon>FrmReporteEmpleados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\FrmReporteProveedores.cs" />
-    <Compile Include="UI\Forms\FrmReporteProveedores.Designer.cs">
-      <DependentUpon>FrmReporteProveedores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Forms\FrmReporteBajoStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Forms\FrmReporteBajoStock.Designer.cs">
-      <DependentUpon>FrmReporteBajoStock.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\FrmSelectorReportes.cs">
       <SubType>Form</SubType>

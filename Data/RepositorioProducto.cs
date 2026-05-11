@@ -15,12 +15,36 @@ namespace CarniceriaPOS.Data
         {
             try
             {
-                string sql = @"INSERT INTO Productos (CodigoBarras, Nombre, Descripcion, Categoria,
-                              IdUnidadMedida, PrecioCompra, PrecioVenta, StockActual, StockMinimo,
-                              AplicaITBIS, Activo, FechaCreacion)
-                              VALUES (@CodigoBarras, @Nombre, @Descripcion, @Categoria,
-                              @IdUnidadMedida, @PrecioCompra, @PrecioVenta, @StockActual, @StockMinimo,
-                              @AplicaITBIS, @Activo, @FechaCreacion)";
+                string sql = @"INSERT INTO Productos 
+                              (
+                                CodigoBarras,
+                                Nombre,
+                                Descripcion,
+                                Categoria,
+                                UnidadMedida,
+                                PrecioCompra,
+                                PrecioVenta,
+                                StockActual,
+                                StockMinimo,
+                                AplicaITBIS,
+                                Activo,
+                                FechaCreacion
+                              )
+                              VALUES
+                              (
+                                @CodigoBarras,
+                                @Nombre,
+                                @Descripcion,
+                                @Categoria,
+                                @UnidadMedida,
+                                @PrecioCompra,
+                                @PrecioVenta,
+                                @StockActual,
+                                @StockMinimo,
+                                @AplicaITBIS,
+                                @Activo,
+                                @FechaCreacion
+                              )";
 
                 SqlParameter[] parametros = new SqlParameter[]
                 {
@@ -28,7 +52,6 @@ namespace CarniceriaPOS.Data
                     new SqlParameter("@Nombre", producto.Nombre ?? ""),
                     new SqlParameter("@Descripcion", producto.Descripcion ?? ""),
                     new SqlParameter("@Categoria", producto.Categoria ?? ""),
-                    new SqlParameter("@IdUnidadMedida", producto.IdUnidadMedida),
                     new SqlParameter("@PrecioCompra", producto.PrecioCompra),
                     new SqlParameter("@PrecioVenta", producto.PrecioVenta),
                     new SqlParameter("@StockActual", producto.StockActual),
@@ -50,17 +73,16 @@ namespace CarniceriaPOS.Data
         public List<Producto> ObtenerTodos()
         {
             List<Producto> productos = new List<Producto>();
+
             try
             {
-                string sql = @"SELECT p.*, 
-                               u.Nombre as NombreUnidadMedida, 
-                               u.Abreviatura as AbreviaturaUnidad
-                          FROM Productos p
-                          LEFT JOIN UnidadesMedida u ON p.IdUnidadMedida = u.IdUnidadMedida
-                          WHERE p.Activo = 1
-                          ORDER BY p.Nombre";
+                string sql = @"SELECT *
+                               FROM Productos
+                               WHERE Activo = 1
+                               ORDER BY Nombre";
 
                 DataTable dt = bd.ObtenerDatos(sql);
+
                 if (dt == null) return productos;
 
                 foreach (DataRow row in dt.Rows)
@@ -72,23 +94,24 @@ namespace CarniceriaPOS.Data
             {
                 MessageBox.Show("Error preventivo al cargar lista completa: " + ex.Message);
             }
+
             return productos;
         }
 
         public List<Producto> ObtenerProductosBajoStock()
         {
             List<Producto> productos = new List<Producto>();
+
             try
             {
-                string sql = @"SELECT p.*, 
-                               u.Nombre as NombreUnidadMedida, 
-                               u.Abreviatura as AbreviaturaUnidad
-                          FROM Productos p
-                          LEFT JOIN UnidadesMedida u ON p.IdUnidadMedida = u.IdUnidadMedida
-                          WHERE p.Activo = 1 AND p.StockActual <= p.StockMinimo
-                          ORDER BY p.StockActual";
+                string sql = @"SELECT *
+                               FROM Productos
+                               WHERE Activo = 1
+                               AND StockActual <= StockMinimo
+                               ORDER BY StockActual";
 
                 DataTable dt = bd.ObtenerDatos(sql);
+
                 if (dt == null) return productos;
 
                 foreach (DataRow row in dt.Rows)
@@ -100,6 +123,7 @@ namespace CarniceriaPOS.Data
             {
                 MessageBox.Show("Error preventivo al cargar bajo stock: " + ex.Message);
             }
+
             return productos;
         }
 
@@ -107,12 +131,15 @@ namespace CarniceriaPOS.Data
         {
             try
             {
-                string sql = @"SELECT p.*, u.Nombre as NombreUnidadMedida, u.Abreviatura as AbreviaturaUnidad
-                              FROM Productos p
-                              LEFT JOIN UnidadesMedida u ON p.IdUnidadMedida = u.IdUnidadMedida
-                              WHERE p.IdProducto = @IdProducto";
+                string sql = @"SELECT *
+                               FROM Productos
+                               WHERE IdProducto = @IdProducto";
 
-                SqlParameter[] parametros = new SqlParameter[] { new SqlParameter("@IdProducto", idProducto) };
+                SqlParameter[] parametros = new SqlParameter[]
+                {
+                    new SqlParameter("@IdProducto", idProducto)
+                };
+
                 DataTable dt = bd.ObtenerDatos(sql, parametros);
 
                 if (dt != null && dt.Rows.Count > 0)
@@ -124,6 +151,7 @@ namespace CarniceriaPOS.Data
             {
                 MessageBox.Show("Error preventivo al obtener por ID: " + ex.Message);
             }
+
             return null;
         }
 
@@ -131,21 +159,26 @@ namespace CarniceriaPOS.Data
         {
             try
             {
-                string sql = @"UPDATE Productos SET CodigoBarras = @CodigoBarras, Nombre = @Nombre,
-                              Descripcion = @Descripcion, Categoria = @Categoria,
-                              IdUnidadMedida = @IdUnidadMedida, PrecioCompra = @PrecioCompra,
-                              PrecioVenta = @PrecioVenta, StockActual = @StockActual,
-                              StockMinimo = @StockMinimo, AplicaITBIS = @AplicaITBIS
+                string sql = @"UPDATE Productos SET
+                                CodigoBarras = @CodigoBarras,
+                                Nombre = @Nombre,
+                                Descripcion = @Descripcion,
+                                Categoria = @Categoria,
+                                UnidadMedida = @UnidadMedida,
+                                PrecioCompra = @PrecioCompra,
+                                PrecioVenta = @PrecioVenta,
+                                StockActual = @StockActual,
+                                StockMinimo = @StockMinimo,
+                                AplicaITBIS = @AplicaITBIS
                               WHERE IdProducto = @IdProducto";
 
                 SqlParameter[] parametros = new SqlParameter[]
                 {
                     new SqlParameter("@IdProducto", producto.IdProducto),
                     new SqlParameter("@CodigoBarras", producto.CodigoBarras ?? ""),
-                    new SqlParameter("@Nombre", producto.Nombre),
+                    new SqlParameter("@Nombre", producto.Nombre ?? ""),
                     new SqlParameter("@Descripcion", producto.Descripcion ?? ""),
                     new SqlParameter("@Categoria", producto.Categoria ?? ""),
-                    new SqlParameter("@IdUnidadMedida", producto.IdUnidadMedida),
                     new SqlParameter("@PrecioCompra", producto.PrecioCompra),
                     new SqlParameter("@PrecioVenta", producto.PrecioVenta),
                     new SqlParameter("@StockActual", producto.StockActual),
@@ -162,40 +195,58 @@ namespace CarniceriaPOS.Data
             }
         }
 
-        public bool ActualizarStock(int idProducto, int cantidad)
+        public bool ActualizarStock(int idProducto, decimal cantidad)
         {
             try
             {
-                string sql = "UPDATE Productos SET StockActual = StockActual + @Cantidad WHERE IdProducto = @IdProducto";
-                SqlParameter[] parametros = new SqlParameter[] {
+                string sql = @"UPDATE Productos 
+                               SET StockActual = StockActual + @Cantidad 
+                               WHERE IdProducto = @IdProducto";
+
+                SqlParameter[] parametros = new SqlParameter[]
+                {
                     new SqlParameter("@IdProducto", idProducto),
                     new SqlParameter("@Cantidad", cantidad)
                 };
+
                 return bd.EjecutarComando(sql, parametros) > 0;
             }
-            catch { return false; }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool EliminarProducto(int idProducto)
         {
             try
             {
-                string sql = "UPDATE Productos SET Activo = 0 WHERE IdProducto = @IdProducto";
-                SqlParameter[] parametros = new SqlParameter[] { new SqlParameter("@IdProducto", idProducto) };
+                string sql = @"UPDATE Productos 
+                               SET Activo = 0 
+                               WHERE IdProducto = @IdProducto";
+
+                SqlParameter[] parametros = new SqlParameter[]
+                {
+                    new SqlParameter("@IdProducto", idProducto)
+                };
+
                 return bd.EjecutarComando(sql, parametros) > 0;
             }
-            catch { return false; }
+            catch
+            {
+                return false;
+            }
         }
 
         private Producto MapearProducto(DataRow row)
         {
             object SafeGet(string columnName, object defaultValue)
             {
-                if (row.Table.Columns.Contains(columnName) && row[columnName] != DBNull.Value)
+                if (row.Table.Columns.Contains(columnName) &&
+                    row[columnName] != DBNull.Value)
+                {
                     return row[columnName];
-
-                if (columnName == "Descripcion" && row.Table.Columns.Contains("Descripcion"))
-                    return row["Descripcion"];
+                }
 
                 return defaultValue;
             }
@@ -204,19 +255,16 @@ namespace CarniceriaPOS.Data
             {
                 IdProducto = Convert.ToInt32(SafeGet("IdProducto", 0)),
                 CodigoBarras = SafeGet("CodigoBarras", "").ToString(),
-                Nombre = SafeGet("Nombre", "Sin Nombre").ToString(),
+                Nombre = SafeGet("Nombre", "").ToString(),
                 Descripcion = SafeGet("Descripcion", "").ToString(),
                 Categoria = SafeGet("Categoria", "").ToString(),
-                IdUnidadMedida = Convert.ToInt32(SafeGet("IdUnidadMedida", 0)),
                 PrecioCompra = Convert.ToDecimal(SafeGet("PrecioCompra", 0m)),
                 PrecioVenta = Convert.ToDecimal(SafeGet("PrecioVenta", 0m)),
                 StockActual = Convert.ToDecimal(SafeGet("StockActual", 0m)),
                 StockMinimo = Convert.ToDecimal(SafeGet("StockMinimo", 0m)),
                 AplicaITBIS = Convert.ToBoolean(SafeGet("AplicaITBIS", false)),
                 Activo = Convert.ToBoolean(SafeGet("Activo", true)),
-                FechaCreacion = Convert.ToDateTime(SafeGet("FechaCreacion", DateTime.Now)),
-                NombreUnidadMedida = SafeGet("NombreUnidadMedida", "N/A").ToString(),
-                AbreviacionUnidad = SafeGet("AbreviaturaUnidad", "").ToString()
+                FechaCreacion = Convert.ToDateTime(SafeGet("FechaCreacion", DateTime.Now))
             };
         }
     }

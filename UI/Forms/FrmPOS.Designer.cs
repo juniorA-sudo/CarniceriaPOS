@@ -36,7 +36,7 @@
             this.dgvCarrito = new System.Windows.Forms.DataGridView();
             this.colCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colImagen = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecioUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,12 +138,12 @@
             this.dgvCarrito.BackgroundColor = System.Drawing.Color.White;
             this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrito.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCode,
-            this.colProducto,
-            this.colImagen,
-            this.colCantidad,
-            this.colPrecioUnitario,
-            this.colTotal});
+this.colCode,
+this.colProducto,
+this.colEliminar,
+this.colCantidad,
+this.colPrecioUnitario,
+this.colTotal});
             this.dgvCarrito.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCarrito.Location = new System.Drawing.Point(4, 4);
             this.dgvCarrito.Name = "dgvCarrito";
@@ -161,11 +161,11 @@
             this.colProducto.Name = "colProducto";
             this.colProducto.ReadOnly = true;
             this.colProducto.Width = 180;
-
-            this.colImagen.HeaderText = "Img";
-            this.colImagen.Name = "colImagen";
-            this.colImagen.ReadOnly = true;
-            this.colImagen.Width = 40;
+            this.colEliminar.HeaderText = "X";
+            this.colEliminar.Name = "colEliminar";
+            this.colEliminar.Text = "X";
+            this.colEliminar.UseColumnTextForButtonValue = true;
+            this.colEliminar.Width = 40;
 
             this.colCantidad.HeaderText = "Cant";
             this.colCantidad.Name = "colCantidad";
@@ -554,14 +554,16 @@
             this.lstCategorias.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lstCategorias.FormattingEnabled = true;
             this.lstCategorias.ItemHeight = 15;
-            this.lstCategorias.Items.AddRange(new object[] {
-            "Busca",
-            "Res",
-            "Cerdo",
-            "Pollo",
-            "Embutidos",
-            "Aves",
-            "Sazon"});
+
+            this.lstCategorias.Items.AddRange(new object[]
+            {
+    "Busca",
+    "Res",
+    "Cerdo",
+    "Pollo",
+    "Embutidos"
+            });
+
             this.lstCategorias.Location = new System.Drawing.Point(0, 0);
             this.lstCategorias.Name = "lstCategorias";
             this.lstCategorias.Size = new System.Drawing.Size(135, 686);
@@ -658,7 +660,7 @@
         private System.Windows.Forms.RadioButton rdoDebito;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProducto;
-        private System.Windows.Forms.DataGridViewImageColumn colImagen;
+        private System.Windows.Forms.DataGridViewButtonColumn colEliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;

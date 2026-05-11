@@ -113,7 +113,6 @@ namespace CarniceriaPOS.UI.Forms
                 btnClientes.Enabled = idRol == 1 || idRol == 2 || idRol == 3;
                 btnProveedores.Enabled = idRol == 1 || idRol == 2 || idRol == 5;
                 btnVentas.Enabled = idRol == 1 || idRol == 2 || idRol == 3 || idRol == 4;
-                btnCompras.Enabled = idRol == 1 || idRol == 2 || idRol == 5;
                 btnReportes.Enabled = idRol == 1 || idRol == 2;
                 btnUsuarios.Enabled = idRol == 1 || idRol == 2;
                 btnEmpleados.Enabled = idRol == 1 || idRol == 2;
@@ -131,7 +130,6 @@ namespace CarniceriaPOS.UI.Forms
             btnClientes.Enabled = true;
             btnProveedores.Enabled = true;
             btnVentas.Enabled = true;
-            btnCompras.Enabled = true;
             btnReportes.Enabled = true;
             btnUsuarios.Enabled = true;
             btnEmpleados.Enabled = true;
@@ -181,11 +179,6 @@ namespace CarniceriaPOS.UI.Forms
         private void btnVentas_Click(object sender, EventArgs e)
         {
             ValidarYAbrirFormulario(btnVentas, "Ventas", new FrmPOS(), "Punto de venta");
-        }
-
-        private void btnCompras_Click(object sender, EventArgs e)
-        {
-            ValidarYAbrirFormulario(btnCompras, "Compras", new FrmCompras(), "Compras");
         }
 
         private void btnReportes_Click(object sender, EventArgs e)

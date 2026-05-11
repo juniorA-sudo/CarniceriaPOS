@@ -12,26 +12,27 @@ namespace CarniceriaPOS.Data
 
         public bool AgregarVenta(Venta venta)
         {
-            string sql = @"INSERT INTO Ventas (NumeroFactura, IdCliente, IdUsuario, FechaVenta,
+            // Cambié @IdUsuario por @IdEmpleado en el texto del SQL
+            string sql = @"INSERT INTO Ventas (NumeroFactura, IdCliente, IdEmpleado, FechaVenta,
                           Subtotal, TotalITBIS, Total, MetodoPago, Estado,
                           MontoRecibido, Cambio)
-                          VALUES (@NumeroFactura, @IdCliente, @IdUsuario, @FechaVenta,
+                          VALUES (@NumeroFactura, @IdCliente, @IdEmpleado, @FechaVenta,
                           @Subtotal, @TotalITBIS, @Total, @MetodoPago, @Estado,
                           @MontoRecibido, @Cambio)";
 
             SqlParameter[] parametros = new SqlParameter[]
             {
-                new SqlParameter("@NumeroFactura", venta.NumeroFactura),
-                new SqlParameter("@IdCliente", venta.IdCliente ?? (object)DBNull.Value),
-                new SqlParameter("@IdUsuario", venta.IdUsuario),
-                new SqlParameter("@FechaVenta", venta.FechaVenta),
-                new SqlParameter("@Subtotal", venta.Subtotal),
-                new SqlParameter("@TotalITBIS", venta.TotalITBIS),
-                new SqlParameter("@Total", venta.Total),
-                new SqlParameter("@MetodoPago", venta.MetodoPago),
-                new SqlParameter("@Estado", venta.Estado),
-                new SqlParameter("@MontoRecibido", venta.MontoRecibido),
-                new SqlParameter("@Cambio", venta.Cambio)
+        new SqlParameter("@NumeroFactura", venta.NumeroFactura),
+        new SqlParameter("@IdCliente", venta.IdCliente ?? (object)DBNull.Value),
+        new SqlParameter("@IdEmpleado", venta.IdEmpleado), // Ahora coinciden nombre y parámetro
+        new SqlParameter("@FechaVenta", venta.FechaVenta),
+        new SqlParameter("@Subtotal", venta.Subtotal),
+        new SqlParameter("@TotalITBIS", venta.TotalITBIS),
+        new SqlParameter("@Total", venta.Total),
+        new SqlParameter("@MetodoPago", venta.MetodoPago),
+        new SqlParameter("@Estado", venta.Estado),
+        new SqlParameter("@MontoRecibido", venta.MontoRecibido),
+        new SqlParameter("@Cambio", venta.Cambio)
             };
 
             return bd.EjecutarComando(sql, parametros) > 0;
@@ -268,7 +269,7 @@ namespace CarniceriaPOS.Data
                 IdVenta = (int)row["IdVenta"],
                 NumeroFactura = row["NumeroFactura"].ToString(),
                 IdCliente = row["IdCliente"] != DBNull.Value ? (int?)row["IdCliente"] : null,
-                IdUsuario = (int)row["IdUsuario"],
+                IdEmpleado = (int)row["IdEmpleado"],
                 FechaVenta = (DateTime)row["FechaVenta"],
                 Subtotal = (decimal)row["Subtotal"],
                 TotalITBIS = (decimal)row["TotalITBIS"],

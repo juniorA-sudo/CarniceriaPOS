@@ -4,10 +4,8 @@ using System.Text.RegularExpressions;
 
 namespace CarniceriaPOS.Utilities
 {
-
     public static class FormateadorTextBox
     {
-
         public enum TipoValidacion
         {
             SoloNumeros,
@@ -27,29 +25,25 @@ namespace CarniceriaPOS.Utilities
 
             if (longitudMaxima == null)
             {
-                longitudMaxima = tipo switch
+                switch (tipo)
                 {
-                    TipoValidacion.SoloNumeros => 20,
-                    TipoValidacion.SoloLetras => 100,
-                    TipoValidacion.Alfanumerico => 100,
-                    TipoValidacion.Cedula => 13,
-                    TipoValidacion.Telefono => 15,
-                    TipoValidacion.RNC => 9,
-                    TipoValidacion.Moneda => 15,
-                    TipoValidacion.Gmail => 30,
-                    _ => 255
-                };
+                    case TipoValidacion.SoloNumeros: longitudMaxima = 20; break;
+                    case TipoValidacion.SoloLetras: longitudMaxima = 100; break;
+                    case TipoValidacion.Alfanumerico: longitudMaxima = 100; break;
+                    case TipoValidacion.Cedula: longitudMaxima = 13; break;
+                    case TipoValidacion.Telefono: longitudMaxima = 15; break;
+                    case TipoValidacion.RNC: longitudMaxima = 9; break;
+                    case TipoValidacion.Moneda: longitudMaxima = 15; break;
+                    case TipoValidacion.Gmail: longitudMaxima = 30; break;
+                    default: longitudMaxima = 255; break;
+                }
             }
 
             textBox.MaxLength = longitudMaxima.Value;
-
-            textBox.KeyPress -= TextBox_KeyPress;
-            textBox.TextChanged -= TextBox_TextChanged;
+            textBox.Tag = tipo;
 
             textBox.KeyPress += (s, e) => TextBox_KeyPress(s, e, tipo);
             textBox.TextChanged += (s, e) => TextBox_TextChanged(s, e, tipo);
-
-            textBox.Tag = tipo;
         }
 
         private static void TextBox_KeyPress(object sender, KeyPressEventArgs e, TipoValidacion tipo)
@@ -81,7 +75,6 @@ namespace CarniceriaPOS.Utilities
                     break;
 
                 case TipoValidacion.Gmail:
-
                     e.Handled = !(char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '-' || e.KeyChar == '_');
                     break;
             }
@@ -140,7 +133,6 @@ namespace CarniceriaPOS.Utilities
 
         private static string FormatearCedula(string texto)
         {
-
             string numeros = Regex.Replace(texto, @"[^0-9]", "");
 
             if (numeros.Length > 13)
@@ -156,7 +148,6 @@ namespace CarniceriaPOS.Utilities
 
         private static string FormatearTelefono(string texto)
         {
-
             string numeros = Regex.Replace(texto, @"[^0-9]", "");
 
             if (numeros.Length > 10)
@@ -172,7 +163,6 @@ namespace CarniceriaPOS.Utilities
 
         private static string FormatearRNC(string texto)
         {
-
             string numeros = Regex.Replace(texto, @"[^0-9]", "");
 
             if (numeros.Length > 9)
@@ -186,7 +176,6 @@ namespace CarniceriaPOS.Utilities
 
         private static string FormatearMoneda(string texto)
         {
-
             string numeros = Regex.Replace(texto, @"[^0-9.]", "");
 
             int indexPunto = numeros.IndexOf('.');
@@ -201,7 +190,6 @@ namespace CarniceriaPOS.Utilities
 
         private static string FormatearGmail(string texto)
         {
-
             string usuario = texto.ToLower().Trim();
 
             if (usuario.EndsWith("@gmail.com"))
@@ -226,34 +214,37 @@ namespace CarniceriaPOS.Utilities
             if (!(textBox.Tag is TipoValidacion tipo))
                 return true;
 
-            return tipo switch
+            switch (tipo)
             {
-                TipoValidacion.Cedula => ValidarCedula(textBox.Text),
-                TipoValidacion.Telefono => ValidarTelefono(textBox.Text),
-                TipoValidacion.RNC => ValidarRNC(textBox.Text),
-                TipoValidacion.Moneda => ValidarMoneda(textBox.Text),
-                TipoValidacion.Gmail => ValidarGmail(textBox.Text),
-                _ => true
-            };
+                case TipoValidacion.Cedula:
+                    return ValidarCedula(textBox.Text);
+                case TipoValidacion.Telefono:
+                    return ValidarTelefono(textBox.Text);
+                case TipoValidacion.RNC:
+                    return ValidarRNC(textBox.Text);
+                case TipoValidacion.Moneda:
+                    return ValidarMoneda(textBox.Text);
+                case TipoValidacion.Gmail:
+                    return ValidarGmail(textBox.Text);
+                default:
+                    return true;
+            }
         }
 
         private static bool ValidarCedula(string cedula)
         {
-
             string numeros = Regex.Replace(cedula, @"[^0-9]", "");
             return numeros.Length == 13 && Regex.IsMatch(numeros, @"^\d{13}$");
         }
 
         private static bool ValidarTelefono(string telefono)
         {
-
             string numeros = Regex.Replace(telefono, @"[^0-9]", "");
             return numeros.Length == 10 && Regex.IsMatch(numeros, @"^\d{10}$");
         }
 
         private static bool ValidarRNC(string rnc)
         {
-
             string numeros = Regex.Replace(rnc, @"[^0-9]", "");
             return numeros.Length == 9 && Regex.IsMatch(numeros, @"^\d{9}$");
         }
@@ -265,7 +256,6 @@ namespace CarniceriaPOS.Utilities
 
         private static bool ValidarGmail(string email)
         {
-
             if (string.IsNullOrWhiteSpace(email))
                 return false;
 

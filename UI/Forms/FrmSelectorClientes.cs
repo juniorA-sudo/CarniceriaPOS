@@ -42,13 +42,13 @@ namespace CarniceriaPOS.UI.Forms
             dgvClientes.Columns.Add("Nombre", "Nombre");
             dgvClientes.Columns.Add("Telefono", "Telefono");
             dgvClientes.Columns.Add("Email", "Email");
-            dgvClientes.Columns.Add("NIT", "NIT");
+            dgvClientes.Columns.Add("RNC", "RNC");
 
             dgvClientes.Columns["IdCliente"].Width = 50;
             dgvClientes.Columns["Nombre"].Width = 150;
             dgvClientes.Columns["Telefono"].Width = 120;
             dgvClientes.Columns["Email"].Width = 150;
-            dgvClientes.Columns["NIT"].Width = 100;
+            dgvClientes.Columns["RNC"].Width = 100;
         }
 
         private void CargarClientes()

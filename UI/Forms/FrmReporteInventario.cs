@@ -1,60 +1,34 @@
-﻿using System;
-using System.Data;
+using System;
 using System.Windows.Forms;
-using CarniceriaPOS.Data;
 
 namespace CarniceriaPOS.UI.Forms
 {
     public partial class FrmReporteInventario : FrmReporteBase
     {
-        private readonly RepositorioProducto _repProducto;
-
-        public FrmReporteInventario()
+        public FrmReporteInventario() : base()
         {
-            InitializeComponent();
-            _repProducto = new RepositorioProducto();
+            this.lblTituloModulo.Text = "Reporte de Inventario";
+            this.lblSubtituloHeader.Text = "Estado completo del inventario de productos";
+            this.lblTituloReporte.Text = "INVENTARIO ACTUAL";
         }
 
         protected override void FrmReporteBase_Load(object sender, EventArgs e)
         {
-            lblTituloReporte.Text = "REPORTE DE INVENTARIO ACTUAL";
-            GenerarReporte();
+            CargarDatos();
         }
 
-        private void GenerarReporte()
+        private void CargarDatos()
         {
             try
             {
-                var productos = _repProducto.ObtenerTodos();
-
-                var dt = new DataTable();
-                dt.Columns.Add("Producto", typeof(string));
-                dt.Columns.Add("Categoria", typeof(string));
-                dt.Columns.Add("Stock Actual", typeof(int));
-                dt.Columns.Add("Stock Minimo", typeof(int));
-                dt.Columns.Add("P. Compra", typeof(string));
-                dt.Columns.Add("P. Venta", typeof(string));
-                dt.Columns.Add("Valor Total", typeof(string));
-                dt.Columns.Add("Estado", typeof(string));
-
-                foreach (var p in productos)
-                    dt.Rows.Add(
-                        p.Nombre,
-                        p.Categoria ?? "Sin categoria",
-                        p.StockActual,
-                        p.StockMinimo,
-                        $"${p.PrecioCompra:N2}",
-                        $"${p.PrecioVenta:N2}",
-                        $"${p.StockActual * p.PrecioCompra:N2}",
-                        p.StockActual <= p.StockMinimo ? "BAJO" : "OK"
-                    );
-
-                DgvDatos.DataSource = dt;
+                DgvDatos.Columns.Clear();
+                DgvDatos.Columns.Add("Producto", "Producto");
+                DgvDatos.Columns.Add("Stock", "Stock");
+                DgvDatos.Columns.Add("Valor", "Valor Total");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al generar reporte: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar reporte: " + ex.Message);
             }
         }
     }

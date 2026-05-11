@@ -94,7 +94,7 @@ namespace CarniceriaPOS.UI.Forms
                     Telefono = "",
                     Email = "",
                     Direccion = "",
-                    NIT = "",
+                    RNC = "",
                     Activo = true
                 };
 
@@ -117,6 +117,54 @@ namespace CarniceriaPOS.UI.Forms
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void btnClienteGeneral_Click(object sender, EventArgs e)
+        {
+            CrearObtenerClienteGeneral();
+        }
+
+        private void CrearObtenerClienteGeneral()
+        {
+            try
+            {
+                Cliente clienteGeneral = repCliente.ObtenerClientePorCedula("GENERAL");
+
+                if (clienteGeneral == null)
+                {
+                    clienteGeneral = new Cliente
+                    {
+                        Nombre = "Cliente General",
+                        Cedula = "GENERAL",
+                        Telefono = "",
+                        Email = "",
+                        Direccion = "",
+                        RNC = "",
+                        Activo = true
+                    };
+
+                    if (repCliente.AgregarCliente(clienteGeneral))
+                    {
+                        clienteGeneral = repCliente.ObtenerClientePorCedula("GENERAL");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al crear cliente general");
+                        return;
+                    }
+                }
+
+                if (clienteGeneral != null && clienteGeneral.IdCliente > 0)
+                {
+                    ClienteSeleccionado = clienteGeneral;
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using CarniceriaPOS.Data;
 using CarniceriaPOS.Business;
 using CarniceriaPOS.Models;
 using CarniceriaPOS.Utilities;
+using CarniceriaPOS.UI.Forms;
 
 namespace CarniceriaPOS.UI.Forms
 {

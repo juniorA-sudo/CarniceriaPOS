@@ -1,57 +1,38 @@
-﻿using System;
-using System.Data;
+using System;
 using System.Windows.Forms;
-using CarniceriaPOS.Data;
 
 namespace CarniceriaPOS.UI.Forms
 {
     public partial class FrmReporteCompras : FrmReporteBase
     {
-        private readonly RepositorioCompra _repCompra;
-        private readonly DateTime _inicio, _fin;
+        private DateTime _desde, _hasta;
 
-        public FrmReporteCompras(DateTime inicio, DateTime fin)
+        public FrmReporteCompras(DateTime desde, DateTime hasta) : base()
         {
-            InitializeComponent();
-            _inicio = inicio;
-            _fin    = fin;
-            _repCompra = new RepositorioCompra();
+            _desde = desde;
+            _hasta = hasta;
+            this.lblTituloModulo.Text = "Reporte de Compras";
+            this.lblSubtituloHeader.Text = $"Compras desde {_desde:dd/MM/yyyy} hasta {_hasta:dd/MM/yyyy}";
+            this.lblTituloReporte.Text = "HISTORIAL DE COMPRAS";
         }
 
         protected override void FrmReporteBase_Load(object sender, EventArgs e)
         {
-            lblTituloReporte.Text = $"REPORTE DE COMPRAS a" {_inicio:dd/MM/yyyy} al {_fin:dd/MM/yyyy}";
-            GenerarReporte();
+            CargarDatos();
         }
 
-        private void GenerarReporte()
+        private void CargarDatos()
         {
             try
             {
-                var compras = _repCompra.ObtenerComprasPorPeriodo(_inicio, _fin);
-
-                var dt = new DataTable();
-                dt.Columns.Add("NA Factura", typeof(string));
-                dt.Columns.Add("Proveedor", typeof(string));
-                dt.Columns.Add("Fecha", typeof(string));
-                dt.Columns.Add("Total", typeof(string));
-                dt.Columns.Add("Estado", typeof(string));
-
-                foreach (var c in compras)
-                    dt.Rows.Add(
-                        c.NumeroFacturaProv,
-                        c.NombreProveedor ?? "a"",
-                        c.FechaCompra.ToString("dd/MM/yyyy"),
-                        $"${c.Total:N2}",
-                        c.Estado ?? "Completada"
-                    );
-
-                DgvDatos.DataSource = dt;
+                DgvDatos.Columns.Clear();
+                DgvDatos.Columns.Add("Fecha", "Fecha");
+                DgvDatos.Columns.Add("Proveedor", "Proveedor");
+                DgvDatos.Columns.Add("Monto", "Monto");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al generar reporte: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar reporte: " + ex.Message);
             }
         }
     }

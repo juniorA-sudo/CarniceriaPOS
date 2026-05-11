@@ -12,7 +12,7 @@ namespace CarniceriaPOS.Models
 
         public string Categoria { get; set; }
 
-        public int IdUnidadMedida { get; set; }
+        public string UnidadMedida { get; set; }
 
         public decimal PrecioCompra { get; set; }
         public decimal PrecioVenta { get; set; }

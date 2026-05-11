@@ -1,4 +1,4 @@
-﻿namespace CarniceriaPOS.UI.Forms
+namespace CarniceriaPOS.UI.Forms
 {
     partial class FrmReporteIngresosEgresos
     {
@@ -6,13 +6,16 @@
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null)) components.Dispose();
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
         }
     }
 }

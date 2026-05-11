@@ -9,7 +9,7 @@ namespace CarniceriaPOS.Models
         public int IdVenta { get; set; }
         public string NumeroFactura { get; set; }
         public int? IdCliente { get; set; }                
-        public int IdUsuario { get; set; }
+        public int IdEmpleado { get; set; }
         public DateTime FechaVenta { get; set; }
         public string MetodoPago { get; set; }              
 

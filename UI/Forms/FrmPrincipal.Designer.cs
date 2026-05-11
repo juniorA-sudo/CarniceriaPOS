@@ -27,7 +27,6 @@
             this.btnClientes = new Guna.UI2.WinForms.Guna2Button();
             this.btnProveedores = new Guna.UI2.WinForms.Guna2Button();
             this.btnVentas = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCompras = new Guna.UI2.WinForms.Guna2Button();
             this.btnReportes = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsuarios = new Guna.UI2.WinForms.Guna2Button();
             this.btnEmpleados = new Guna.UI2.WinForms.Guna2Button();
@@ -53,19 +52,6 @@
             this.btnVentas.Text = "Ventas";
             this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
             this.pnlSidebar.Controls.Add(this.btnVentas);
-
-            this.btnCompras.BorderRadius = 8;
-            this.btnCompras.FillColor = System.Drawing.Color.Transparent;
-            this.btnCompras.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnCompras.ForeColor = System.Drawing.Color.White;
-            this.btnCompras.HoverState.FillColor = System.Drawing.Color.FromArgb(37, 48, 72);
-            this.btnCompras.Location = new System.Drawing.Point(15, 75);
-            this.btnCompras.Name = "btnCompras";
-            this.btnCompras.Size = new System.Drawing.Size(230, 45);
-            this.btnCompras.TabIndex = 1;
-            this.btnCompras.Text = "Compras";
-            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
-            this.pnlSidebar.Controls.Add(this.btnCompras);
 
             this.btnProductos.BorderRadius = 8;
             this.btnProductos.FillColor = System.Drawing.Color.Transparent;
@@ -242,7 +228,6 @@
         private Guna.UI2.WinForms.Guna2Button btnClientes;
         private Guna.UI2.WinForms.Guna2Button btnProveedores;
         private Guna.UI2.WinForms.Guna2Button btnVentas;
-        private Guna.UI2.WinForms.Guna2Button btnCompras;
         private Guna.UI2.WinForms.Guna2Button btnReportes;
         private Guna.UI2.WinForms.Guna2Button btnUsuarios;
         private Guna.UI2.WinForms.Guna2Button btnEmpleados;

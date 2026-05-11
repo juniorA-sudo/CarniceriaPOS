@@ -17,6 +17,7 @@
         {
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnClienteGeneral = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -26,6 +27,7 @@
             this.SuspendLayout();
 
             this.pnlMain.Controls.Add(this.btnCancelar);
+            this.pnlMain.Controls.Add(this.btnClienteGeneral);
             this.pnlMain.Controls.Add(this.btnBuscar);
             this.pnlMain.Controls.Add(this.txtNombre);
             this.pnlMain.Controls.Add(this.label2);
@@ -35,7 +37,7 @@
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Padding = new System.Windows.Forms.Padding(15);
-            this.pnlMain.Size = new System.Drawing.Size(400, 220);
+            this.pnlMain.Size = new System.Drawing.Size(400, 250);
             this.pnlMain.TabIndex = 0;
 
             this.label1.AutoSize = true;
@@ -67,7 +69,6 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(370, 26);
             this.txtNombre.TabIndex = 3;
-            this.txtNombre.PlaceholderText = "Nombre del cliente (opcional)";
 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(76, 175, 80);
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -80,6 +81,18 @@
             this.btnBuscar.Text = "Buscar / Crear";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+
+            this.btnClienteGeneral.BackColor = System.Drawing.Color.FromArgb(0, 150, 136);
+            this.btnClienteGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClienteGeneral.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnClienteGeneral.ForeColor = System.Drawing.Color.White;
+            this.btnClienteGeneral.Location = new System.Drawing.Point(15, 192);
+            this.btnClienteGeneral.Name = "btnClienteGeneral";
+            this.btnClienteGeneral.Size = new System.Drawing.Size(370, 30);
+            this.btnClienteGeneral.TabIndex = 6;
+            this.btnClienteGeneral.Text = "Usar Cliente General";
+            this.btnClienteGeneral.UseVisualStyleBackColor = false;
+            this.btnClienteGeneral.Click += new System.EventHandler(this.btnClienteGeneral_Click);
 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(244, 67, 54);
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -95,7 +108,7 @@
 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 220);
+            this.ClientSize = new System.Drawing.Size(400, 250);
             this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -112,6 +125,7 @@
 
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnClienteGeneral;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;

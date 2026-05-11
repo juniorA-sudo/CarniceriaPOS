@@ -1,66 +1,34 @@
-﻿using System;
-using System.Data;
+using System;
 using System.Windows.Forms;
-using CarniceriaPOS.Data;
 
 namespace CarniceriaPOS.UI.Forms
 {
     public partial class FrmReporteProductosMasVendidos : FrmReporteBase
     {
-        private readonly RepositorioProducto _repProducto;
-
-        public FrmReporteProductosMasVendidos()
+        public FrmReporteProductosMasVendidos() : base()
         {
-            InitializeComponent();
-            _repProducto = new RepositorioProducto();
+            this.lblTituloModulo.Text = "Reporte de Productos Mas Vendidos";
+            this.lblSubtituloHeader.Text = "Analisis de productos con mayor demanda";
+            this.lblTituloReporte.Text = "PRODUCTOS MAS VENDIDOS";
         }
 
         protected override void FrmReporteBase_Load(object sender, EventArgs e)
         {
-            lblTituloReporte.Text = "REPORTE DE PRODUCTOS a" CATaLOGO Y PRECIOS";
-            GenerarReporte();
+            CargarDatos();
         }
 
-        private void GenerarReporte()
+        private void CargarDatos()
         {
             try
             {
-                var productos = _repProducto.ObtenerTodos();
-
-                var dt = new DataTable();
-                dt.Columns.Add("#", typeof(int));
-                dt.Columns.Add("Producto", typeof(string));
-                dt.Columns.Add("Categoria", typeof(string));
-                dt.Columns.Add("Stock", typeof(int));
-                dt.Columns.Add("P. Costo", typeof(string));
-                dt.Columns.Add("P. Venta", typeof(string));
-                dt.Columns.Add("Margen", typeof(string));
-                dt.Columns.Add("Valor Stock", typeof(string));
-
-                int rank = 1;
-                foreach (var p in productos)
-                {
-                    decimal margen = p.PrecioCompra > 0
-                        ? (p.PrecioVenta - p.PrecioCompra) * 100m / p.PrecioCompra
-                        : 0;
-                    dt.Rows.Add(
-                        rank++,
-                        p.Nombre,
-                        p.Categoria ?? "a"",
-                        p.StockActual,
-                        $"${p.PrecioCompra:N2}",
-                        $"${p.PrecioVenta:N2}",
-                        $"{margen:N0}%",
-                        $"${p.StockActual * p.PrecioVenta:N2}"
-                    );
-                }
-
-                DgvDatos.DataSource = dt;
+                DgvDatos.Columns.Clear();
+                DgvDatos.Columns.Add("Producto", "Producto");
+                DgvDatos.Columns.Add("Cantidad", "Cantidad");
+                DgvDatos.Columns.Add("Ingresos", "Ingresos");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al generar reporte: {ex.Message}", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar reporte: " + ex.Message);
             }
         }
     }

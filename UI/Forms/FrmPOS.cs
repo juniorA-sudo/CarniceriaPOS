@@ -70,18 +70,20 @@ namespace CarniceriaPOS.UI.Forms
             try
             {
                 string fechaHoy = DateTime.Now.ToString("yyyyMMdd");
+                string prefijoFactura = $"FCT-{fechaHoy}-";
+
                 // Esta función debe ir a la base de datos y traer el MAX de hoy
-                int ultimoNumero = ObtenerRepVenta().ObtenerUltimoNumeroFactura(fechaHoy);
+                int ultimoNumero = ObtenerRepVenta().ObtenerUltimoNumeroFactura(prefijoFactura);
 
                 // Si el último fue 1, el nuevo será 2.
                 int siguienteNumero = ultimoNumero + 1;
 
-                return $"FCT-{fechaHoy}-{siguienteNumero:D4}";
+                return $"{prefijoFactura}{siguienteNumero:D4}";
             }
             catch
             {
                 // En caso de error crítico, usa Ticks para que el número sea irrepetible
-                return $"FCT-{DateTime.Now:yyyyMMdd}-{DateTime.Now.ToString("HHmmss")}";
+                return $"FCT-{DateTime.Now:yyyyMMddHHmmss}-{DateTime.Now.Ticks}";
             }
         }
 

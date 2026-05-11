@@ -168,22 +168,24 @@ namespace CarniceriaPOS.Utilities
         }
 
         /// <summary>
-        /// Formatea telefono como +503-XXXX-XXXX
+        /// Formatea telefono dominicano como +1-XXX-XXX-XXXX
         /// </summary>
         private static string FormatearTelefono(string texto)
         {
             // Remover caracteres no numericos
             string numeros = Regex.Replace(texto, @"[^0-9]", "");
 
-            // Limitar a 8 digitos (formato salvadoreno)
-            if (numeros.Length > 8)
-                numeros = numeros.Substring(0, 8);
+            // Limitar a 10 digitos (formato dominicano)
+            if (numeros.Length > 10)
+                numeros = numeros.Substring(0, 10);
 
-            // Aplicar formato
-            if (numeros.Length <= 4)
-                return "+503-" + numeros;
+            // Aplicar formato +1-XXX-XXX-XXXX
+            if (numeros.Length <= 3)
+                return "+1-" + numeros;
+            else if (numeros.Length <= 6)
+                return "+1-" + numeros.Substring(0, 3) + "-" + numeros.Substring(3);
             else
-                return "+503-" + numeros.Substring(0, 4) + "-" + numeros.Substring(4);
+                return "+1-" + numeros.Substring(0, 3) + "-" + numeros.Substring(3, 3) + "-" + numeros.Substring(6);
         }
 
         /// <summary>
@@ -256,7 +258,7 @@ namespace CarniceriaPOS.Utilities
         {
             // Remover caracteres especiales
             string numeros = Regex.Replace(telefono, @"[^0-9]", "");
-            return numeros.Length == 8 && Regex.IsMatch(numeros, @"^\d{8}$");
+            return numeros.Length == 10 && Regex.IsMatch(numeros, @"^\d{10}$");
         }
 
         private static bool ValidarRNC(string rnc)

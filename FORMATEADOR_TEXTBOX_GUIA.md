@@ -39,13 +39,14 @@ FormateadorTextBox.ConfigurarTextBox(txtCedula, FormateadorTextBox.TipoValidacio
 - Longitud maxima: 13 digitos
 
 ### 5. Telefono ⭐ (Formatea automaticamente)
-Formato: +503-XXXX-XXXX (8 digitos con formato salvadoreno)
+Formato: +1-XXX-XXX-XXXX (10 digitos con formato dominicano)
 ```csharp
 FormateadorTextBox.ConfigurarTextBox(txtTelefono, FormateadorTextBox.TipoValidacion.Telefono);
 ```
-- Usuario escribe: `12345678`
-- Se formatea a: `+503-1234-5678`
-- Longitud maxima: 8 digitos
+- Usuario escribe: `8091234567`
+- Se formatea a: `+1-809-123-4567`
+- Longitud maxima: 10 digitos
+- Codigos de area dominicanos: 809, 829, 849, etc.
 
 ### 6. RNC ⭐ (Formatea automaticamente)
 Formato: XXX-XXXXXXX (9 digitos con guion)
@@ -103,13 +104,13 @@ string cedulaLimpia = FormateadorTextBox.ObtenerValorLimpio(txtCedula);
 
 ## Ejemplos Reales
 
-### Ejemplo 1: Formulario de Clientes
+### Ejemplo 1: Formulario de Clientes (Dominicana)
 ```csharp
 private void ConfigurarValidaciones()
 {
     FormateadorTextBox.ConfigurarTextBox(txtCedula, FormateadorTextBox.TipoValidacion.Cedula);
     FormateadorTextBox.ConfigurarTextBox(txtNombre, FormateadorTextBox.TipoValidacion.SoloLetras, 100);
-    FormateadorTextBox.ConfigurarTextBox(txtTelefono, FormateadorTextBox.TipoValidacion.Telefono);
+    FormateadorTextBox.ConfigurarTextBox(txtTelefono, FormateadorTextBox.TipoValidacion.Telefono);  // +1-809-XXX-XXXX
     FormateadorTextBox.ConfigurarTextBox(txtLimiteCredito, FormateadorTextBox.TipoValidacion.Moneda, 15);
 }
 

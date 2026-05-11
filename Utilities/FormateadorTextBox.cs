@@ -31,7 +31,7 @@ namespace CarniceriaPOS.Utilities
                     case TipoValidacion.SoloLetras: longitudMaxima = 100; break;
                     case TipoValidacion.Alfanumerico: longitudMaxima = 100; break;
                     case TipoValidacion.Cedula: longitudMaxima = 13; break;
-                    case TipoValidacion.Telefono: longitudMaxima = 15; break;
+                    case TipoValidacion.Telefono: longitudMaxima = 20; break;
                     case TipoValidacion.RNC: longitudMaxima = 9; break;
                     case TipoValidacion.Moneda: longitudMaxima = 15; break;
                     case TipoValidacion.Gmail: longitudMaxima = 30; break;
@@ -153,12 +153,14 @@ namespace CarniceriaPOS.Utilities
             if (numeros.Length > 10)
                 numeros = numeros.Substring(0, 10);
 
-            if (numeros.Length <= 3)
-                return "+1-" + numeros;
+            if (numeros.Length == 0)
+                return "";
+            else if (numeros.Length <= 3)
+                return numeros;
             else if (numeros.Length <= 6)
-                return "+1-" + numeros.Substring(0, 3) + "-" + numeros.Substring(3);
+                return numeros.Substring(0, 3) + "-" + numeros.Substring(3);
             else
-                return "+1-" + numeros.Substring(0, 3) + "-" + numeros.Substring(3, 3) + "-" + numeros.Substring(6);
+                return numeros.Substring(0, 3) + "-" + numeros.Substring(3, 3) + "-" + numeros.Substring(6);
         }
 
         private static string FormatearRNC(string texto)
@@ -273,6 +275,33 @@ namespace CarniceriaPOS.Utilities
                 return "";
 
             return Regex.Replace(textBox.Text, @"[^0-9.]", "");
+        }
+
+        public static void LimpiarTextBoxes(Control contenedor)
+        {
+            if (contenedor == null)
+                return;
+
+            foreach (Control control in contenedor.Controls)
+            {
+                if (control is TextBox textBox)
+                {
+                    textBox.Clear();
+                }
+                else if (control.HasChildren)
+                {
+                    LimpiarTextBoxes(control);
+                }
+            }
+        }
+
+        public static void LimpiarTextBoxesEspecificos(params TextBox[] textBoxes)
+        {
+            foreach (TextBox txt in textBoxes)
+            {
+                if (txt != null)
+                    txt.Clear();
+            }
         }
     }
 }

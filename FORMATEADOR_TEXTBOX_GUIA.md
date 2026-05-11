@@ -65,7 +65,20 @@ FormateadorTextBox.ConfigurarTextBox(txtSalario, FormateadorTextBox.TipoValidaci
 - Ejemplo: `2500.50`
 - Solo un punto decimal permitido
 
-### 8. Ninguna
+### 8. Gmail ⭐ (Formatea automaticamente)
+Usuario solo escribe la parte del email, "@gmail.com" se agrega automaticamente
+```csharp
+FormateadorTextBox.ConfigurarTextBox(txtEmail, FormateadorTextBox.TipoValidacion.Gmail);
+```
+- Usuario escribe: `juan.perez`
+- Se formatea a: `juan.perez@gmail.com`
+- Usuario escribe: `maria_2024`
+- Se formatea a: `maria_2024@gmail.com`
+- Caracteres permitidos: letras, numeros, punto (.), guion (-), guion bajo (_)
+- Longitud maxima del usuario: 30 caracteres
+- El email final siempre sera obligatoriamente @gmail.com
+
+### 9. Ninguna
 Sin validacion (por defecto)
 ```csharp
 FormateadorTextBox.ConfigurarTextBox(txtLibre, FormateadorTextBox.TipoValidacion.Ninguna);
@@ -132,7 +145,29 @@ private void btnGuardar_Click(object sender, EventArgs e)
 }
 ```
 
-### Ejemplo 2: Formulario de Proveedores
+### Ejemplo 2: Formulario con Gmail
+```csharp
+private void FrmContacto_Load(object sender, EventArgs e)
+{
+    FormateadorTextBox.ConfigurarTextBox(txtNombre, FormateadorTextBox.TipoValidacion.SoloLetras, 100);
+    FormateadorTextBox.ConfigurarTextBox(txtEmail, FormateadorTextBox.TipoValidacion.Gmail);
+    FormateadorTextBox.ConfigurarTextBox(txtTelefono, FormateadorTextBox.TipoValidacion.Telefono);
+}
+
+private void btnGuardar_Click(object sender, EventArgs e)
+{
+    if (!FormateadorTextBox.ValidarTextBox(txtEmail))
+    {
+        MessageBox.Show("Email invalido");
+        return;
+    }
+    
+    // El email ya contiene @gmail.com automaticamente
+    contacto.Email = txtEmail.Text;  // "juan.perez@gmail.com"
+}
+```
+
+### Ejemplo 3: Formulario de Proveedores
 ```csharp
 private void FrmProveedores_Load(object sender, EventArgs e)
 {

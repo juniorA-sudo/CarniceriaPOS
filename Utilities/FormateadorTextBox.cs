@@ -16,9 +16,10 @@ namespace CarniceriaPOS.Utilities
             SoloLetras,
             Alfanumerico,
             Cedula,           // 13 numeros con formato XXX-XXXXXXX-X
-            Telefono,         // Formato +503-XXXX-XXXX
+            Telefono,         // Formato +1-XXX-XXX-XXXX dominicano
             RNC,              // 9 numeros con formato XXX-XXXXXXX
             Moneda,           // Numeros con decimales
+            Gmail,            // Usuario@gmail.com (usuario solo escribe la parte antes del @)
             Ninguna
         }
 
@@ -41,6 +42,7 @@ namespace CarniceriaPOS.Utilities
                     TipoValidacion.Telefono => 15,
                     TipoValidacion.RNC => 9,
                     TipoValidacion.Moneda => 15,
+                    TipoValidacion.Gmail => 30,
                     _ => 255
                 };
             }
@@ -91,6 +93,11 @@ namespace CarniceriaPOS.Utilities
                 case TipoValidacion.Alfanumerico:
                     e.Handled = !char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
                     break;
+
+                case TipoValidacion.Gmail:
+                    // Permitir letras, numeros, puntos, guiones y guiones bajos
+                    e.Handled = !(char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '.' || e.KeyChar == '-' || e.KeyChar == '_');
+                    break;
             }
         }
 
@@ -131,6 +138,10 @@ namespace CarniceriaPOS.Utilities
 
                 case TipoValidacion.SoloLetras:
                     textoFormateado = Regex.Replace(textoOriginal, @"[^a-zA-Z\s]", "");
+                    break;
+
+                case TipoValidacion.Gmail:
+                    textoFormateado = FormatearGmail(textoOriginal);
                     break;
             }
 
@@ -227,6 +238,32 @@ namespace CarniceriaPOS.Utilities
         }
 
         /// <summary>
+        /// Formatea Gmail agregando automaticamente @gmail.com
+        /// </summary>
+        private static string FormatearGmail(string texto)
+        {
+            // Remover espacios y convertir a minusculas
+            string usuario = texto.ToLower().Trim();
+
+            // Si ya contiene @gmail.com, devolverlo tal cual
+            if (usuario.EndsWith("@gmail.com"))
+                return usuario;
+
+            // Si contiene @, removerlo
+            if (usuario.Contains("@"))
+                usuario = usuario.Split('@')[0];
+
+            // Limitar a caracteres validos para gmail (letras, numeros, punto, guion, guion bajo)
+            usuario = Regex.Replace(usuario, @"[^a-z0-9._-]", "");
+
+            // Agregar @gmail.com
+            if (!string.IsNullOrEmpty(usuario))
+                return usuario + "@gmail.com";
+
+            return usuario;
+        }
+
+        /// <summary>
         /// Valida un textbox y retorna si es valido
         /// </summary>
         public static bool ValidarTextBox(TextBox textBox)
@@ -243,6 +280,7 @@ namespace CarniceriaPOS.Utilities
                 TipoValidacion.Telefono => ValidarTelefono(textBox.Text),
                 TipoValidacion.RNC => ValidarRNC(textBox.Text),
                 TipoValidacion.Moneda => ValidarMoneda(textBox.Text),
+                TipoValidacion.Gmail => ValidarGmail(textBox.Text),
                 _ => true
             };
         }
@@ -271,6 +309,23 @@ namespace CarniceriaPOS.Utilities
         private static bool ValidarMoneda(string monto)
         {
             return decimal.TryParse(monto, out decimal valor) && valor >= 0;
+        }
+
+        private static bool ValidarGmail(string email)
+        {
+            // Validar que sea un email de gmail valido
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            // Debe terminar con @gmail.com
+            if (!email.EndsWith("@gmail.com"))
+                return false;
+
+            // La parte del usuario (antes del @) debe tener al menos 1 caracter
+            string usuario = email.Replace("@gmail.com", "").ToLower();
+
+            // Validar formato valido de usuario gmail (letras, numeros, puntos, guiones, guiones bajos)
+            return Regex.IsMatch(usuario, @"^[a-z0-9._-]{1,30}$");
         }
 
         /// <summary>

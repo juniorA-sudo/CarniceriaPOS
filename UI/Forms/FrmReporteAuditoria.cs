@@ -14,7 +14,7 @@ namespace CarniceriaPOS.UI.Forms
 
         public FrmReporteAuditoria() : base()
         {
-            this.lblTituloModulo.Text = "Seguridad y Auditoría";
+            this.lblTituloModulo.Text = "Seguridad y Auditoria";
             this.lblSubtituloHeader.Text = "Registro detallado de actividades para control interno del sistema.";
             this.lblTituloReporte.Text = "HISTORIAL DE ACTIVIDADES DEL USUARIO";
         }
@@ -50,7 +50,7 @@ namespace CarniceriaPOS.UI.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar auditoría: " + ex.Message, "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar auditoria: " + ex.Message, "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -76,19 +76,19 @@ namespace CarniceriaPOS.UI.Forms
                 Width = 120
             });
 
-            // Columna Módulo
+            // Columna Modulo
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Modulo",
-                HeaderText = "Módulo",
+                HeaderText = "Modulo",
                 Width = 110
             });
 
-            // Columna Acción
+            // Columna Accion
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Accion",
-                HeaderText = "Acción",
+                HeaderText = "Accion",
                 Width = 100
             });
 
@@ -100,7 +100,7 @@ namespace CarniceriaPOS.UI.Forms
                 Width = 100
             });
 
-            // Columna Detalles (En plural según tu imagen)
+            // Columna Detalles (En plural segun tu imagen)
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Detalles",

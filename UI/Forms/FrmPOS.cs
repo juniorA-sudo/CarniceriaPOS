@@ -505,7 +505,7 @@ namespace CarniceriaPOS.UI.Forms
 
                 if (ObtenerRepVenta().AgregarVenta(ventaActual))
                 {
-                    MessageBox.Show("¡Venta registrada exitosamente!");
+                    MessageBox.Show("!Venta registrada exitosamente!");
                     ImprimirTicket(null, null);
                     NuevaVenta();
                 }
@@ -541,7 +541,7 @@ namespace CarniceriaPOS.UI.Forms
 
         private void CancelarVenta(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cancelar esta venta?", "Confirmar",
+            if (MessageBox.Show("?Desea cancelar esta venta?", "Confirmar",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 NuevaVenta();

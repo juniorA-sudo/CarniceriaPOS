@@ -11,7 +11,7 @@ namespace CarniceriaPOS.Utilities
         public static bool EsVentaCredito(string metodoPago)
         {
             if (string.IsNullOrEmpty(metodoPago)) return false;
-            return metodoPago.Equals("CrÃ©dito", StringComparison.OrdinalIgnoreCase);
+            return metodoPago.Equals("Credito", StringComparison.OrdinalIgnoreCase);
         }
 
         
@@ -28,7 +28,7 @@ namespace CarniceriaPOS.Utilities
             if (EsVentaCredito(metodoPago))
             {
                 if (cliente == null)
-                    throw new InvalidOperationException("Cliente es requerido para ventas a crÃ©dito");
+                    throw new InvalidOperationException("Cliente es requerido para ventas a credito");
 
                 venta.IdCliente = cliente.IdCliente;
             }
@@ -60,7 +60,7 @@ namespace CarniceriaPOS.Utilities
         public static string ObtenerMensajeErrorCredito(Venta venta, string metodoPago)
         {
             if (EsVentaCredito(metodoPago) && (!venta?.IdCliente.HasValue ?? false))
-                return "Debe seleccionar un cliente para ventas a crÃ©dito";
+                return "Debe seleccionar un cliente para ventas a credito";
 
             return "";
         }

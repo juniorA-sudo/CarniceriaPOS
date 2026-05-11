@@ -42,7 +42,7 @@ namespace CarniceriaPOS.UI.Forms
 
             Label lblInfoEmpresa = new Label
             {
-                Text = "CARNICERÍA POS\n\ninfo@carniceria.com\n(829) 123-4567\nCalle Principal #123, Santo Domingo",
+                Text = "CARNICERIA POS\n\ninfo@carniceria.com\n(829) 123-4567\nCalle Principal #123, Santo Domingo",
                 Font = new Font("Segoe UI", 9F, FontStyle.Bold),
                 ForeColor = Color.White,
                 AutoSize = true,
@@ -126,8 +126,8 @@ namespace CarniceriaPOS.UI.Forms
 
         protected DataGridView DgvDatos => _dgvDatosReal;
 
-        // El método BtnCerrar_Click se mantiene por si los hijos necesitan 
-        // llamarlo manualmente, pero ya no está vinculado al botón de la base.
+        // El metodo BtnCerrar_Click se mantiene por si los hijos necesitan 
+        // llamarlo manualmente, pero ya no esta vinculado al boton de la base.
         protected virtual void BtnCerrar_Click(object sender, EventArgs e) => this.Close();
     }
 }

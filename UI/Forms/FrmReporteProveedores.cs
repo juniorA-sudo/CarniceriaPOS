@@ -36,9 +36,9 @@ namespace CarniceriaPOS.UI.Forms
 
                 DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Proveedor", FillWeight = 150 });
                 DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "RNC", HeaderText = "RNC", Width = 120 });
-                DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Telefono", HeaderText = "Teléfono", Width = 120 });
+                DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Telefono", HeaderText = "Telefono", Width = 120 });
                 DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = "Correo", FillWeight = 130 });
-                DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Direccion", HeaderText = "Dirección", FillWeight = 150 });
+                DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Direccion", HeaderText = "Direccion", FillWeight = 150 });
 
                 DgvDatos.DataSource = lista;
             }

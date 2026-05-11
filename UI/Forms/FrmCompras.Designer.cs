@@ -209,7 +209,7 @@
             this.lblNumeroFactura.Name = "lblNumeroFactura";
             this.lblNumeroFactura.Size = new System.Drawing.Size(63, 15);
             this.lblNumeroFactura.TabIndex = 10;
-            this.lblNumeroFactura.Text = "N° Factura";
+            this.lblNumeroFactura.Text = "N Factura";
             
             
             
@@ -476,7 +476,7 @@
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(180, 35);
             this.btnLimpiar.TabIndex = 4;
-            this.btnLimpiar.Text = "️ Limpiar Todo";
+            this.btnLimpiar.Text = " Limpiar Todo";
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             

@@ -100,7 +100,7 @@ namespace CarniceriaPOS.Data
         {
             try
             {
-                // Generalmente es mejor desactivar en lugar de borrar físicamente
+                // Generalmente es mejor desactivar en lugar de borrar fisicamente
                 string sql = "UPDATE Empleados SET Activo = 0 WHERE IdEmpleado = @IdEmpleado";
                 SqlParameter[] parametros = new SqlParameter[] { new SqlParameter("@IdEmpleado", idEmpleado) };
                 return bd.EjecutarComando(sql, parametros) > 0;
@@ -114,7 +114,7 @@ namespace CarniceriaPOS.Data
 
         private Empleado MapearEmpleado(DataRow row)
         {
-            // Función de ayuda para evitar el error de "Specified cast is not valid"
+            // Funcion de ayuda para evitar el error de "Specified cast is not valid"
             object SafeGet(string columnName, object defaultValue)
             {
                 if (row.Table.Columns.Contains(columnName) && row[columnName] != DBNull.Value)

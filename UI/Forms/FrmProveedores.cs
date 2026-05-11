@@ -33,7 +33,7 @@ namespace CarniceriaPOS.UI.Forms
                 
                 if (!SesionActual.TieneAcceso("Proveedores"))
                 {
-                    MessageBox.Show("No tiene permiso para acceder a la gestiÃ³n de proveedores.",
+                    MessageBox.Show("No tiene permiso para acceder a la gestion de proveedores.",
                         "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     LogAuditoria.RegistrarAccesoDenegado("Proveedores", SesionActual.UsuarioActual?.IdUsuario ?? 0);
                     this.Close();
@@ -108,7 +108,7 @@ namespace CarniceriaPOS.UI.Forms
                     dgvProveedores.Columns.Add("IdProveedor", "ID");
                     dgvProveedores.Columns.Add("Nombre", "Nombre");
                     dgvProveedores.Columns.Add("RNC", "RNC");
-                    dgvProveedores.Columns.Add("Telefono", "TelÃ©fono");
+                    dgvProveedores.Columns.Add("Telefono", "Telefono");
                     dgvProveedores.Columns.Add("Email", "Email");
 
                     
@@ -177,14 +177,14 @@ namespace CarniceriaPOS.UI.Forms
 
             if (!Validador.ValidarSoloNumeros(txtRNC.Text))
             {
-                MessageBox.Show("El RNC solo puede contener nÃºmeros");
+                MessageBox.Show("El RNC solo puede contener naomeros");
                 txtRNC.Focus();
                 return false;
             }
 
             if (txtRNC.Text.Length < 9 || txtRNC.Text.Length > 14)
             {
-                MessageBox.Show("El RNC debe tener entre 9 y 14 dÃ­gitos");
+                MessageBox.Show("El RNC debe tener entre 9 y 14 digitos");
                 txtRNC.Focus();
                 return false;
             }
@@ -194,7 +194,7 @@ namespace CarniceriaPOS.UI.Forms
             {
                 if (!Validador.ValidarTelefono(txtTelefono.Text))
                 {
-                    MessageBox.Show("El telÃ©fono no es vÃ¡lido. Use formato: 809-555-1234");
+                    MessageBox.Show("El telefono no es valido. Use formato: 809-555-1234");
                     txtTelefono.Focus();
                     return false;
                 }
@@ -205,7 +205,7 @@ namespace CarniceriaPOS.UI.Forms
             {
                 if (!Validador.ValidarEmail(txtEmail.Text))
                 {
-                    MessageBox.Show("El email no es vÃ¡lido");
+                    MessageBox.Show("El email no es valido");
                     txtEmail.Focus();
                     return false;
                 }
@@ -214,7 +214,7 @@ namespace CarniceriaPOS.UI.Forms
             
             if (txtDireccion.Text.Length > 150)
             {
-                MessageBox.Show("La direcciÃ³n no puede exceder 150 caracteres");
+                MessageBox.Show("La direccion no puede exceder 150 caracteres");
                 txtDireccion.Focus();
                 return false;
             }
@@ -329,8 +329,8 @@ namespace CarniceriaPOS.UI.Forms
             }
 
             DialogResult resultado = MessageBox.Show(
-                "A¿Desea eliminar este proveedor?",
-                "ConfirmaciÃ³n de EliminaciÃ³n",
+                "A?Desea eliminar este proveedor?",
+                "Confirmacion de Eliminacion",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
             );
@@ -453,7 +453,7 @@ namespace CarniceriaPOS.UI.Forms
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Error en bÃºsqueda: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("Error en baosqueda: " + ex.Message);
             }
         }
 
@@ -483,12 +483,12 @@ namespace CarniceriaPOS.UI.Forms
             {
                 var usuario = SesionActual.UsuarioActual;
                 lblUsuario.Text = usuario != null ? $"Usuario: {usuario.NombreUsuario}" : "Usuario: N/A";
-                lblConexion.Text = "ConexiÃ³n: OK";
+                lblConexion.Text = "Conexion: OK";
             }
             catch
             {
                 lblUsuario.Text = "Usuario: N/A";
-                lblConexion.Text = "ConexiÃ³n: ERROR";
+                lblConexion.Text = "Conexion: ERROR";
             }
         }
     }

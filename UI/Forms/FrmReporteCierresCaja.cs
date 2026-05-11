@@ -42,12 +42,12 @@ namespace CarniceriaPOS.UI.Forms
 
                 var dt = new DataTable();
                 dt.Columns.Add("Hora", typeof(string));
-                dt.Columns.Add("NA° Venta", typeof(string));
+                dt.Columns.Add("NA Venta", typeof(string));
                 dt.Columns.Add("Cliente", typeof(string));
                 dt.Columns.Add("Subtotal", typeof(string));
                 dt.Columns.Add("Impuesto", typeof(string));
                 dt.Columns.Add("Total", typeof(string));
-                dt.Columns.Add("MÃ©todo", typeof(string));
+                dt.Columns.Add("Metodo", typeof(string));
 
                 foreach (var v in ventas)
                     dt.Rows.Add(
@@ -57,7 +57,7 @@ namespace CarniceriaPOS.UI.Forms
                         $"${v.Subtotal:N2}",
                         $"${v.TotalITBIS:N2}",
                         $"${v.Total:N2}",
-                        v.MetodoPago ?? "a€”"
+                        v.MetodoPago ?? "a”"
                     );
 
                 DgvDatos.DataSource = dt;

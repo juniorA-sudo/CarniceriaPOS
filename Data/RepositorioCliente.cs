@@ -134,7 +134,7 @@ namespace CarniceriaPOS.Data
         {
             try
             {
-                string sql = "UPDATE Clientes SET Activo = 0 WHERE IdCliente = @IdProducto"; // Nota: Asegúrate que el parámetro sea @IdCliente en el SP si lo cambiaste
+                string sql = "UPDATE Clientes SET Activo = 0 WHERE IdCliente = @IdProducto"; // Nota: Asegurate que el parametro sea @IdCliente en el SP si lo cambiaste
                 SqlParameter[] parametros = new SqlParameter[] { new SqlParameter("@IdProducto", idCliente) };
                 return bd.EjecutarComando(sql, parametros) > 0;
             }
@@ -147,7 +147,7 @@ namespace CarniceriaPOS.Data
 
         private Cliente MapearCliente(DataRow row)
         {
-            // Método preventivo para obtener datos sin errores de conversión (Casting)
+            // Metodo preventivo para obtener datos sin errores de conversion (Casting)
             object SafeGet(string columnName, object defaultValue)
             {
                 if (row.Table.Columns.Contains(columnName) && row[columnName] != DBNull.Value)

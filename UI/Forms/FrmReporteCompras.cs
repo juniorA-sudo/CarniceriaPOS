@@ -20,7 +20,7 @@ namespace CarniceriaPOS.UI.Forms
 
         protected override void FrmReporteBase_Load(object sender, EventArgs e)
         {
-            lblTituloReporte.Text = $"REPORTE DE COMPRAS a€” {_inicio:dd/MM/yyyy} al {_fin:dd/MM/yyyy}";
+            lblTituloReporte.Text = $"REPORTE DE COMPRAS a” {_inicio:dd/MM/yyyy} al {_fin:dd/MM/yyyy}";
             GenerarReporte();
         }
 
@@ -31,7 +31,7 @@ namespace CarniceriaPOS.UI.Forms
                 var compras = _repCompra.ObtenerComprasPorPeriodo(_inicio, _fin);
 
                 var dt = new DataTable();
-                dt.Columns.Add("NA° Factura", typeof(string));
+                dt.Columns.Add("NA Factura", typeof(string));
                 dt.Columns.Add("Proveedor", typeof(string));
                 dt.Columns.Add("Fecha", typeof(string));
                 dt.Columns.Add("Total", typeof(string));
@@ -40,7 +40,7 @@ namespace CarniceriaPOS.UI.Forms
                 foreach (var c in compras)
                     dt.Rows.Add(
                         c.NumeroFacturaProv,
-                        c.NombreProveedor ?? "a€”",
+                        c.NombreProveedor ?? "a”",
                         c.FechaCompra.ToString("dd/MM/yyyy"),
                         $"${c.Total:N2}",
                         c.Estado ?? "Completada"

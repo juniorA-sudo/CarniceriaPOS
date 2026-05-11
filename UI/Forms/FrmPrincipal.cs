@@ -42,7 +42,7 @@ namespace CarniceriaPOS.UI.Forms
 
             lblUser.Text = "Usuario: " + nombreUsuario;
             lblRole.Text = "Rol: " + nombreRol;
-            Text = "Sistema CarnicerÃƒÆ’Ã‚Â­a - " + nombreUsuario;
+            Text = "Sistema Carnicera’aAa - " + nombreUsuario;
 
             BackColor = Color.FromArgb(15, 20, 25);
             pnlContent.BackColor = Color.FromArgb(15, 20, 25);
@@ -93,7 +93,7 @@ namespace CarniceriaPOS.UI.Forms
             {
                 
                 pnlContent.ResumeLayout(true);
-                MessageBox.Show($"No se puede abrir el mÃƒÆ’Ã‚Â³dulo: {titulo}\n\n{ex.Message}",
+                MessageBox.Show($"No se puede abrir el ma’aAdulo: {titulo}\n\n{ex.Message}",
                     "Acceso Denegado o Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -148,7 +148,7 @@ namespace CarniceriaPOS.UI.Forms
                 
                 if (!boton.Enabled)
                 {
-                    MessageBox.Show("No tiene permiso para acceder a este mÃƒÆ’Ã‚Â³dulo.", "Acceso Denegado");
+                    MessageBox.Show("No tiene permiso para acceder a este ma’aAdulo.", "Acceso Denegado");
                     return;
                 }
 

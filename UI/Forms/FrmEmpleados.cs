@@ -334,7 +334,7 @@ namespace CarniceriaPOS.UI.Forms
                 return;
             }
 
-            if (MessageBox.Show("¿Desea eliminar este empleado?", "Confirmacion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("?Desea eliminar este empleado?", "Confirmacion", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
                 {

@@ -45,7 +45,7 @@ namespace CarniceriaPOS.Business
             catch (Exception ex)
             {
                 
-                System.Diagnostics.Debug.WriteLine("Error registrando auditorÃ­a: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("Error registrando auditoria: " + ex.Message);
             }
         }
 
@@ -84,7 +84,7 @@ namespace CarniceriaPOS.Business
         public static void RegistrarInventarioActualizado(int idProducto, string nombreProducto,
                                                           int stockAnterior, int stockNuevo, string razon)
         {
-            string detalles = $"Producto: {nombreProducto}, Stock: {stockAnterior} a†’ {stockNuevo}, RazÃ³n: {razon}";
+            string detalles = $"Producto: {nombreProducto}, Stock: {stockAnterior} a’ {stockNuevo}, Razon: {razon}";
             Registrar("INVENTARIO_ACTUALIZADO", "INVENTARIO", detalles);
         }
 
@@ -163,7 +163,7 @@ namespace CarniceriaPOS.Business
         
         public static void RegistrarDevolucion(int idVentaOriginal, decimal monto, string razon)
         {
-            string detalles = $"Venta original: {idVentaOriginal}, Monto: {monto:C0}, RazÃ³n: {razon}";
+            string detalles = $"Venta original: {idVentaOriginal}, Monto: {monto:C0}, Razon: {razon}";
             Registrar("DEVOLUCION", "POS", detalles);
         }
 
@@ -172,8 +172,8 @@ namespace CarniceriaPOS.Business
         
         public static void RegistrarCambioConfiguracion(string clave, string valorAnterior, string valorNuevo)
         {
-            string detalles = $"ConfiguraciÃ³n: {clave}, Anterior: {valorAnterior}, Nuevo: {valorNuevo}";
-            Registrar("CONFIGURACION_CAMBIO", "ADMINISTRACIÃ“N", detalles);
+            string detalles = $"Configuracion: {clave}, Anterior: {valorAnterior}, Nuevo: {valorNuevo}";
+            Registrar(“CONFIGURACION_CAMBIO”, “ADMINISTRACION”, detalles);
         }
     }
 }

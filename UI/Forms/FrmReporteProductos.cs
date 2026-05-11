@@ -19,11 +19,11 @@ namespace CarniceriaPOS.UI.Forms
         {
             _repo = new RepositorioProducto();
 
-            // Seteamos los títulos directamente en los controles heredados de FrmReporteBase
+            // Seteamos los titulos directamente en los controles heredados de FrmReporteBase
             this.lblTituloModulo.Text = "Reporte de Inventario";
 
             // Reemplazo de AgregarDescripcionReporte:
-            this.lblSubtituloHeader.Text = "Resumen ejecutivo del stock actual y valoración de inventario.";
+            this.lblSubtituloHeader.Text = "Resumen ejecutivo del stock actual y valoracion de inventario.";
 
             this.lblTituloReporte.Text = "INVENTARIO GENERAL DE PRODUCTOS";
         }
@@ -58,9 +58,9 @@ namespace CarniceriaPOS.UI.Forms
             DgvDatos.AutoGenerateColumns = false;
 
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Producto", FillWeight = 150 });
-            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Categoria", HeaderText = "Categoría", Width = 120 });
+            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Categoria", HeaderText = "Categoria", Width = 120 });
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "StockActual", HeaderText = "Stock Actual", Width = 100 });
-            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "StockMinimo", HeaderText = "Stock Mínimo", Width = 100 });
+            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "StockMinimo", HeaderText = "Stock Minimo", Width = 100 });
 
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {

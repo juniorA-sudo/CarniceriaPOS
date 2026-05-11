@@ -29,9 +29,9 @@ namespace CarniceriaPOS.UI.Forms
 
                 var dt = new DataTable();
                 dt.Columns.Add("Producto", typeof(string));
-                dt.Columns.Add("CategorÃ­a", typeof(string));
+                dt.Columns.Add("Categoria", typeof(string));
                 dt.Columns.Add("Stock Actual", typeof(int));
-                dt.Columns.Add("Stock MÃ­nimo", typeof(int));
+                dt.Columns.Add("Stock Minimo", typeof(int));
                 dt.Columns.Add("P. Compra", typeof(string));
                 dt.Columns.Add("P. Venta", typeof(string));
                 dt.Columns.Add("Valor Total", typeof(string));
@@ -40,7 +40,7 @@ namespace CarniceriaPOS.UI.Forms
                 foreach (var p in productos)
                     dt.Rows.Add(
                         p.Nombre,
-                        p.Categoria ?? "Sin categorÃ­a",
+                        p.Categoria ?? "Sin categoria",
                         p.StockActual,
                         p.StockMinimo,
                         $"${p.PrecioCompra:N2}",

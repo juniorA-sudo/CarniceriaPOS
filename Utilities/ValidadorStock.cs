@@ -20,7 +20,7 @@ namespace CarniceriaPOS.Utilities
         
         public static string ObtenerMensajeError(Producto producto, decimal requerido)
         {
-            if (producto == null) return "Producto no vÃ¡lido";
+            if (producto == null) return "Producto no valido";
 
             string unidad = !string.IsNullOrEmpty(producto.AbreviacionUnidad) ?
                 producto.AbreviacionUnidad : "unidades";

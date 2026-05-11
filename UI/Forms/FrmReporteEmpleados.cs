@@ -17,7 +17,7 @@ namespace CarniceriaPOS.UI.Forms
         {
             _repo = new RepositorioEmpleado();
             this.lblTituloModulo.Text = "Reporte de Personal";
-            this.lblSubtituloHeader.Text = "Nómina y puestos del personal administrativo y operativo.";
+            this.lblSubtituloHeader.Text = "Nomina y puestos del personal administrativo y operativo.";
             this.lblTituloReporte.Text = "REPORTE DETALLADO DE EMPLEADOS";
         }
 
@@ -35,7 +35,7 @@ namespace CarniceriaPOS.UI.Forms
                 DgvDatos.AutoGenerateColumns = false;
 
                 DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Empleado", FillWeight = 150 });
-                DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Cedula", HeaderText = "Cédula", Width = 120 });
+                DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Cedula", HeaderText = "Cedula", Width = 120 });
                 DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "NombreDepartamento", HeaderText = "Departamento", Width = 130 });
                 DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Puesto", HeaderText = "Puesto", Width = 130 });
                 DgvDatos.Columns.Add(new DataGridViewTextBoxColumn

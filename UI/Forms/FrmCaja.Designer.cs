@@ -162,7 +162,7 @@
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(120, 35);
             this.btnImprimir.TabIndex = 0;
-            this.btnImprimir.Text = "️ Imprimir";
+            this.btnImprimir.Text = " Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
             
             

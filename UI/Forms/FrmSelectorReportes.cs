@@ -79,7 +79,7 @@ namespace CarniceriaPOS.UI.Forms
                     frm.Show();
                 }),
 
-                ("Inventario Bajo Stock", "Productos que requieren reorden urgente", "Ã¯Â¸Â", () =>
+                ("Inventario Bajo Stock", "Productos que requieren reorden urgente", "", () =>
                 {
                     var frm = new FrmReporteInventarioBajoStock();
                     frm.Show();

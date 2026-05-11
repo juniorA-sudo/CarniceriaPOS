@@ -29,8 +29,8 @@ namespace CarniceriaPOS.UI.Forms
 
         private void CargarDatos()
         {
-            // Aquí llamarías a tu procedimiento de ventas
-            // Por ahora configuramos las columnas para que el grid no esté vacío visualmente
+            // Aqui llamarias a tu procedimiento de ventas
+            // Por ahora configuramos las columnas para que el grid no este vacio visualmente
             DgvDatos.Columns.Clear();
             DgvDatos.Columns.Add("Fecha", "Fecha");
             DgvDatos.Columns.Add("Factura", "No. Factura");

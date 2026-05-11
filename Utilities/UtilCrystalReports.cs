@@ -120,7 +120,7 @@ namespace CarniceriaPOS.Utilities
                 
                 Button btnImprimir = new Button
                 {
-                    Text = "️ Imprimir",
+                    Text = " Imprimir",
                     Width = 120,
                     Height = 35,
                     Location = new System.Drawing.Point(10, 7),

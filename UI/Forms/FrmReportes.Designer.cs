@@ -96,7 +96,7 @@
             this.pnlNav.Size = new System.Drawing.Size(1144, 50);
             this.pnlNav.TabIndex = 3;
 
-            // lineSelected (Animacion visual de pestaña)
+            // lineSelected (Animacion visual de pestana)
             this.lineSelected.FillColor = System.Drawing.Color.FromArgb(30, 58, 95);
             this.lineSelected.FillThickness = 3;
             this.lineSelected.Location = new System.Drawing.Point(20, 45);
@@ -126,7 +126,7 @@
             this.btnEspecificos.Location = new System.Drawing.Point(170, 0);
             this.btnEspecificos.Name = "btnEspecificos";
             this.btnEspecificos.Size = new System.Drawing.Size(150, 45);
-            this.btnEspecificos.Text = "ESPECÍFICOS";
+            this.btnEspecificos.Text = "ESPECIFICOS";
             this.btnEspecificos.Click += new System.EventHandler(this.Tab_Click);
 
             // pnlHeader
@@ -149,7 +149,7 @@
             this.btnVolver.Location = new System.Drawing.Point(1000, 14);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(130, 35);
-            this.btnVolver.Text = "Volver al Menú";
+            this.btnVolver.Text = "Volver al Menu";
             this.btnVolver.Visible = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
 

@@ -20,7 +20,7 @@ namespace CarniceriaPOS.UI.Forms
 
         private void FrmEditarLineItem_Load(object sender, EventArgs e)
         {
-            this.Text = "Editar LÃ­nea de Venta";
+            this.Text = "Editar Linea de Venta";
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -181,7 +181,7 @@ namespace CarniceriaPOS.UI.Forms
         {
             if (producto == null)
             {
-                MessageBox.Show("Error: Producto no vÃ¡lido");
+                MessageBox.Show("Error: Producto no valido");
                 return;
             }
 

@@ -318,14 +318,14 @@ UNION ALL SELECT 'DetalleCompras', COUNT(*) FROM DetalleCompras;
 RESUMEN DE ARCHIVOS ENCONTRADOS
 
 Total archivos encontrados: 11
-  Ã¢Å“â€œ FrmLogin.cs
-  Ã¢Å“â€œ FrmPrincipal.cs
-  Ã¢Å“â€œ FrmProductos.cs
-  Ã¢Å“â€œ FrmCaja.cs
-  Ã¢Å“â€œ FrmReporteBase.cs
-  Ã¢Å“â€œ FrmReporteBase.Designer.cs
-  Ã¢Å“â€œ FrmReportes.cs
-  Ã¢Å“â€œ FrmSelectorReportes.cs
-  Ã¢Å“â€œ SesionActual.cs
-  Ã¢Å“â€œ Validador.cs
-  Ã¢Å“â€œ CrearBD_CarniceriaPOS.sql
+  - FrmLogin.cs
+  - FrmPrincipal.cs
+  - FrmProductos.cs
+  - FrmCaja.cs
+  - FrmReporteBase.cs
+  - FrmReporteBase.Designer.cs
+  - FrmReportes.cs
+  - FrmSelectorReportes.cs
+  - SesionActual.cs
+  - Validador.cs
+  - CrearBD_CarniceriaPOS.sql

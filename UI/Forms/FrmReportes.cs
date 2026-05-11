@@ -20,7 +20,7 @@ namespace CarniceriaPOS.UI.Forms
             public string Titulo { get; set; }
             public string Descripcion { get; set; }
             public string Categoria { get; set; }
-            public string Tipo { get; set; } // GENERALES o ESPECÍFICOS
+            public string Tipo { get; set; } // GENERALES o ESPECIFICOS
             public Color ColorTema { get; set; }
             public string RutaImagen { get; set; }
             public Func<Form> Fabrica { get; set; }
@@ -105,8 +105,8 @@ namespace CarniceriaPOS.UI.Forms
                     Fabrica = () => new FrmReporteProveedores()
                 },
                 new ReporteItem {
-                    Titulo = "Auditoría de Sistema",
-                    Descripcion = "Historial de acciones, inicios de sesión y movimientos de usuarios.",
+                    Titulo = "Auditoria de Sistema",
+                    Descripcion = "Historial de acciones, inicios de sesion y movimientos de usuarios.",
                     Categoria = "SEGURIDAD",
                     Tipo = "GENERALES",
                     ColorTema = Color.FromArgb(192, 57, 43),
@@ -114,12 +114,12 @@ namespace CarniceriaPOS.UI.Forms
                     Fabrica = () => new FrmReporteAuditoria()
                 },
 
-                // --- REPORTES ESPECÍFICOS ---
+                // --- REPORTES ESPECIFICOS ---
                 new ReporteItem {
                     Titulo = "Ventas Diarias",
-                    Descripcion = "Consulta el detalle de ingresos y facturación del día de hoy.",
+                    Descripcion = "Consulta el detalle de ingresos y facturacion del dia de hoy.",
                     Categoria = "VENTAS",
-                    Tipo = "ESPECÍFICOS",
+                    Tipo = "ESPECIFICOS",
                     ColorTema = Color.FromArgb(46, 204, 113),
                     RutaImagen = @"C:\Users\grego\source\repos\CarniceriaPOS\CarniceriaPOS\Assets\Images\ventasdiarias.jpg",
                     Fabrica = () => new FrmReporteVentasDiarias(DateTime.Today, DateTime.Today)
@@ -169,7 +169,7 @@ namespace CarniceriaPOS.UI.Forms
             {
                 Label lblPlaceholder = new Label
                 {
-                    Text = "📊",
+                    Text = "[CHART]",
                     Font = new Font("Segoe UI", 40F),
                     TextAlign = ContentAlignment.MiddleCenter,
                     Dock = DockStyle.Fill,

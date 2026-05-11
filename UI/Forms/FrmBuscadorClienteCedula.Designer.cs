@@ -46,7 +46,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "CÃ©dula del Cliente:";
+            this.label1.Text = "Cedula del Cliente:";
 
             
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 11F);

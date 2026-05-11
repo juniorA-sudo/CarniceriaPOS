@@ -46,7 +46,7 @@ namespace CarniceriaPOS.UI.Forms
             
             var lblNumVenta = new Label
             {
-                Text = $"NÃºmero de Venta: {ventaActual.NumeroVenta}",
+                Text = $"Naomero de Venta: {ventaActual.NumeroVenta}",
                 Font = new System.Drawing.Font("Segoe UI", 10, System.Drawing.FontStyle.Bold),
                 Dock = DockStyle.Top,
                 AutoSize = true,
@@ -66,7 +66,7 @@ namespace CarniceriaPOS.UI.Forms
             
             var lblMetodo = new Label
             {
-                Text = $"MÃ©todo: {(metodoSeleccionado?.Nombre ?? "Efectivo")}",
+                Text = $"Metodo: {(metodoSeleccionado?.Nombre ?? "Efectivo")}",
                 Font = new System.Drawing.Font("Segoe UI", 9),
                 Dock = DockStyle.Top,
                 AutoSize = true,
@@ -76,7 +76,7 @@ namespace CarniceriaPOS.UI.Forms
             
             var lblSeparador = new Label
             {
-                Text = "a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€a”€",
+                Text = "a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”,
                 Dock = DockStyle.Top,
                 AutoSize = true,
                 Margin = new Padding(0, 10, 0, 5)

@@ -95,7 +95,7 @@
             this.lblTituloForm.Name = "lblTituloForm";
             this.lblTituloForm.Size = new System.Drawing.Size(200, 24);
             this.lblTituloForm.TabIndex = 0;
-            this.lblTituloForm.Text = "GestiÃ³n de Proveedores";
+            this.lblTituloForm.Text = "Gestion de Proveedores";
 
             
             this.pnlDatos.Controls.Add(this.grpDatos);
@@ -189,7 +189,7 @@
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(52, 13);
             this.lblTelefono.TabIndex = 6;
-            this.lblTelefono.Text = "TelÃ©fono:";
+            this.lblTelefono.Text = "Telefono:";
 
             this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -223,7 +223,7 @@
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(52, 13);
             this.lblDireccion.TabIndex = 10;
-            this.lblDireccion.Text = "DirecciÃ³n:";
+            this.lblDireccion.Text = "Direccion:";
 
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -393,7 +393,7 @@
             this.lblConexion.Name = "lblConexion";
             this.lblConexion.Size = new System.Drawing.Size(80, 13);
             this.lblConexion.TabIndex = 1;
-            this.lblConexion.Text = "ConexiÃ³n: OK";
+            this.lblConexion.Text = "Conexion: OK";
 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -409,7 +409,7 @@
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.pnlMainContainer);
             this.Name = "FrmProveedores";
-            this.Text = "Sistema de GestiÃ³n para CarnicerÃ­a - Proveedores";
+            this.Text = "Sistema de Gestion para Carniceria - Proveedores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmProveedores_Load);
 

@@ -40,7 +40,7 @@ namespace CarniceriaPOS.UI.Forms
             dgvClientes.Columns.Clear();
             dgvClientes.Columns.Add("IdCliente", "ID");
             dgvClientes.Columns.Add("Nombre", "Nombre");
-            dgvClientes.Columns.Add("Telefono", "TelÃ©fono");
+            dgvClientes.Columns.Add("Telefono", "Telefono");
             dgvClientes.Columns.Add("Email", "Email");
             dgvClientes.Columns.Add("NIT", "NIT");
 
@@ -109,7 +109,7 @@ namespace CarniceriaPOS.UI.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en bÃºsqueda: " + ex.Message);
+                MessageBox.Show("Error en baosqueda: " + ex.Message);
             }
         }
 

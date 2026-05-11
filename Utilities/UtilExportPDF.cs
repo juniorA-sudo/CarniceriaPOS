@@ -133,7 +133,7 @@ namespace CarniceriaPOS.Utilities
 
                 
                 html.AppendLine("<div class='botones noprint'>");
-                html.AppendLine("<button onclick='window.print()'>️ Imprimir / Guardar como PDF</button>");
+                html.AppendLine("<button onclick='window.print()'> Imprimir / Guardar como PDF</button>");
                 html.AppendLine("<button onclick='window.close()'> Cerrar</button>");
                 html.AppendLine("</div>");
 

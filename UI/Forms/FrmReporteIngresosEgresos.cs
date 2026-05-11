@@ -52,7 +52,7 @@ namespace CarniceriaPOS.UI.Forms
 
                 dt.Rows.Add("Ingresos por Ventas",    ventas.Count,  $"${subIngresos:N2}",  $"${impVentas:N2}",  $"${ingresos:N2}",  "100.0%");
                 dt.Rows.Add("Egresos por Compras",    compras.Count, $"${subEgresos:N2}",   $"${impCompras:N2}", $"${egresos:N2}",   $"{(margen == 0 ? 0 : (egresos * 100m / ingresos)):N1}%");
-                dt.Rows.Add("Ganancia Bruta (neta)",  ventas.Count - compras.Count, "a€”", "a€”", $"${ganancia:N2}", $"{margen:N1}%");
+                dt.Rows.Add("Ganancia Bruta (neta)",  ventas.Count - compras.Count, "a”", "a”", $"${ganancia:N2}", $"{margen:N1}%");
 
                 DgvDatos.DataSource = dt;
             }

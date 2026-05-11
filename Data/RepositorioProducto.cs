@@ -194,8 +194,8 @@ namespace CarniceriaPOS.Data
                 if (row.Table.Columns.Contains(columnName) && row[columnName] != DBNull.Value)
                     return row[columnName];
 
-                if (columnName == "Descripcion" && row.Table.Columns.Contains("Descripción"))
-                    return row["Descripción"];
+                if (columnName == "Descripcion" && row.Table.Columns.Contains("Descripcion"))
+                    return row["Descripcion"];
 
                 return defaultValue;
             }

@@ -19,9 +19,9 @@ namespace CarniceriaPOS.UI.Forms
         {
             _repo = new RepositorioCliente();
 
-            // Configuración de textos en el encabezado
+            // Configuracion de textos en el encabezado
             this.lblTituloModulo.Text = "Reporte de Clientes";
-            this.lblSubtituloHeader.Text = "Base de datos completa, contactos y fidelización de clientes registrados.";
+            this.lblSubtituloHeader.Text = "Base de datos completa, contactos y fidelizacion de clientes registrados.";
             this.lblTituloReporte.Text = "LISTADO MAESTRO DE CLIENTES";
         }
 
@@ -53,12 +53,12 @@ namespace CarniceriaPOS.UI.Forms
             DgvDatos.Columns.Clear();
             DgvDatos.AutoGenerateColumns = false;
 
-            // Definición de columnas según el estándar del reporte
+            // Definicion de columnas segun el estandar del reporte
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Cliente", FillWeight = 150 });
-            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Cedula", HeaderText = "Cédula/RNC", Width = 120 });
-            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Telefono", HeaderText = "Teléfono", Width = 120 });
-            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = "Correo Electrónico", FillWeight = 130 });
-            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Direccion", HeaderText = "Dirección", FillWeight = 150 });
+            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Cedula", HeaderText = "Cedula/RNC", Width = 120 });
+            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Telefono", HeaderText = "Telefono", Width = 120 });
+            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Email", HeaderText = "Correo Electronico", FillWeight = 130 });
+            DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Direccion", HeaderText = "Direccion", FillWeight = 150 });
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "FechaCreacion",

@@ -190,7 +190,7 @@ namespace CarniceriaPOS.Utilities
             g.DrawLine(lineaPrincipal, margenIzquierdo, y, margenIzquierdo + ancho, y);
             y += 4;
 
-            string infoPie = "CarniceriaPOS © - Sistema de Gestion";
+            string infoPie = "CarniceriaPOS (C) - Sistema de Gestion";
             g.DrawString(infoPie, fuentePie, pincelGris, margenIzquierdo, y);
 
             string numPagina = $"Pagina {currentPage + 1}";

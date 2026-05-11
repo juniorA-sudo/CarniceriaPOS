@@ -25,7 +25,7 @@ namespace CarniceriaPOS.UI.Forms
         {
             if (string.IsNullOrWhiteSpace(txtCedula.Text))
             {
-                MessageBox.Show("Ingrese una cÃ©dula");
+                MessageBox.Show("Ingrese una cedula");
                 return;
             }
 
@@ -51,7 +51,7 @@ namespace CarniceriaPOS.UI.Forms
                 {
                     
                     ClienteSeleccionado = cliente;
-                    MessageBox.Show($"Cliente encontrado: {cliente.Nombre}", "Ã‰xito");
+                    MessageBox.Show($"Cliente encontrado: {cliente.Nombre}", "a‰xito");
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -59,7 +59,7 @@ namespace CarniceriaPOS.UI.Forms
                 {
                     
                     if (MessageBox.Show(
-                        "Cliente no encontrado.\nA¿Desea crear un cliente nuevo con esta cÃ©dula?",
+                        "Cliente no encontrado.\nA?Desea crear un cliente nuevo con esta cedula?",
                         "Cliente no existe",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question) == DialogResult.Yes)
@@ -100,7 +100,7 @@ namespace CarniceriaPOS.UI.Forms
                 {
                     
                     ClienteSeleccionado = repCliente.ObtenerClientePorCedula(txtCedula.Text);
-                    MessageBox.Show($"Cliente creado: {nuevoCliente.Nombre}\n\nPuede agregar mÃ¡s datos despuÃ©s", "Ã‰xito");
+                    MessageBox.Show($"Cliente creado: {nuevoCliente.Nombre}\n\nPuede agregar mas datos despues", "a‰xito");
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

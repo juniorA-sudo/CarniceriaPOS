@@ -6,9 +6,9 @@ namespace CarniceriaPOS.Business
 {
     public abstract class GeneradorReportes
     {
-        protected string NombreEmpresa = "CarnicerÃ­a POS";
-        protected string Direccion = "DirecciÃ³n: Calle, Manzana, Lote";
-        protected string Telefono = "TelÃ©fono: +503-XXXX-XXXX";
+        protected string NombreEmpresa = "Carniceria POS";
+        protected string Direccion = "Direccion: Calle, Manzana, Lote";
+        protected string Telefono = "Telefono: +503-XXXX-XXXX";
         protected string NIT = "NIT: 12345-670";
         protected string Email = "Email: info@carniceria.com";
         protected DateTime FechaReporte = DateTime.Now;
@@ -117,11 +117,11 @@ namespace CarniceriaPOS.Business
             return @"
         <div class='footer'>
             <p><strong>Documento Confidencial - Uso exclusivo de la empresa</strong></p>
-            <p>Este reporte fue generado automÃ¡ticamente por el Sistema POS CarnicerÃ­a</p>
+            <p>Este reporte fue generado automaticamente por el Sistema POS Carniceria</p>
             <div class='firma'>
                 <div>
                     <div class='firma-linea'></div>
-                    <p>Responsable de GeneraciÃ³n</p>
+                    <p>Responsable de Generacion</p>
                 </div>
                 <div>
                     <div class='firma-linea'></div>

@@ -21,7 +21,7 @@ namespace CarniceriaPOS.Utilities
         {
             try
             {
-                MessageBox.Show("️ ADVERTENCIA: Se van a eliminar TODOS los datos de prueba.\n\n" +
+                MessageBox.Show(" ADVERTENCIA: Se van a eliminar TODOS los datos de prueba.\n\n" +
                                 "Se eliminaran:\n" +
                                 "• Productos\n" +
                                 "• Clientes\n" +
@@ -35,7 +35,7 @@ namespace CarniceriaPOS.Utilities
                                 " Departamentos",
                     "Limpiar Base de Datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                if (MessageBox.Show("¿Esta seguro de que desea continuar?",
+                if (MessageBox.Show("?Esta seguro de que desea continuar?",
                     "Confirmar Limpieza", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 {
                     return false;

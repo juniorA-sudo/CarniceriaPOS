@@ -14,7 +14,6 @@ namespace CarniceriaPOS.Models
         public bool Activo { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        
         public string NombreDepartamento { get; set; }
 
         public Empleado()

@@ -28,7 +28,7 @@ namespace CarniceriaPOS.UI.Forms
         {
             try
             {
-                // Consulta ajustada a la tabla 'AuditoriaAcceso' y sus columnas reales
+
                 string sql = @"SELECT TOP 200 
                                 a.FechaHora, 
                                 u.NombreUsuario, 
@@ -59,7 +59,6 @@ namespace CarniceriaPOS.UI.Forms
             DgvDatos.Columns.Clear();
             DgvDatos.AutoGenerateColumns = false;
 
-            // Columna Fecha y Hora
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "FechaHora",
@@ -68,7 +67,6 @@ namespace CarniceriaPOS.UI.Forms
                 DefaultCellStyle = new DataGridViewCellStyle { Format = "dd/MM/yyyy HH:mm" }
             });
 
-            // Columna Usuario
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "NombreUsuario",
@@ -76,7 +74,6 @@ namespace CarniceriaPOS.UI.Forms
                 Width = 120
             });
 
-            // Columna Modulo
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Modulo",
@@ -84,7 +81,6 @@ namespace CarniceriaPOS.UI.Forms
                 Width = 110
             });
 
-            // Columna Accion
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Accion",
@@ -92,7 +88,6 @@ namespace CarniceriaPOS.UI.Forms
                 Width = 100
             });
 
-            // Columna Resultado (Nuevo campo de tu tabla)
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Resultado",
@@ -100,7 +95,6 @@ namespace CarniceriaPOS.UI.Forms
                 Width = 100
             });
 
-            // Columna Detalles (En plural segun tu imagen)
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Detalles",

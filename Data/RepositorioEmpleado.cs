@@ -16,7 +16,7 @@ namespace CarniceriaPOS.Data
             List<Empleado> empleados = new List<Empleado>();
             try
             {
-                // Usamos la clase ConexionBD para obtener el DataTable, igual que en Clientes/Proveedores
+
                 string sql = @"SELECT e.*, d.Nombre as NombreDepartamento
                                FROM Empleados e
                                LEFT JOIN Departamentos d ON e.IdDepartamento = d.IdDepartamento
@@ -100,7 +100,7 @@ namespace CarniceriaPOS.Data
         {
             try
             {
-                // Generalmente es mejor desactivar en lugar de borrar fisicamente
+
                 string sql = "UPDATE Empleados SET Activo = 0 WHERE IdEmpleado = @IdEmpleado";
                 SqlParameter[] parametros = new SqlParameter[] { new SqlParameter("@IdEmpleado", idEmpleado) };
                 return bd.EjecutarComando(sql, parametros) > 0;
@@ -114,7 +114,7 @@ namespace CarniceriaPOS.Data
 
         private Empleado MapearEmpleado(DataRow row)
         {
-            // Funcion de ayuda para evitar el error de "Specified cast is not valid"
+
             object SafeGet(string columnName, object defaultValue)
             {
                 if (row.Table.Columns.Contains(columnName) && row[columnName] != DBNull.Value)

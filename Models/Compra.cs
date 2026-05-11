@@ -13,7 +13,6 @@ namespace CarniceriaPOS.Models
         public decimal Total { get; set; }
         public string Estado { get; set; }
 
-        
         public string NombreProveedor { get; set; }
         public string NombreUsuario { get; set; }
         public List<DetalleCompra> Detalles { get; set; }

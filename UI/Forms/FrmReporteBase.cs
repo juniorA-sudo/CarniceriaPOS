@@ -126,8 +126,6 @@ namespace CarniceriaPOS.UI.Forms
 
         protected DataGridView DgvDatos => _dgvDatosReal;
 
-        // El metodo BtnCerrar_Click se mantiene por si los hijos necesitan 
-        // llamarlo manualmente, pero ya no esta vinculado al boton de la base.
         protected virtual void BtnCerrar_Click(object sender, EventArgs e) => this.Close();
     }
 }

@@ -20,7 +20,7 @@ namespace CarniceriaPOS.UI.Forms
             public string Titulo { get; set; }
             public string Descripcion { get; set; }
             public string Categoria { get; set; }
-            public string Tipo { get; set; } // GENERALES o ESPECIFICOS
+            public string Tipo { get; set; }
             public Color ColorTema { get; set; }
             public string RutaImagen { get; set; }
             public Func<Form> Fabrica { get; set; }
@@ -67,7 +67,7 @@ namespace CarniceriaPOS.UI.Forms
 
             var todosLosReportes = new List<ReporteItem>
             {
-                // --- REPORTES GENERALES ---
+
                 new ReporteItem {
                     Titulo = "Reporte de Productos",
                     Descripcion = "Listado maestro de la tabla productos.",
@@ -114,7 +114,6 @@ namespace CarniceriaPOS.UI.Forms
                     Fabrica = () => new FrmReporteAuditoria()
                 },
 
-                // --- REPORTES ESPECIFICOS ---
                 new ReporteItem {
                     Titulo = "Ventas Diarias",
                     Descripcion = "Consulta el detalle de ingresos y facturacion del dia de hoy.",

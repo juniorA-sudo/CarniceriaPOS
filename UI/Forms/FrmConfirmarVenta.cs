@@ -34,7 +34,6 @@ namespace CarniceriaPOS.UI.Forms
         {
             if (ventaActual == null) return;
 
-            
             var pnlInfo = new Panel
             {
                 Dock = DockStyle.Top,
@@ -43,7 +42,6 @@ namespace CarniceriaPOS.UI.Forms
                 Padding = new Padding(15)
             };
 
-            
             var lblNumVenta = new Label
             {
                 Text = $"Naomero de Venta: {ventaActual.NumeroVenta}",
@@ -53,7 +51,6 @@ namespace CarniceriaPOS.UI.Forms
                 Margin = new Padding(0, 5, 0, 5)
             };
 
-            
             var lblCliente = new Label
             {
                 Text = $"Cliente: {(clienteSeleccionado?.Nombre ?? "No seleccionado")}",
@@ -63,7 +60,6 @@ namespace CarniceriaPOS.UI.Forms
                 Margin = new Padding(0, 5, 0, 5)
             };
 
-            
             var lblMetodo = new Label
             {
                 Text = $"Metodo: {(metodoSeleccionado?.Nombre ?? "Efectivo")}",
@@ -73,7 +69,6 @@ namespace CarniceriaPOS.UI.Forms
                 Margin = new Padding(0, 5, 0, 5)
             };
 
-            
             var lblSeparador = new Label
             {
                 Text = "a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”a”,
@@ -120,7 +115,6 @@ namespace CarniceriaPOS.UI.Forms
 
             this.Controls.Add(pnlInfo);
 
-            
             var pnlBotones = new Panel
             {
                 Dock = DockStyle.Bottom,

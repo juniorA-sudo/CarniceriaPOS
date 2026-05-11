@@ -2,10 +2,7 @@
 
 namespace CarniceriaPOS.Models
 {
-    
-    
-    
-    
+
     public class Proveedor
     {
         public int IdProveedor { get; set; }

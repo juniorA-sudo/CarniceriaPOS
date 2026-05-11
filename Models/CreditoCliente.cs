@@ -2,10 +2,7 @@
 
 namespace CarniceriaPOS.Models
 {
-    
-    
-    
-    
+
     public class CreditoCliente
     {
         public int IdCredito { get; set; }
@@ -18,17 +15,11 @@ namespace CarniceriaPOS.Models
         public bool Activo { get; set; }
         public DateTime FechaCreacion { get; set; }
 
-        
-        
-        
         public bool PuedeCreditoDisponible(decimal montoCompra)
         {
             return (LimiteCredito - SaldoDeudor) >= montoCompra;
         }
 
-        
-        
-        
         public decimal ObtenerCreditoDisponible()
         {
             return LimiteCredito - SaldoDeudor;

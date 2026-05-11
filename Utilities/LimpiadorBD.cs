@@ -14,9 +14,6 @@ namespace CarniceriaPOS.Utilities
             conexion = new ConexionBD();
         }
 
-        
-        
-        
         public bool LimpiarDatosDeProductos()
         {
             try
@@ -41,10 +38,8 @@ namespace CarniceriaPOS.Utilities
                     return false;
                 }
 
-                
                 conexion.EjecutarComando("EXEC sp_MSForEachTable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL'");
 
-                
                 conexion.EjecutarComando("DELETE FROM MovimientosInventario");
                 conexion.EjecutarComando("DELETE FROM CierresCaja");
                 conexion.EjecutarComando("DELETE FROM DetalleVentas");
@@ -56,10 +51,8 @@ namespace CarniceriaPOS.Utilities
                 conexion.EjecutarComando("DELETE FROM Clientes");
                 conexion.EjecutarComando("DELETE FROM Categorias");
 
-                
                 conexion.EjecutarComando("EXEC sp_MSForEachTable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL'");
 
-                
                 ActualizarEmailsUsuarios();
 
                 MessageBox.Show(" Base de datos limpiada exitosamente.\n\n" +
@@ -116,9 +109,6 @@ namespace CarniceriaPOS.Utilities
             }
         }
 
-        
-        
-        
         public string ObtenerEstadoBD()
         {
             try

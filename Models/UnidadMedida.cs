@@ -2,10 +2,7 @@
 
 namespace CarniceriaPOS.Models
 {
-    
-    
-    
-    
+
     public class UnidadMedida
     {
         public int IdUnidadMedida { get; set; }

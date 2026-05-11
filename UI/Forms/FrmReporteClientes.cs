@@ -19,7 +19,6 @@ namespace CarniceriaPOS.UI.Forms
         {
             _repo = new RepositorioCliente();
 
-            // Configuracion de textos en el encabezado
             this.lblTituloModulo.Text = "Reporte de Clientes";
             this.lblSubtituloHeader.Text = "Base de datos completa, contactos y fidelizacion de clientes registrados.";
             this.lblTituloReporte.Text = "LISTADO MAESTRO DE CLIENTES";
@@ -53,7 +52,6 @@ namespace CarniceriaPOS.UI.Forms
             DgvDatos.Columns.Clear();
             DgvDatos.AutoGenerateColumns = false;
 
-            // Definicion de columnas segun el estandar del reporte
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Nombre", HeaderText = "Cliente", FillWeight = 150 });
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Cedula", HeaderText = "Cedula/RNC", Width = 120 });
             DgvDatos.Columns.Add(new DataGridViewTextBoxColumn { DataPropertyName = "Telefono", HeaderText = "Telefono", Width = 120 });
@@ -72,8 +70,6 @@ namespace CarniceriaPOS.UI.Forms
         {
             DgvDatos.DataSource = _listaClientes;
         }
-
-  
 
         private Guna2Panel CrearTarjetaInfo(string titulo, string valor, Color colorAcento)
         {

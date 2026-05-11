@@ -60,7 +60,6 @@ namespace CarniceriaPOS.UI.Forms
 
                 pnlContent.SuspendLayout();
 
-                
                 if (_formularioActivo != null)
                 {
                     try
@@ -138,9 +137,6 @@ namespace CarniceriaPOS.UI.Forms
             btnEmpleados.Enabled = true;
         }
 
-        
-        
-        
         private void ValidarYAbrirFormulario(Control boton, string modulo, Form formulario, string titulo)
         {
             try
@@ -152,7 +148,6 @@ namespace CarniceriaPOS.UI.Forms
                     return;
                 }
 
-                
                 if (!SesionActual.TieneAcceso(modulo))
                 {
                     MessageBox.Show($"No tiene permiso para acceder a {titulo}.", "Acceso Denegado");
@@ -160,7 +155,6 @@ namespace CarniceriaPOS.UI.Forms
                     return;
                 }
 
-                
                 AbrirFormularioEnContenido(formulario, titulo);
             }
             catch (Exception ex)

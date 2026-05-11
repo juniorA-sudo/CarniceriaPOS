@@ -3,10 +3,7 @@ using System.Collections.Generic;
 
 namespace CarniceriaPOS.Models
 {
-    
-    
-    
-    
+
     public class Venta
     {
         public int IdVenta { get; set; }
@@ -25,7 +22,6 @@ namespace CarniceriaPOS.Models
 
         public string Estado { get; set; }                  
 
-        
         public string NombreCliente { get; set; }
         public string NombreUsuario { get; set; }
         public List<DetalleVenta> Detalles { get; set; }

@@ -55,9 +55,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void ConfigurarValidacionesFormulario()
         {
             
@@ -67,7 +64,6 @@ namespace CarniceriaPOS.UI.Forms
                     e.Handled = true;
             };
 
-            
             txtEmail.KeyPress += (s, e) =>
             {
                 if (!char.IsLetterOrDigit(e.KeyChar) && "@.-_".IndexOf(e.KeyChar) < 0 && e.KeyChar != '\b')
@@ -75,9 +71,6 @@ namespace CarniceriaPOS.UI.Forms
             };
         }
 
-        
-        
-        
         private void CargarRoles()
         {
             try
@@ -93,9 +86,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void CargarUsuarios()
         {
             try
@@ -135,9 +125,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private bool ValidarCampos()
         {
             if (!Validador.ValidarCampoObligatorio(txtNombre.Text))
@@ -192,9 +179,6 @@ namespace CarniceriaPOS.UI.Forms
             return true;
         }
 
-        
-        
-        
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esNuevo = true;
@@ -203,9 +187,6 @@ namespace CarniceriaPOS.UI.Forms
             txtNombre.Focus();
         }
 
-        
-        
-        
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
@@ -272,9 +253,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvUsuarios.SelectedRows.Count == 0)
@@ -303,9 +281,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -314,9 +289,6 @@ namespace CarniceriaPOS.UI.Forms
             esNuevo = false;
         }
 
-        
-        
-        
         private void LimpiarCampos()
         {
             txtNombre.Clear();
@@ -326,9 +298,6 @@ namespace CarniceriaPOS.UI.Forms
             chkActivo.Checked = true;
         }
 
-        
-        
-        
         private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvUsuarios.SelectedRows.Count > 0)
@@ -344,17 +313,11 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
             FiltrarUsuarios();
         }
 
-        
-        
-        
         private void FiltrarUsuarios()
         {
             try
@@ -385,9 +348,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void HabilitarDeshabilitarBotones(bool habilitar)
         {
             btnGuardar.Enabled = habilitar;
@@ -396,9 +356,6 @@ namespace CarniceriaPOS.UI.Forms
             btnLimpiar.Enabled = true;
         }
 
-        
-        
-        
         private void ActualizarPie()
         {
             try

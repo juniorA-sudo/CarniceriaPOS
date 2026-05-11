@@ -25,7 +25,6 @@
             this.pnlMain.SuspendLayout();
             this.SuspendLayout();
 
-            
             this.pnlMain.Controls.Add(this.btnCancelar);
             this.pnlMain.Controls.Add(this.btnBuscar);
             this.pnlMain.Controls.Add(this.txtNombre);
@@ -39,7 +38,6 @@
             this.pnlMain.Size = new System.Drawing.Size(400, 220);
             this.pnlMain.TabIndex = 0;
 
-            
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(15, 20);
@@ -48,7 +46,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Cedula del Cliente:";
 
-            
             this.txtCedula.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtCedula.Location = new System.Drawing.Point(15, 45);
             this.txtCedula.Name = "txtCedula";
@@ -56,7 +53,6 @@
             this.txtCedula.TabIndex = 1;
             this.txtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCedula_KeyPress);
 
-            
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label2.ForeColor = System.Drawing.Color.Gray;
@@ -66,7 +62,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Si no existe, ingrese el nombre para crear uno nuevo:";
 
-            
             this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNombre.Location = new System.Drawing.Point(15, 100);
             this.txtNombre.Name = "txtNombre";
@@ -74,7 +69,6 @@
             this.txtNombre.TabIndex = 3;
             this.txtNombre.PlaceholderText = "Nombre del cliente (opcional)";
 
-            
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(76, 175, 80);
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -87,7 +81,6 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
 
-            
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(244, 67, 54);
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -100,7 +93,6 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
 
-            
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 220);

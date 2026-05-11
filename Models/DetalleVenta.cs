@@ -12,11 +12,9 @@
 
         public string NombreProducto { get; set; }
 
-        
         public decimal Peso { get; set; }
         public string TipoCantidad { get; set; } = "Unidad";
 
-        
         public string DisplayCantidad =>
             TipoCantidad == "Kg" ? $"{Peso:F2} kg" : $"{Cantidad} unidades";
     }

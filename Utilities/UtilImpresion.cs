@@ -73,32 +73,25 @@ namespace CarniceriaPOS.Utilities
             Pen lineaPrincipal = new Pen(colorAzulOscuro, 1.5f);
             Pen lineaGris = new Pen(Color.LightGray, 0.5f);
 
-            
             g.DrawLine(lineaPrincipal, margenIzquierdo, y, margenIzquierdo + ancho, y);
             y += 4;
 
-            
             g.DrawString("CARNICERIA POS", fuenteEmpresa, pincelAzul, margenIzquierdo, y);
             y += 14;
 
-            
             g.DrawString("Sistema de Gestion de Carniceria", fuenteSeccion, pincelGris, margenIzquierdo, y);
             y += 6;
 
-            
             g.DrawLine(lineaPrincipal, margenIzquierdo, y, margenIzquierdo + ancho, y);
             y += 8;
 
-            
             g.DrawString(titulo, fuenteTitulo, pincelNegro, margenIzquierdo, y);
             y += 13;
 
-            
             string infoCompleta = $"Generado: {DateTime.Now:dd/MM/yyyy HH:mm:ss}  |  Usuario: {usuario}";
             g.DrawString(infoCompleta, fuenteSubtitulo, pincelGris, margenIzquierdo, y);
             y += 8;
 
-            
             if (!string.IsNullOrEmpty(descripcion))
             {
                 string descCorta = descripcion.Length > 120 ? descripcion.Substring(0, 117) + "..." : descripcion;
@@ -108,16 +101,13 @@ namespace CarniceriaPOS.Utilities
 
             y += 3;
 
-            
             float alturaEncabezado = 18;
             float alturaFila = 14;
             float anchoCol = ancho / dgv.Columns.Count;
 
-            
             float xCol = margenIzquierdo;
             g.FillRectangle(new SolidBrush(colorAzulOscuro), margenIzquierdo, y, ancho, alturaEncabezado);
 
-            
             g.DrawLine(lineaPrincipal, margenIzquierdo, y, margenIzquierdo + ancho, y);
 
             for (int col = 0; col < dgv.Columns.Count; col++)
@@ -136,7 +126,6 @@ namespace CarniceriaPOS.Utilities
             }
             y += alturaEncabezado;
 
-            
             int filaActual = currentPage * rowsPerPage;
             bool esFilaAlterna = false;
 
@@ -172,7 +161,6 @@ namespace CarniceriaPOS.Utilities
                         xCol += anchoCol;
                     }
 
-                    
                     g.DrawLine(lineaGris, margenIzquierdo + ancho, y, margenIzquierdo + ancho, y + alturaFila);
                     
                     g.DrawLine(lineaGris, margenIzquierdo, y + alturaFila, margenIzquierdo + ancho, y + alturaFila);
@@ -184,7 +172,6 @@ namespace CarniceriaPOS.Utilities
                 filaActual++;
             }
 
-            
             y = e.PageBounds.Height - 25;
 
             g.DrawLine(lineaPrincipal, margenIzquierdo, y, margenIzquierdo + ancho, y);

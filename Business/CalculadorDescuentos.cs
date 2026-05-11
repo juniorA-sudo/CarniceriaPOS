@@ -3,15 +3,10 @@ using CarniceriaPOS.Models;
 
 namespace CarniceriaPOS.Business
 {
-    
-    
-    
-    
+
     public class CalculadorDescuentos
     {
-        
-        
-        
+
         public static decimal ObtenerPorcentajeDescuento(decimal pesoKg)
         {
             if (pesoKg >= 10)
@@ -24,9 +19,6 @@ namespace CarniceriaPOS.Business
                 return 0; 
         }
 
-        
-        
-        
         public static decimal ObtenerPorcentajeDescuentoUnidades(int cantidad)
         {
             if (cantidad >= 20)
@@ -39,9 +31,6 @@ namespace CarniceriaPOS.Business
                 return 0; 
         }
 
-        
-        
-        
         public static decimal CalcularPrecioConDescuento(decimal precioOriginal, decimal porcentajeDescuento)
         {
             if (porcentajeDescuento <= 0)
@@ -51,9 +40,6 @@ namespace CarniceriaPOS.Business
             return precioOriginal - descuento;
         }
 
-        
-        
-        
         public static string ObtenerDescripcionDescuento(decimal pesoKg, decimal porcentajeDescuento)
         {
             if (porcentajeDescuento <= 0)

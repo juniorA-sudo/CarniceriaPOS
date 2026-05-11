@@ -48,7 +48,6 @@ namespace CarniceriaPOS.Data
             return 0;
         }
 
-        
         public int ObtenerUltimoNumeroFactura(string prefijoFecha)
         {
             string sql = @"SELECT ISNULL(MAX(CAST(SUBSTRING(NumeroFactura, 12, 4) AS INT)), 0)

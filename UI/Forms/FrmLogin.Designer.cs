@@ -30,9 +30,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.pnlFormulario.SuspendLayout();
             this.SuspendLayout();
-            
-            
-            
+
             this.pnlLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(95)))));
             this.pnlLogo.Controls.Add(this.pictureBoxLogo);
             this.pnlLogo.Controls.Add(this.lblTitulo);
@@ -41,9 +39,7 @@
             this.pnlLogo.Name = "pnlLogo";
             this.pnlLogo.Size = new System.Drawing.Size(280, 450);
             this.pnlLogo.TabIndex = 0;
-            
-            
-            
+
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.Location = new System.Drawing.Point(40, 100);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
@@ -51,9 +47,7 @@
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
-            
-            
-            
+
             this.lblTitulo.BackColor = System.Drawing.Color.Transparent;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
@@ -63,9 +57,7 @@
             this.lblTitulo.TabIndex = 1;
             this.lblTitulo.Text = "CARNICERIA";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            
-            
-            
+
             this.pnlFormulario.BackColor = System.Drawing.Color.White;
             this.pnlFormulario.Controls.Add(this.btnCancelar);
             this.pnlFormulario.Controls.Add(this.btnEntrar);
@@ -79,9 +71,7 @@
             this.pnlFormulario.Name = "pnlFormulario";
             this.pnlFormulario.Size = new System.Drawing.Size(370, 450);
             this.pnlFormulario.TabIndex = 1;
-            
-            
-            
+
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
@@ -95,9 +85,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            
-            
-            
+
             this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(95)))));
             this.btnEntrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEntrar.FlatAppearance.BorderSize = 0;
@@ -111,9 +99,7 @@
             this.btnEntrar.Text = "Entrar al Sistema";
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
-            
-            
-            
+
             this.txtPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,9 +109,7 @@
             this.txtPassword.Size = new System.Drawing.Size(290, 20);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
-            
-            
-            
+
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -134,9 +118,7 @@
             this.label2.Size = new System.Drawing.Size(82, 19);
             this.label2.TabIndex = 5;
             this.label2.Text = "Contrasena:";
-            
-            
-            
+
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -145,9 +127,7 @@
             this.txtEmail.Size = new System.Drawing.Size(290, 20);
             this.txtEmail.TabIndex = 4;
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
-            
-            
-            
+
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
@@ -156,9 +136,7 @@
             this.label1.Size = new System.Drawing.Size(44, 19);
             this.label1.TabIndex = 3;
             this.label1.Text = "Email:";
-            
-            
-            
+
             this.lblSubtitulo.AutoSize = true;
             this.lblSubtitulo.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubtitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(95)))));
@@ -167,9 +145,7 @@
             this.lblSubtitulo.Size = new System.Drawing.Size(196, 30);
             this.lblSubtitulo.TabIndex = 2;
             this.lblSubtitulo.Text = "Acceso al Sistema";
-            
-            
-            
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;

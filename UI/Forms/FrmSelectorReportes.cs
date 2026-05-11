@@ -36,7 +36,6 @@ namespace CarniceriaPOS.UI.Forms
             };
             pnlMain.Controls.Add(lblTitulo);
 
-            
             var reportes = new (string titulo, string descripcion, string icono, Action accion)[]
             {
                 ("Ventas Diarias", "Reporte detallado de ventas del dia actual", "", () =>
@@ -88,15 +87,13 @@ namespace CarniceriaPOS.UI.Forms
                 ("Ventas por Periodo", "Analisis de ventas en un rango de fechas", "", () =>
                 {
                     AskForDateRange((inicio, fin) => {
-                        //var frm = new FrmReporteVentasPeriodo(inicio, fin);
-                        //frm.Show();
+
                     });
                 }),
 
                 ("Ventas por Vendedor", "Desempeno de cada vendedor", "", () =>
                 {
-                    //var frm = new FrmReporteVentasVendedor();
-                    //frm.Show();
+
                 }),
 
                 ("Ingresos vs Egresos", "Analisis financiero completo del periodo", "", () =>
@@ -106,7 +103,6 @@ namespace CarniceriaPOS.UI.Forms
                 })
             };
 
-            
             int contador = 0;
             foreach (var reporte in reportes)
             {

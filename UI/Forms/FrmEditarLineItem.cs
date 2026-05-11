@@ -35,7 +35,6 @@ namespace CarniceriaPOS.UI.Forms
             
             var pnlMain = new Panel { Dock = DockStyle.Fill, Padding = new Padding(15) };
 
-            
             var lblProducto = new Label
             {
                 Text = "Producto:",
@@ -53,7 +52,6 @@ namespace CarniceriaPOS.UI.Forms
                 BackColor = System.Drawing.Color.FromArgb(240, 240, 240)
             };
 
-            
             var lblCantidad = new Label
             {
                 Text = producto?.EsPesable == true ? "Peso (kg):" : "Cantidad (unidades):",
@@ -71,7 +69,6 @@ namespace CarniceriaPOS.UI.Forms
                 Value = producto?.EsPesable == true ? (decimal)detalleOriginal.Peso : detalleOriginal.Cantidad
             };
 
-            
             var lblStockDisponible = new Label
             {
                 Text = $"Stock disponible: {(producto?.EsPesable == true ? $"{producto.StockActualKg:F2} {producto.UnidadMedida}" : $"{producto?.StockActual} unidades")}",
@@ -81,7 +78,6 @@ namespace CarniceriaPOS.UI.Forms
                 AutoSize = true
             };
 
-            
             var lblPrecio = new Label
             {
                 Text = "Precio unitario:",
@@ -99,7 +95,6 @@ namespace CarniceriaPOS.UI.Forms
                 BackColor = System.Drawing.Color.FromArgb(240, 240, 240)
             };
 
-            
             var lblSubtotal = new Label
             {
                 Text = "Subtotal:",
@@ -117,7 +112,6 @@ namespace CarniceriaPOS.UI.Forms
                 AutoSize = true
             };
 
-            
             numCantidad.ValueChanged += (s, e) =>
             {
                 decimal nuevaCantidad = numCantidad.Value;
@@ -125,7 +119,6 @@ namespace CarniceriaPOS.UI.Forms
                 lblSubtotalVal.Text = $"${nuevoSubtotal:N2}";
             };
 
-            
             var pnlBotones = new Panel
             {
                 Dock = DockStyle.Bottom,
@@ -162,7 +155,6 @@ namespace CarniceriaPOS.UI.Forms
             pnlBotones.Controls.Add(btnGuardar);
             pnlBotones.Controls.Add(btnCancelar);
 
-            
             pnlMain.Controls.Add(lblProducto);
             pnlMain.Controls.Add(txtProducto);
             pnlMain.Controls.Add(lblCantidad);
@@ -185,7 +177,6 @@ namespace CarniceriaPOS.UI.Forms
                 return;
             }
 
-            
             if (!ValidadorStock.ValidarStock(producto, nuevaCantidad))
             {
                 string mensajeError = ValidadorStock.ObtenerMensajeError(producto, nuevaCantidad);
@@ -194,7 +185,6 @@ namespace CarniceriaPOS.UI.Forms
                 return;
             }
 
-            
             DetalleModificado = new DetalleVenta
             {
                 IdDetalle = detalleOriginal.IdDetalle,

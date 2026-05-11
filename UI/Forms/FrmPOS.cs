@@ -88,7 +88,6 @@ namespace CarniceriaPOS.UI.Forms
                 CargarCategorias();
                 CargarProductos();
 
-                
                 if (dgvProductos != null)
                     dgvProductos.CellClick += DgvProductos_CellClick;
 
@@ -460,7 +459,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (ventaActual.Total <= 0)
             {
                 MessageBox.Show("El total debe ser mayor a $0.00");
@@ -530,7 +528,6 @@ namespace CarniceriaPOS.UI.Forms
                     return;
                 }
 
-                
                 MessageBox.Show("Ticket impreso correctamente");
             }
             catch (Exception ex)

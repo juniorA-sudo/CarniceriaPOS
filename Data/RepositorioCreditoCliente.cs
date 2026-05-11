@@ -10,9 +10,6 @@ namespace CarniceriaPOS.Data
     {
         private ConexionBD bd = new ConexionBD();
 
-        
-        
-        
         public CreditoCliente ObtenerCreditoPorCliente(int idCliente)
         {
             string sql = "SELECT * FROM CreditoCliente WHERE IdCliente = @IdCliente";
@@ -26,9 +23,6 @@ namespace CarniceriaPOS.Data
             return null;
         }
 
-        
-        
-        
         public bool CrearCredito(int idCliente, decimal limiteCredito)
         {
             string sql = @"INSERT INTO CreditoCliente (IdCliente, SaldoDeudor, LimiteCredito, Activo)
@@ -43,9 +37,6 @@ namespace CarniceriaPOS.Data
             return bd.EjecutarComando(sql, parametros) > 0;
         }
 
-        
-        
-        
         public bool AumentarDeuda(int idCliente, decimal monto)
         {
             string sql = @"UPDATE CreditoCliente
@@ -62,9 +53,6 @@ namespace CarniceriaPOS.Data
             return bd.EjecutarComando(sql, parametros) > 0;
         }
 
-        
-        
-        
         public bool RealizarPago(int idCliente, decimal monto)
         {
             string sql = @"UPDATE CreditoCliente
@@ -81,9 +69,6 @@ namespace CarniceriaPOS.Data
             return bd.EjecutarComando(sql, parametros) > 0;
         }
 
-        
-        
-        
         public List<CreditoCliente> ObtenerClientesConAtraso(int diasAtraso = 30)
         {
             string sql = @"SELECT c.* FROM CreditoCliente c

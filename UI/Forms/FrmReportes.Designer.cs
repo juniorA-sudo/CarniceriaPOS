@@ -43,7 +43,6 @@
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
 
-            // pnlMain
             this.pnlMain.Controls.Add(this.pnlReportHost);
             this.pnlMain.Controls.Add(this.pnlSelector);
             this.pnlMain.Controls.Add(this.pnlNav);
@@ -55,7 +54,6 @@
             this.pnlMain.Size = new System.Drawing.Size(1144, 794);
             this.pnlMain.TabIndex = 0;
 
-            // pnlReportHost
             this.pnlReportHost.BackColor = System.Drawing.Color.Transparent;
             this.pnlReportHost.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReportHost.Location = new System.Drawing.Point(0, 114);
@@ -64,7 +62,6 @@
             this.pnlReportHost.TabIndex = 2;
             this.pnlReportHost.Visible = false;
 
-            // pnlSelector - El contenedor de las tarjetas
             this.pnlSelector.BackColor = System.Drawing.Color.Transparent;
             this.pnlSelector.Controls.Add(this.flpReportes);
             this.pnlSelector.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -74,17 +71,15 @@
             this.pnlSelector.Size = new System.Drawing.Size(1144, 680);
             this.pnlSelector.TabIndex = 1;
 
-            // flpReportes - Configuracion CRITICA para 3x2
             this.flpReportes.AutoScroll = true;
             this.flpReportes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpReportes.Location = new System.Drawing.Point(10, 10);
             this.flpReportes.Name = "flpReportes";
-            this.flpReportes.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0); // Padding para centrar el bloque
+            this.flpReportes.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
             this.flpReportes.Size = new System.Drawing.Size(1124, 660);
             this.flpReportes.TabIndex = 0;
-            this.flpReportes.WrapContents = true; // Permite que las tarjetas bajen a la siguiente linea
+            this.flpReportes.WrapContents = true;
 
-            // pnlNav
             this.pnlNav.BackColor = System.Drawing.Color.Transparent;
             this.pnlNav.Controls.Add(this.lineSelected);
             this.pnlNav.Controls.Add(this.btnEspecificos);
@@ -96,7 +91,6 @@
             this.pnlNav.Size = new System.Drawing.Size(1144, 50);
             this.pnlNav.TabIndex = 3;
 
-            // lineSelected (Animacion visual de pestana)
             this.lineSelected.FillColor = System.Drawing.Color.FromArgb(30, 58, 95);
             this.lineSelected.FillThickness = 3;
             this.lineSelected.Location = new System.Drawing.Point(20, 45);
@@ -104,7 +98,6 @@
             this.lineSelected.Size = new System.Drawing.Size(150, 5);
             this.lineSelected.TabIndex = 2;
 
-            // btnGenerales
             this.btnGenerales.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnGenerales.Checked = true;
             this.btnGenerales.CheckedState.FillColor = System.Drawing.Color.White;
@@ -118,7 +111,6 @@
             this.btnGenerales.Text = "GENERALES";
             this.btnGenerales.Click += new System.EventHandler(this.Tab_Click);
 
-            // btnEspecificos
             this.btnEspecificos.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnEspecificos.FillColor = System.Drawing.Color.White;
             this.btnEspecificos.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -129,7 +121,6 @@
             this.btnEspecificos.Text = "ESPECIFICOS";
             this.btnEspecificos.Click += new System.EventHandler(this.Tab_Click);
 
-            // pnlHeader
             this.pnlHeader.BackColor = System.Drawing.Color.Transparent;
             this.pnlHeader.Controls.Add(this.btnVolver);
             this.pnlHeader.Controls.Add(this.lblTitulo);
@@ -140,7 +131,6 @@
             this.pnlHeader.Size = new System.Drawing.Size(1144, 64);
             this.pnlHeader.TabIndex = 0;
 
-            // btnVolver
             this.btnVolver.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.btnVolver.BorderRadius = 8;
             this.btnVolver.FillColor = System.Drawing.Color.FromArgb(220, 53, 69);
@@ -153,14 +143,12 @@
             this.btnVolver.Visible = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
 
-            // lblTitulo
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(30, 58, 95);
             this.lblTitulo.Location = new System.Drawing.Point(20, 17);
             this.lblTitulo.Text = "Panel de Reportes";
 
-            // FrmReportes
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1144, 794);

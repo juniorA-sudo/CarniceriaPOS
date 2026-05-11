@@ -10,7 +10,7 @@ namespace CarniceriaPOS.UI.Forms
 {
     public partial class FrmReporteVentasDiarias : FrmReporteBase
     {
-        // Asumiendo que tienes un RepositorioVenta o similar
+
         private DateTime _desde, _hasta;
 
         public FrmReporteVentasDiarias(DateTime desde, DateTime hasta) : base()
@@ -29,8 +29,7 @@ namespace CarniceriaPOS.UI.Forms
 
         private void CargarDatos()
         {
-            // Aqui llamarias a tu procedimiento de ventas
-            // Por ahora configuramos las columnas para que el grid no este vacio visualmente
+
             DgvDatos.Columns.Clear();
             DgvDatos.Columns.Add("Fecha", "Fecha");
             DgvDatos.Columns.Add("Factura", "No. Factura");

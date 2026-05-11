@@ -4,14 +4,10 @@ using System.Data;
 
 namespace CarniceriaPOS.Utilities
 {
-    
-    
-    
+
     public static class UtilCrystalReports
     {
-        
-        
-        
+
         public static void MostrarReporte(DataTable datos, string titulo, string descripcion = "", string firmante = "")
         {
             try
@@ -25,11 +21,9 @@ namespace CarniceriaPOS.Utilities
                     StartPosition = FormStartPosition.CenterScreen
                 };
 
-                
                 Panel pnlMain = new Panel { Dock = DockStyle.Fill };
                 frmPreview.Controls.Add(pnlMain);
 
-                
                 Panel pnlHeader = new Panel
                 {
                     Dock = DockStyle.Top,
@@ -39,7 +33,6 @@ namespace CarniceriaPOS.Utilities
                 };
                 pnlMain.Controls.Add(pnlHeader);
 
-                
                 Label lblTitulo = new Label
                 {
                     Text = titulo,
@@ -51,7 +44,6 @@ namespace CarniceriaPOS.Utilities
                 };
                 pnlHeader.Controls.Add(lblTitulo);
 
-                
                 Label lblFecha = new Label
                 {
                     Text = $"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm:ss} | {descripcion}",
@@ -62,7 +54,6 @@ namespace CarniceriaPOS.Utilities
                 };
                 pnlHeader.Controls.Add(lblFecha);
 
-                
                 Panel pnlDatos = new Panel
                 {
                     Dock = DockStyle.Fill,
@@ -70,7 +61,6 @@ namespace CarniceriaPOS.Utilities
                 };
                 pnlMain.Controls.Add(pnlDatos);
 
-                
                 DataGridView dgv = new DataGridView
                 {
                     DataSource = datos,
@@ -107,7 +97,6 @@ namespace CarniceriaPOS.Utilities
 
                 pnlDatos.Controls.Add(dgv);
 
-                
                 Panel pnlBotones = new Panel
                 {
                     Dock = DockStyle.Bottom,
@@ -117,7 +106,6 @@ namespace CarniceriaPOS.Utilities
                 };
                 frmPreview.Controls.Add(pnlBotones);
 
-                
                 Button btnImprimir = new Button
                 {
                     Text = " Imprimir",
@@ -152,7 +140,6 @@ namespace CarniceriaPOS.Utilities
 
                 pnlBotones.Controls.Add(btnImprimir);
 
-                
                 Button btnExportar = new Button
                 {
                     Text = " Exportar PDF",
@@ -190,7 +177,6 @@ namespace CarniceriaPOS.Utilities
 
                 pnlBotones.Controls.Add(btnExportar);
 
-                
                 Button btnCerrar = new Button
                 {
                     Text = " Cerrar",
@@ -215,9 +201,6 @@ namespace CarniceriaPOS.Utilities
             }
         }
 
-        
-        
-        
         private static void ExportarDataGridViewAPDF(DataGridView dgv, string titulo, string descripcion, string firmante, string rutaPDF)
         {
             try

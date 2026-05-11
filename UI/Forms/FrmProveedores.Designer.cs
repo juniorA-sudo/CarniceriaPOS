@@ -24,7 +24,6 @@
             this.pnlPie = new System.Windows.Forms.Panel();
             this.grpDatos = new System.Windows.Forms.GroupBox();
 
-            
             this.lblTituloForm = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -40,25 +39,21 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
 
-            
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
 
-            
             this.lblTituloGrilla = new System.Windows.Forms.Label();
             this.lblBusqueda = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
 
-            
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblConexion = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
 
-            
             this.pnlMainContainer.SuspendLayout();
             this.pnlFormulario.SuspendLayout();
             this.pnlDatos.SuspendLayout();
@@ -69,7 +64,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.SuspendLayout();
 
-            
             this.pnlMainContainer.Controls.Add(this.pnlGrilla);
             this.pnlMainContainer.Controls.Add(this.pnlFormulario);
             this.pnlMainContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -78,7 +72,6 @@
             this.pnlMainContainer.Size = new System.Drawing.Size(1024, 600);
             this.pnlMainContainer.TabIndex = 0;
 
-            
             this.pnlFormulario.Controls.Add(this.pnlDatos);
             this.pnlFormulario.Controls.Add(this.lblTituloForm);
             this.pnlFormulario.Dock = System.Windows.Forms.DockStyle.Left;
@@ -88,7 +81,6 @@
             this.pnlFormulario.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlFormulario.TabIndex = 0;
 
-            
             this.lblTituloForm.AutoSize = true;
             this.lblTituloForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.lblTituloForm.Location = new System.Drawing.Point(15, 15);
@@ -97,7 +89,6 @@
             this.lblTituloForm.TabIndex = 0;
             this.lblTituloForm.Text = "Gestion de Proveedores";
 
-            
             this.pnlDatos.Controls.Add(this.grpDatos);
             this.pnlDatos.Controls.Add(this.pnlBotones);
             this.pnlDatos.Location = new System.Drawing.Point(0, 50);
@@ -106,7 +97,6 @@
             this.pnlDatos.TabIndex = 1;
             this.pnlDatos.AutoScroll = true;
 
-            
             this.grpDatos.Controls.Add(this.lblID);
             this.grpDatos.Controls.Add(this.txtID);
             this.grpDatos.Controls.Add(this.lblNombre);
@@ -128,7 +118,6 @@
             this.grpDatos.TabStop = false;
             this.grpDatos.Text = "Datos del Proveedor";
 
-            
             this.lblID.AutoSize = true;
             this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblID.Location = new System.Drawing.Point(10, 25);
@@ -148,7 +137,6 @@
             this.txtID.TabIndex = 1;
             this.txtID.Text = "AUTO";
 
-            
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblNombre.Location = new System.Drawing.Point(10, 50);
@@ -165,7 +153,6 @@
             this.txtNombre.Size = new System.Drawing.Size(330, 20);
             this.txtNombre.TabIndex = 3;
 
-            
             this.lblRNC.AutoSize = true;
             this.lblRNC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblRNC.Location = new System.Drawing.Point(10, 90);
@@ -182,7 +169,6 @@
             this.txtRNC.Size = new System.Drawing.Size(330, 20);
             this.txtRNC.TabIndex = 5;
 
-            
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblTelefono.Location = new System.Drawing.Point(10, 130);
@@ -199,7 +185,6 @@
             this.txtTelefono.Size = new System.Drawing.Size(330, 20);
             this.txtTelefono.TabIndex = 7;
 
-            
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblEmail.Location = new System.Drawing.Point(10, 170);
@@ -216,7 +201,6 @@
             this.txtEmail.Size = new System.Drawing.Size(330, 20);
             this.txtEmail.TabIndex = 9;
 
-            
             this.lblDireccion.AutoSize = true;
             this.lblDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblDireccion.Location = new System.Drawing.Point(10, 210);
@@ -234,7 +218,6 @@
             this.txtDireccion.Size = new System.Drawing.Size(330, 50);
             this.txtDireccion.TabIndex = 11;
 
-            
             this.chkActivo.AutoSize = true;
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -246,7 +229,6 @@
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
 
-            
             this.pnlBotones.Controls.Add(this.btnNuevo);
             this.pnlBotones.Controls.Add(this.btnGuardar);
             this.pnlBotones.Controls.Add(this.btnEliminar);
@@ -256,7 +238,6 @@
             this.pnlBotones.Size = new System.Drawing.Size(360, 50);
             this.pnlBotones.TabIndex = 1;
 
-            
             this.btnNuevo.BackColor = System.Drawing.Color.LightBlue;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
@@ -268,7 +249,6 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
 
-            
             this.btnGuardar.BackColor = System.Drawing.Color.LightGreen;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
@@ -280,7 +260,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
 
-            
             this.btnEliminar.BackColor = System.Drawing.Color.LightCoral;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
@@ -292,7 +271,6 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
 
-            
             this.btnLimpiar.BackColor = System.Drawing.Color.LightGray;
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
@@ -304,7 +282,6 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
 
-            
             this.pnlGrilla.Controls.Add(this.lblTituloGrilla);
             this.pnlGrilla.Controls.Add(this.lblBusqueda);
             this.pnlGrilla.Controls.Add(this.txtBusqueda);
@@ -317,7 +294,6 @@
             this.pnlGrilla.Size = new System.Drawing.Size(644, 600);
             this.pnlGrilla.TabIndex = 1;
 
-            
             this.lblTituloGrilla.AutoSize = true;
             this.lblTituloGrilla.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.lblTituloGrilla.Location = new System.Drawing.Point(15, 15);
@@ -326,7 +302,6 @@
             this.lblTituloGrilla.TabIndex = 0;
             this.lblTituloGrilla.Text = "Lista de Proveedores";
 
-            
             this.lblBusqueda.AutoSize = true;
             this.lblBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.lblBusqueda.Location = new System.Drawing.Point(15, 45);
@@ -355,7 +330,6 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
 
-            
             this.dgvProveedores.AllowUserToAddRows = false;
             this.dgvProveedores.AllowUserToDeleteRows = false;
             this.dgvProveedores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -368,7 +342,6 @@
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProveedores.SelectionChanged += new System.EventHandler(this.dgvProveedores_SelectionChanged);
 
-            
             this.pnlPie.Controls.Add(this.lblTotal);
             this.pnlPie.Controls.Add(this.lblConexion);
             this.pnlPie.Controls.Add(this.lblUsuario);
@@ -403,7 +376,6 @@
             this.lblUsuario.TabIndex = 2;
             this.lblUsuario.Text = "Usuario: N/A";
 
-            
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 600);
@@ -413,7 +385,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmProveedores_Load);
 
-            
             this.pnlMainContainer.ResumeLayout(false);
             this.pnlFormulario.ResumeLayout(false);
             this.pnlFormulario.PerformLayout();
@@ -430,7 +401,6 @@
             this.PerformLayout();
         }
 
-        
         private System.Windows.Forms.Panel pnlMainContainer;
         private System.Windows.Forms.Panel pnlFormulario;
         private System.Windows.Forms.Panel pnlDatos;

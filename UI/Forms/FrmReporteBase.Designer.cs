@@ -26,9 +26,7 @@
             this.shadowContainer.SuspendLayout();
             this.pnlDocumento.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlExternalHeader
-            // 
+
             this.pnlExternalHeader.BackColor = System.Drawing.Color.Transparent;
             this.pnlExternalHeader.BorderRadius = 15;
             this.pnlExternalHeader.Controls.Add(this.lblSubtituloHeader);
@@ -38,9 +36,7 @@
             this.pnlExternalHeader.Name = "pnlExternalHeader";
             this.pnlExternalHeader.Size = new System.Drawing.Size(1095, 100);
             this.pnlExternalHeader.TabIndex = 0;
-            // 
-            // lblSubtituloHeader
-            // 
+
             this.lblSubtituloHeader.AutoSize = true;
             this.lblSubtituloHeader.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblSubtituloHeader.ForeColor = System.Drawing.Color.Gray;
@@ -48,9 +44,7 @@
             this.lblSubtituloHeader.Name = "lblSubtituloHeader";
             this.lblSubtituloHeader.Size = new System.Drawing.Size(0, 19);
             this.lblSubtituloHeader.TabIndex = 1;
-            // 
-            // lblTituloModulo
-            // 
+
             this.lblTituloModulo.AutoSize = true;
             this.lblTituloModulo.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblTituloModulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(58)))), ((int)(((byte)(95)))));
@@ -58,9 +52,7 @@
             this.lblTituloModulo.Name = "lblTituloModulo";
             this.lblTituloModulo.Size = new System.Drawing.Size(0, 37);
             this.lblTituloModulo.TabIndex = 0;
-            // 
-            // shadowContainer
-            // 
+
             this.shadowContainer.BackColor = System.Drawing.Color.Transparent;
             this.shadowContainer.Controls.Add(this.pnlDocumento);
             this.shadowContainer.FillColor = System.Drawing.Color.White;
@@ -72,9 +64,7 @@
             this.shadowContainer.ShadowStyle = Guna.UI2.WinForms.Guna2ShadowPanel.ShadowMode.ForwardDiagonal;
             this.shadowContainer.Size = new System.Drawing.Size(1095, 630);
             this.shadowContainer.TabIndex = 1;
-            // 
-            // pnlDocumento
-            // 
+
             this.pnlDocumento.Controls.Add(this.pnlDatos);
             this.pnlDocumento.Controls.Add(this.lblTituloReporte);
             this.pnlDocumento.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -83,17 +73,13 @@
             this.pnlDocumento.Name = "pnlDocumento";
             this.pnlDocumento.Size = new System.Drawing.Size(1085, 620);
             this.pnlDocumento.TabIndex = 0;
-            // 
-            // pnlDatos
-            // 
+
             this.pnlDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDatos.Location = new System.Drawing.Point(0, 220);
             this.pnlDatos.Name = "pnlDatos";
             this.pnlDatos.Size = new System.Drawing.Size(1085, 400);
             this.pnlDatos.TabIndex = 1;
-            // 
-            // lblTituloReporte
-            // 
+
             this.lblTituloReporte.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTituloReporte.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblTituloReporte.Location = new System.Drawing.Point(0, 160);
@@ -101,9 +87,7 @@
             this.lblTituloReporte.Size = new System.Drawing.Size(1085, 60);
             this.lblTituloReporte.TabIndex = 2;
             this.lblTituloReporte.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // FrmReporteBase
-            // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));

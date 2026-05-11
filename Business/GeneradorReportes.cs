@@ -29,7 +29,6 @@ namespace CarniceriaPOS.Business
         body {{ font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; padding: 20px; }}
         .contenedor {{ max-width: 1000px; margin: 0 auto; background: white; padding: 30px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }}
 
-        
         .encabezado {{ display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #E75480; padding-bottom: 20px; margin-bottom: 30px; }}
         .logo-empresa {{ flex: 1; }}
         .logo {{ width: 60px; height: 60px; background: linear-gradient(135deg, #E75480 0%, #FF69B4 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold; }}
@@ -40,7 +39,6 @@ namespace CarniceriaPOS.Business
         .titulo-reporte h1 {{ font-size: 28px; color: #E75480; font-weight: bold; text-transform: uppercase; }}
         .fecha {{ font-size: 12px; color: #666; margin-top: 5px; }}
 
-        
         .indicadores {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }}
         .indicador {{ background: linear-gradient(135deg, #E75480 0%, #FF69B4 100%); color: white; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }}
         .indicador-titulo {{ font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; opacity: 0.9; }}
@@ -52,7 +50,6 @@ namespace CarniceriaPOS.Business
         .indicador.naranja {{ background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); }}
         .indicador.rojo {{ background: linear-gradient(135deg, #F44336 0%, #E91E63 100%); }}
 
-        
         .seccion {{ margin-bottom: 30px; }}
         .seccion-titulo {{ font-size: 18px; font-weight: bold; color: #E75480; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #E75480; }}
         .tabla-contenedor {{ overflow-x: auto; }}
@@ -62,23 +59,19 @@ namespace CarniceriaPOS.Business
         tr:hover {{ background: #f9f9f9; }}
         tr:nth-child(even) {{ background: #f5f5f5; }}
 
-        
         .analisis {{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }}
         .caja-analisis {{ background: #FFF5F7; padding: 15px; border-left: 4px solid #E75480; border-radius: 4px; }}
         .caja-analisis h3 {{ color: #E75480; margin-bottom: 10px; font-size: 14px; }}
         .caja-analisis ul {{ margin-left: 20px; font-size: 13px; line-height: 1.6; }}
         .caja-analisis li {{ margin-bottom: 5px; color: #555; }}
 
-        
         .grafico-contenedor {{ margin-bottom: 30px; text-align: center; }}
         .grafico-contenedor canvas {{ max-width: 500px; margin: 0 auto; }}
 
-        
         .footer {{ border-top: 2px solid #E75480; padding-top: 20px; margin-top: 30px; text-align: center; font-size: 12px; color: #666; }}
         .firma {{ display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; text-align: center; }}
         .firma-linea {{ border-top: 1px solid #333; margin-top: 40px; padding-top: 5px; }}
 
-        
         .texto-verde {{ color: #4CAF50; font-weight: bold; }}
         .texto-rojo {{ color: #F44336; font-weight: bold; }}
         .texto-gris {{ color: #999; }}

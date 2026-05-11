@@ -1,13 +1,6 @@
--- =========================================================================
--- PROYECTO FINAL COMPLETO: Sistema de Carniceria POS
--- BASE DE DATOS: CarniceriaPOS
--- INCLUYE: Creacion de BD, Tablas y Poblacion de Datos Reales (10 por tabla)
--- =========================================================================
-
 USE master;
 GO
 
--- 1. BORRAR LA BASE DE DATOS SI YA EXISTE PARA EMPEZAR LIMPIO
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'CarniceriaPOS')
 BEGIN
     ALTER DATABASE CarniceriaPOS SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
@@ -15,16 +8,11 @@ BEGIN
 END
 GO
 
--- 2. CREAR LA BASE DE DATOS
 CREATE DATABASE CarniceriaPOS;
 GO
 
 USE CarniceriaPOS;
 GO
-
--- =========================================================================
--- 3. CREACION DE ESTRUCTURA DE TABLAS (DDL)
--- =========================================================================
 
 CREATE TABLE Roles (
     IdRol INT IDENTITY(1,1) PRIMARY KEY,
@@ -149,13 +137,8 @@ CREATE TABLE AuditoriaAcceso (
     Detalles NVARCHAR(255)
 );
 
-GO -- Fin de la creacion de estructura. A partir de aqui, las tablas existen.
+GO
 
--- =========================================================================
--- 4. POBLACION DE DATOS (DML) - LOTE CONTINUO SIN 'GO' HASTA EL FINAL
--- =========================================================================
-
--- Declaracion de variables para el lote completo
 DECLARE @Rol_Admin INT, @Rol_Cajero INT, @Rol_Supervisor INT;
 DECLARE @Depto_Ventas INT, @Depto_Admin INT, @Depto_Produccion INT;
 DECLARE @UOM_Lb INT, @UOM_Unid INT;
@@ -167,7 +150,6 @@ DECLARE @Prod_Bistec INT, @Prod_Chorizo INT;
 DECLARE @Venta1 INT, @Venta2 INT, @Venta3 INT, @Venta4 INT, @Venta5 INT, @Venta6 INT, @Venta7 INT, @Venta8 INT, @Venta9 INT, @Venta10 INT;
 DECLARE @Compra1 INT, @Compra2 INT, @Compra3 INT, @Compra4 INT, @Compra5 INT, @Compra6 INT, @Compra7 INT, @Compra8 INT, @Compra9 INT, @Compra10 INT;
 
--- 4.1 CATALOGOS BASE
 INSERT INTO Roles (Nombre, Descripcion) VALUES ('Administrador', 'Acceso total al sistema');
 INSERT INTO Roles (Nombre, Descripcion) VALUES ('Cajero', 'Acceso limitado para ventas y punto de venta');
 INSERT INTO Roles (Nombre, Descripcion) VALUES ('Supervisor', 'Acceso para ventas, reportes y supervision');
@@ -182,7 +164,6 @@ INSERT INTO UnidadesMedida (Nombre, Abreviatura) VALUES ('Libras', 'Lb');
 INSERT INTO UnidadesMedida (Nombre, Abreviatura) VALUES ('Unidades', 'Unid');
 SELECT @UOM_Lb = 1, @UOM_Unid = 2;
 
--- 4.2 EMPLEADOS Y USUARIOS (10 cada uno)
 INSERT INTO Empleados (Nombre, Cedula, Telefono, IdDepartamento, Puesto, Salario, Activo) VALUES ('Carlos Gomez', '001-1234567-8', '(809) 555-1111', @Depto_Admin, 'Administrador', 25000.00, 1);
 INSERT INTO Empleados (Nombre, Cedula, Telefono, IdDepartamento, Puesto, Salario, Activo) VALUES ('Ana Martinez', '402-9876543-2', '(829) 555-2222', @Depto_Ventas, 'Cajera', 18000.00, 1);
 INSERT INTO Empleados (Nombre, Cedula, Telefono, IdDepartamento, Puesto, Salario, Activo) VALUES ('Luis Rodriguez', '047-5555555-5', '(809) 555-3333', @Depto_Ventas, 'Cajero', 18000.00, 1);
@@ -207,7 +188,6 @@ INSERT INTO Usuarios (IdEmpleado, NombreUsuario, Email, PasswordHash, IdRol, Act
 INSERT INTO Usuarios (IdEmpleado, NombreUsuario, Email, PasswordHash, IdRol, Activo) VALUES (9, 'sofia.carnicero', 'sofia@carniceria.com', 'sofia123', @Rol_Supervisor, 1);
 SELECT @Usuario_Carlos = 1, @Usuario_Ana = 2;
 
--- 4.3 PROVEEDORES Y CLIENTES (10 cada uno)
 INSERT INTO Proveedores (Nombre, RNC, Telefono, Email, Activo) VALUES ('Carnes del Sur, SRL', '1-01-23456-7', '(809) 555-7777', 'ventas@carnesdelsur.do', 1);
 INSERT INTO Proveedores (Nombre, RNC, Telefono, Email, Activo) VALUES ('Distribuidora Oriental, SRL', '1-01-23456-8', '(829) 555-8888', 'contacto@distribuidoraoriental.com', 1);
 INSERT INTO Proveedores (Nombre, RNC, Telefono, Email, Activo) VALUES ('Suplidora Carnica Dom', '1-01-23456-9', '(849) 555-9999', 'info@suplidoracarnica.do', 1);
@@ -232,7 +212,6 @@ INSERT INTO Clientes (Nombre, Cedula, RNC, Telefono, Activo) VALUES ('Elena Roja
 INSERT INTO Clientes (Nombre, Cedula, RNC, Telefono, Activo) VALUES ('Roberto Pena', '013-1234567-8', NULL, '(849) 555-3344', 1);
 SELECT @Cliente_Juan = 1, @Cliente_Maria = 2;
 
--- 4.4 PRODUCTOS (10 registros)
 INSERT INTO Productos (CodigoBarras, Nombre, Categoria, IdUnidadMedida, PrecioCompra, PrecioVenta, StockActual, AplicaITBIS, Activo) VALUES ('P-001', 'Bistec de Res Selecto', 'Res', @UOM_Lb, 550.00, 650.00, 50.00, 0, 1);
 INSERT INTO Productos (CodigoBarras, Nombre, Categoria, IdUnidadMedida, PrecioCompra, PrecioVenta, StockActual, AplicaITBIS, Activo) VALUES ('P-002', 'Costillas de Cerdo', 'Cerdo', @UOM_Lb, 420.00, 520.00, 30.00, 0, 1);
 INSERT INTO Productos (CodigoBarras, Nombre, Categoria, IdUnidadMedida, PrecioCompra, PrecioVenta, StockActual, AplicaITBIS, Activo) VALUES ('P-003', 'Pollo Entero', 'Aves', @UOM_Lb, 180.00, 230.00, 100.00, 0, 1);
@@ -245,7 +224,6 @@ INSERT INTO Productos (CodigoBarras, Nombre, Categoria, IdUnidadMedida, PrecioCo
 INSERT INTO Productos (CodigoBarras, Nombre, Categoria, IdUnidadMedida, PrecioCompra, PrecioVenta, StockActual, AplicaITBIS, Activo) VALUES ('P-010', 'Bolsas Plasticas Grand.', 'Empaque', @UOM_Unid, 5.00, 10.00, 500.00, 1, 1);
 SELECT @Prod_Bistec = 1, @Prod_Chorizo = 5;
 
--- 4.5 VENTAS Y DETALLES DE VENTAS (10 cada uno, exactamente 1 a 1)
 INSERT INTO Ventas (NumeroFactura, IdCliente, IdUsuario, FechaVenta, MetodoPago, Subtotal, TotalITBIS, Total, MontoRecibido, Cambio) VALUES ('V-10045', @Cliente_Juan, @Usuario_Ana, GETDATE(), 'Efectivo', 1625.00, 0.00, 1625.00, 2000.00, 375.00); SELECT @Venta1 = SCOPE_IDENTITY();
 INSERT INTO Ventas (NumeroFactura, IdCliente, IdUsuario, FechaVenta, MetodoPago, Subtotal, TotalITBIS, Total, MontoRecibido, Cambio) VALUES ('V-10046', @Cliente_Maria, @Usuario_Ana, GETDATE(), 'Tarjeta', 550.00, 99.00, 649.00, 649.00, 0.00); SELECT @Venta2 = SCOPE_IDENTITY();
 INSERT INTO Ventas (NumeroFactura, IdCliente, IdUsuario, FechaVenta, MetodoPago, Subtotal, TotalITBIS, Total, MontoRecibido, Cambio) VALUES ('V-10047', 3, @Usuario_Ana, GETDATE(), 'Efectivo', 230.00, 0.00, 230.00, 300.00, 70.00); SELECT @Venta3 = SCOPE_IDENTITY();
@@ -257,18 +235,17 @@ INSERT INTO Ventas (NumeroFactura, IdCliente, IdUsuario, FechaVenta, MetodoPago,
 INSERT INTO Ventas (NumeroFactura, IdCliente, IdUsuario, FechaVenta, MetodoPago, Subtotal, TotalITBIS, Total, MontoRecibido, Cambio) VALUES ('V-10053', 3, @Usuario_Ana, GETDATE(), 'Efectivo', 600.00, 0.00, 600.00, 1000.00, 400.00); SELECT @Venta9 = SCOPE_IDENTITY();
 INSERT INTO Ventas (NumeroFactura, IdCliente, IdUsuario, FechaVenta, MetodoPago, Subtotal, TotalITBIS, Total, MontoRecibido, Cambio) VALUES ('V-10054', 3, @Usuario_Ana, GETDATE(), 'Tarjeta', 760.00, 0.00, 760.00, 760.00, 0.00); SELECT @Venta10 = SCOPE_IDENTITY();
 
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta1, 1, 2.50, 650.00, 1625.00); -- Bistec
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta2, 5, 1.00, 550.00, 550.00); -- Chorizo
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta3, 3, 1.00, 230.00, 230.00); -- Pollo
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta4, 2, 1.00, 520.00, 520.00); -- Costillas
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta5, 1, 2.00, 650.00, 1300.00); -- Bistec
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta6, 3, 2.00, 230.00, 460.00); -- Pollo
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta7, 4, 1.00, 250.00, 250.00); -- Salami
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta8, 1, 1.00, 650.00, 650.00); -- Bistec
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta9, 7, 1.00, 600.00, 600.00); -- Carne Molida
-INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta10, 8, 2.00, 380.00, 760.00); -- Pechuga
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta1, 1, 2.50, 650.00, 1625.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta2, 5, 1.00, 550.00, 550.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta3, 3, 1.00, 230.00, 230.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta4, 2, 1.00, 520.00, 520.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta5, 1, 2.00, 650.00, 1300.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta6, 3, 2.00, 230.00, 460.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta7, 4, 1.00, 250.00, 250.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta8, 1, 1.00, 650.00, 650.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta9, 7, 1.00, 600.00, 600.00);
+INSERT INTO DetalleVentas (IdVenta, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Venta10, 8, 2.00, 380.00, 760.00);
 
--- 4.6 COMPRAS Y DETALLES DE COMPRAS (10 cada uno, exactamente 1 a 1)
 INSERT INTO Compras (NumeroFacturaProv, IdProveedor, IdUsuario, FechaCompra, Total) VALUES ('FAC-9901', @Prov_CarnesSur, @Usuario_Carlos, GETDATE(), 11000.00); SELECT @Compra1 = SCOPE_IDENTITY();
 INSERT INTO Compras (NumeroFacturaProv, IdProveedor, IdUsuario, FechaCompra, Total) VALUES ('FAC-1102', @Prov_DistOriente, @Usuario_Carlos, GETDATE(), 4500.00); SELECT @Compra2 = SCOPE_IDENTITY();
 INSERT INTO Compras (NumeroFacturaProv, IdProveedor, IdUsuario, FechaCompra, Total) VALUES ('FAC-2203', 3, @Usuario_Carlos, GETDATE(), 15000.00); SELECT @Compra3 = SCOPE_IDENTITY();
@@ -280,23 +257,18 @@ INSERT INTO Compras (NumeroFacturaProv, IdProveedor, IdUsuario, FechaCompra, Tot
 INSERT INTO Compras (NumeroFacturaProv, IdProveedor, IdUsuario, FechaCompra, Total) VALUES ('FAC-8809', 9, @Usuario_Carlos, GETDATE(), 3000.00); SELECT @Compra9 = SCOPE_IDENTITY();
 INSERT INTO Compras (NumeroFacturaProv, IdProveedor, IdUsuario, FechaCompra, Total) VALUES ('FAC-9910', 10, @Usuario_Carlos, GETDATE(), 6000.00); SELECT @Compra10 = SCOPE_IDENTITY();
 
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra1, 1, 20.00, 550.00, 11000.00); -- Bistec
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra2, 5, 10.00, 450.00, 4500.00); -- Chorizo
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra3, 1, 27.27, 550.00, 15000.00); -- Bistec
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra4, 2, 11.90, 420.00, 5000.00); -- Costillas
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra5, 1, 36.36, 550.00, 20000.00); -- Bistec
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra6, 3, 41.66, 180.00, 7500.00); -- Pollo
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra7, 8, 37.50, 320.00, 12000.00); -- Pechuga
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra8, 9, 125.00, 20.00, 2500.00); -- Sazoncito
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra9, 10, 600.00, 5.00, 3000.00); -- Bolsas
-INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra10, 2, 14.28, 420.00, 6000.00); -- Costillas
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra1, 1, 20.00, 550.00, 11000.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra2, 5, 10.00, 450.00, 4500.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra3, 1, 27.27, 550.00, 15000.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra4, 2, 11.90, 420.00, 5000.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra5, 1, 36.36, 550.00, 20000.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra6, 3, 41.66, 180.00, 7500.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra7, 8, 37.50, 320.00, 12000.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra8, 9, 125.00, 20.00, 2500.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra9, 10, 600.00, 5.00, 3000.00);
+INSERT INTO DetalleCompras (IdCompra, IdProducto, Cantidad, PrecioUnitario, Subtotal) VALUES (@Compra10, 2, 14.28, 420.00, 6000.00);
 
 GO
--- =========================================================================
--- FIN DEL SCRIPT.
--- A continuacion, una consulta para comprobar que todas las tablas
--- tienen exactamente la cantidad de registros solicitada.
--- =========================================================================
 
 SELECT 'Roles' AS Tabla, COUNT(*) AS TotalRegistros FROM Roles
 UNION ALL SELECT 'Departamentos', COUNT(*) FROM Departamentos

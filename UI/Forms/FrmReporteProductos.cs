@@ -19,10 +19,8 @@ namespace CarniceriaPOS.UI.Forms
         {
             _repo = new RepositorioProducto();
 
-            // Seteamos los titulos directamente en los controles heredados de FrmReporteBase
             this.lblTituloModulo.Text = "Reporte de Inventario";
 
-            // Reemplazo de AgregarDescripcionReporte:
             this.lblSubtituloHeader.Text = "Resumen ejecutivo del stock actual y valoracion de inventario.";
 
             this.lblTituloReporte.Text = "INVENTARIO GENERAL DE PRODUCTOS";
@@ -30,7 +28,7 @@ namespace CarniceriaPOS.UI.Forms
 
         protected override void FrmReporteBase_Load(object sender, EventArgs e)
         {
-            // Cargamos los datos reales de la base de datos
+
             CargarDatosProductos();
         }
 

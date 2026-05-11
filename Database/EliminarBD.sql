@@ -1,7 +1,3 @@
--- =============================================
--- ELIMINAR BASE DE DATOS EXISTENTE
--- =============================================
-
 IF EXISTS (SELECT * FROM sys.databases WHERE name = 'CarniceriaPOS')
 BEGIN
     ALTER DATABASE CarniceriaPOS SET SINGLE_USER WITH ROLLBACK IMMEDIATE;

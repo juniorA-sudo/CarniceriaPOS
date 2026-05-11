@@ -124,7 +124,7 @@ namespace CarniceriaPOS.Data
 
         private Proveedor MapearProveedor(DataRow row)
         {
-            // Funcion para obtener datos de forma segura (Previene el error de Cast)
+
             object SafeGet(string columnName, object defaultValue)
             {
                 if (row.Table.Columns.Contains(columnName) && row[columnName] != DBNull.Value)
@@ -140,9 +140,9 @@ namespace CarniceriaPOS.Data
                 Email = SafeGet("Email", "").ToString(),
                 Direccion = SafeGet("Direccion", "").ToString(),
                 RNC = SafeGet("RNC", "").ToString(),
-                // Convert.ToBoolean es mas robusto que el casting directo (bool)
+
                 Activo = Convert.ToBoolean(SafeGet("Activo", false)),
-                // SafeGet con fecha por defecto por si el campo es nulo o no existe
+
                 FechaCreacion = Convert.ToDateTime(SafeGet("FechaCreacion", DateTime.Now))
             };
         }

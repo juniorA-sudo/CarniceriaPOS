@@ -29,7 +29,6 @@ namespace CarniceriaPOS.UI.Forms
             AplicarEstiloTextBox(txtEmail);
             AplicarEstiloTextBox(txtPassword);
 
-            
             CargarLogo();
         }
 
@@ -48,7 +47,6 @@ namespace CarniceriaPOS.UI.Forms
                 string[] extensiones = { ".png", ".jpg", ".jpeg", ".bmp", ".gif" };
                 string rutaEjecucion = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
-                
                 string[] rutasBusqueda = new string[]
                 {
                     System.IO.Path.Combine(rutaEjecucion, "logo"),                    
@@ -141,7 +139,6 @@ namespace CarniceriaPOS.UI.Forms
                 var rol = repRol.ObtenerRolPorId(usuario.IdRol);
                 SesionActual.IniciarSesion(usuario, rol);
 
-                
                 LogAuditoria.RegistrarLogin(usuario.NombreUsuario, true);
 
                 FrmPrincipal frmPrincipal = new FrmPrincipal();

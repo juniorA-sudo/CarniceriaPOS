@@ -40,16 +40,12 @@ namespace CarniceriaPOS.UI.Forms
                     return;
                 }
 
-                
                 ConfigurarValidacionesFormulario();
 
-                
                 CargarProveedores();
 
-                
                 ActualizarPie();
 
-                
                 HabilitarDeshabilitarBotones(false);
             }
             catch (Exception ex)
@@ -58,10 +54,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
-        
         private void ConfigurarValidacionesFormulario()
         {
             FormateadorTextBox.ConfigurarTextBox(txtRNC, FormateadorTextBox.TipoValidacion.RNC);
@@ -70,17 +62,12 @@ namespace CarniceriaPOS.UI.Forms
             txtDireccion.MaxLength = 150;
         }
 
-        
-        
-        
-        
         private void CargarProveedores()
         {
             try
             {
                 var proveedores = repProveedor.ObtenerTodos();
 
-                
                 if (dgvProveedores.Columns.Count == 0)
                 {
                     dgvProveedores.Columns.Add("IdProveedor", "ID");
@@ -89,14 +76,12 @@ namespace CarniceriaPOS.UI.Forms
                     dgvProveedores.Columns.Add("Telefono", "Telefono");
                     dgvProveedores.Columns.Add("Email", "Email");
 
-                    
                     dgvProveedores.Columns["IdProveedor"].DataPropertyName = "IdProveedor";
                     dgvProveedores.Columns["Nombre"].DataPropertyName = "Nombre";
                     dgvProveedores.Columns["RNC"].DataPropertyName = "RNC";
                     dgvProveedores.Columns["Telefono"].DataPropertyName = "Telefono";
                     dgvProveedores.Columns["Email"].DataPropertyName = "Email";
 
-                    
                     dgvProveedores.Columns["IdProveedor"].Width = 40;
                     dgvProveedores.Columns["Nombre"].Width = 150;
                     dgvProveedores.Columns["RNC"].Width = 100;
@@ -104,10 +89,8 @@ namespace CarniceriaPOS.UI.Forms
                     dgvProveedores.Columns["Email"].Width = 115;
                 }
 
-                
                 dgvProveedores.DataSource = proveedores;
 
-                
                 lblTotal.Text = $"Total Proveedores: {proveedores.Count}";
             }
             catch (Exception ex)
@@ -117,10 +100,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
-        
         private bool ValidarCampos()
         {
             
@@ -145,7 +124,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (!Validador.ValidarCampoObligatorio(txtRNC.Text))
             {
                 MessageBox.Show("Ingrese el RNC (Registro Nacional Contribuyente)");
@@ -167,7 +145,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (!string.IsNullOrEmpty(txtTelefono.Text))
             {
                 if (!Validador.ValidarTelefono(txtTelefono.Text))
@@ -178,7 +155,6 @@ namespace CarniceriaPOS.UI.Forms
                 }
             }
 
-            
             if (!string.IsNullOrEmpty(txtEmail.Text))
             {
                 if (!Validador.ValidarEmail(txtEmail.Text))
@@ -189,7 +165,6 @@ namespace CarniceriaPOS.UI.Forms
                 }
             }
 
-            
             if (txtDireccion.Text.Length > 150)
             {
                 MessageBox.Show("La direccion no puede exceder 150 caracteres");
@@ -200,10 +175,6 @@ namespace CarniceriaPOS.UI.Forms
             return true;
         }
 
-        
-        
-        
-        
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esNuevo = true;
@@ -212,10 +183,6 @@ namespace CarniceriaPOS.UI.Forms
             txtNombre.Focus();
         }
 
-        
-        
-        
-        
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
@@ -294,10 +261,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
-        
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvProveedores.SelectedRows.Count == 0)
@@ -338,10 +301,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
-        
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -350,10 +309,6 @@ namespace CarniceriaPOS.UI.Forms
             esNuevo = false;
         }
 
-        
-        
-        
-        
         private void LimpiarCampos()
         {
             txtNombre.Clear();
@@ -364,10 +319,6 @@ namespace CarniceriaPOS.UI.Forms
             chkActivo.Checked = true;
         }
 
-        
-        
-        
-        
         private void dgvProveedores_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvProveedores.SelectedRows.Count > 0)
@@ -384,28 +335,16 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
-        
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
             FiltrarProveedores();
         }
 
-        
-        
-        
-        
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             FiltrarProveedores();
         }
 
-        
-        
-        
-        
         private void FiltrarProveedores()
         {
             try
@@ -435,26 +374,16 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
-        
         private void HabilitarDeshabilitarBotones(bool habilitar)
         {
             btnGuardar.Enabled = habilitar;
             btnEliminar.Enabled = habilitar;
 
-            
             btnNuevo.Enabled = true;
 
-            
             btnLimpiar.Enabled = true;
         }
 
-        
-        
-        
-        
         private void ActualizarPie()
         {
             try

@@ -55,9 +55,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void ConfigurarValidacionesFormulario()
         {
             FormateadorTextBox.ConfigurarTextBox(txtCedula, FormateadorTextBox.TipoValidacion.Cedula);
@@ -67,9 +64,6 @@ namespace CarniceriaPOS.UI.Forms
             FormateadorTextBox.ConfigurarTextBox(txtSalario, FormateadorTextBox.TipoValidacion.Moneda, 15);
         }
 
-        
-        
-        
         private void CargarDepartamentos()
         {
             try
@@ -85,9 +79,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void CargarEmpleados()
         {
             try
@@ -133,9 +124,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private bool ValidarCampos()
         {
             if (!Validador.ValidarCampoObligatorio(txtNombre.Text))
@@ -186,9 +174,6 @@ namespace CarniceriaPOS.UI.Forms
             return true;
         }
 
-        
-        
-        
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             esNuevo = true;
@@ -197,9 +182,6 @@ namespace CarniceriaPOS.UI.Forms
             txtNombre.Focus();
         }
 
-        
-        
-        
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
@@ -268,9 +250,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvEmpleados.SelectedRows.Count == 0)
@@ -299,9 +278,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -310,9 +286,6 @@ namespace CarniceriaPOS.UI.Forms
             esNuevo = false;
         }
 
-        
-        
-        
         private void LimpiarCampos()
         {
             txtNombre.Clear();
@@ -324,9 +297,6 @@ namespace CarniceriaPOS.UI.Forms
             chkActivo.Checked = true;
         }
 
-        
-        
-        
         private void dgvEmpleados_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvEmpleados.SelectedRows.Count > 0)
@@ -344,17 +314,11 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
             FiltrarEmpleados();
         }
 
-        
-        
-        
         private void FiltrarEmpleados()
         {
             try
@@ -384,9 +348,6 @@ namespace CarniceriaPOS.UI.Forms
             }
         }
 
-        
-        
-        
         private void HabilitarDeshabilitarBotones(bool habilitar)
         {
             btnGuardar.Enabled = habilitar;
@@ -395,9 +356,6 @@ namespace CarniceriaPOS.UI.Forms
             btnLimpiar.Enabled = true;
         }
 
-        
-        
-        
         private void ActualizarPie()
         {
             try

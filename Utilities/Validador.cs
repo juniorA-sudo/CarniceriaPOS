@@ -6,10 +6,7 @@ namespace CarniceriaPOS.Utilities
 {
     public class Validador
     {
-        
-        
-        
-        
+
         public static void ConfigurarMaxLengthFormulario(Control.ControlCollection controls)
         {
             foreach (Control control in controls)
@@ -18,116 +15,81 @@ namespace CarniceriaPOS.Utilities
                 {
                     string nombreControl = control.Name.ToLower();
 
-                    
                     if (nombreControl.Contains("busqueda")) txt.MaxLength = 50;
 
-                    
                     else if (nombreControl.Contains("nombre")) txt.MaxLength = 50;
 
-                    
                     else if (nombreControl.Contains("descripcion")) txt.MaxLength = 150;
 
-                    
                     else if (nombreControl.Contains("precio")) txt.MaxLength = 15;
 
-                    
                     else if (nombreControl.Contains("stock") || nombreControl.Contains("cantidad")) txt.MaxLength = 10;
 
-                    
                     else if (nombreControl.Contains("email")) txt.MaxLength = 80;
 
-                    
                     else if (nombreControl.Contains("telefono")) txt.MaxLength = 20;
 
-                    
                     else if (nombreControl.Contains("nit") || nombreControl.Contains("rnc") || nombreControl.Contains("dni")) txt.MaxLength = 20;
 
-                    
                     else if (nombreControl.Contains("direccion")) txt.MaxLength = 100;
 
-                    
                     else if (nombreControl.Contains("password") || nombreControl.Contains("contrasena")) txt.MaxLength = 40;
 
-                    
                     else if (nombreControl.Contains("credito") || nombreControl.Contains("monto")) txt.MaxLength = 15;
 
-                    
                     else if (nombreControl.Contains("observacion") || nombreControl.Contains("nota") || nombreControl.Contains("comentario")) txt.MaxLength = 300;
                 }
 
-                
                 if (control.HasChildren)
                 {
                     ConfigurarMaxLengthFormulario(control.Controls);
                 }
             }
         }
-        
-        
-        
+
         public static bool ValidarSoloLetras(string texto)
         {
             if (string.IsNullOrEmpty(texto)) return true;
             return Regex.IsMatch(texto, @"^[a-zaeiounA-ZAEIOUN\s\-\'\.]+$");
         }
 
-        
-        
-        
         public static bool ValidarSoloNumeros(string texto)
         {
             if (string.IsNullOrEmpty(texto)) return true;
             return Regex.IsMatch(texto, @"^\d+$");
         }
 
-        
-        
-        
         public static bool ValidarSoloNumerosDecimales(string texto)
         {
             if (string.IsNullOrEmpty(texto)) return true;
             return Regex.IsMatch(texto, @"^[\d\.]+$");
         }
 
-        
-        
-        
         public static string LimpiarALetras(string texto)
         {
             if (string.IsNullOrEmpty(texto)) return "";
             return Regex.Replace(texto, @"[^a-zaeiounA-ZAEIOUN\s\-\'\.]+", "");
         }
 
-        
-        
-        
         public static string LimpiarANumeros(string texto)
         {
             if (string.IsNullOrEmpty(texto)) return "";
             return Regex.Replace(texto, @"[^\d]", "");
         }
 
-        
-        
-        
         public static string LimpiarANumerosDecimales(string texto)
         {
             if (string.IsNullOrEmpty(texto)) return "";
             return Regex.Replace(texto, @"[^\d\.]", "");
         }
 
-        
-        
-        
         public static bool ValidarEmailGmailObligatorio(string email)
         {
             if (string.IsNullOrEmpty(email)) return false; 
 
-            
             if (!email.EndsWith("@gmail.com", StringComparison.OrdinalIgnoreCase))
                 return false;
 
-            
             try
             {
                 var addr = new System.Net.Mail.MailAddress(email);
@@ -152,21 +114,14 @@ namespace CarniceriaPOS.Utilities
             }
         }
 
-        
-        
-        
-        
         public static bool ValidarTelefonoRepublicaDominicana(string telefono)
         {
             if (string.IsNullOrEmpty(telefono)) return true;
 
-            
             string telefonoLimpio = Regex.Replace(telefono, @"[\s\-\(\)]", "");
 
-            
             if (telefonoLimpio.Length != 10) return false;
 
-            
             return Regex.IsMatch(telefonoLimpio, @"^(809|829|849)\d{7}$");
         }
 
@@ -208,27 +163,19 @@ namespace CarniceriaPOS.Utilities
             return inicio <= fin;
         }
 
-        
-        
-        
-        
         public static string FormatearTelefonoRD(string telefono)
         {
             if (string.IsNullOrEmpty(telefono)) return "";
 
-            
             string limpio = System.Text.RegularExpressions.Regex.Replace(telefono, @"[\s\-\(\)]", "");
 
-            
             if (limpio.Length > 10)
             {
                 limpio = limpio.Substring(0, 10);
             }
 
-            
             limpio = System.Text.RegularExpressions.Regex.Replace(limpio, @"[^\d]", "");
 
-            
             if (limpio.Length == 10)
             {
                 return $"{limpio.Substring(0, 3)}-{limpio.Substring(3, 3)}-{limpio.Substring(6)}";
@@ -247,27 +194,19 @@ namespace CarniceriaPOS.Utilities
             return limpio;
         }
 
-        
-        
-        
-        
         public static string FormatearRNC(string rnc)
         {
             if (string.IsNullOrEmpty(rnc)) return "";
 
-            
             string limpio = System.Text.RegularExpressions.Regex.Replace(rnc, @"[\s\-]", "");
 
-            
             if (limpio.Length > 11)
             {
                 limpio = limpio.Substring(0, 11);
             }
 
-            
             limpio = System.Text.RegularExpressions.Regex.Replace(limpio, @"[^\d]", "");
 
-            
             if (limpio.Length == 11)
             {
                 return $"{limpio.Substring(0, 3)}-{limpio.Substring(3, 6)}-{limpio.Substring(9)}";
@@ -291,9 +230,6 @@ namespace CarniceriaPOS.Utilities
             return limpio;
         }
 
-        
-        
-        
         public static void ConfigurarFormateoTelefono(TextBox txtTelefono)
         {
             if (txtTelefono == null) return;
@@ -312,9 +248,6 @@ namespace CarniceriaPOS.Utilities
                 }
             };
         }
-
-
-
 
         public static void ConfigurarFormateoRNC(TextBox txtRNC)
         {

@@ -63,10 +63,8 @@ namespace CarniceriaPOS.UI.Forms
             this.Text = "Gestion de Compras";
             dtpFechaCompra.Value = DateTime.Now;
 
-            
             Validador.ConfigurarMaxLengthFormulario(this.Controls);
 
-            
             dtpFechaCompra.ValueChanged += (s, evt) => CargarComprasPorFecha(dtpFechaCompra.Value.Date);
 
             CargarProveedores();
@@ -74,10 +72,8 @@ namespace CarniceriaPOS.UI.Forms
             CargarEstadisticas();
             CargarComprasPorFecha(DateTime.Now);
 
-            
             cmbProducto.SelectedIndexChanged += CmbProducto_SelectedIndexChanged;
 
-            
             ReposicionarBotonesGuardar();
         }
 
@@ -118,10 +114,8 @@ namespace CarniceriaPOS.UI.Forms
                 DateTime finMes = DateTime.Now.Date.AddDays(1);
                 var comprasMes = ObtenerRepCompra().ObtenerComprasPorPeriodo(inicioMes, finMes);
 
-                
                 lblComprasVal.Text = comprasMes.Count.ToString();
 
-                
                 decimal montoTotal = 0;
                 foreach (var compra in comprasMes)
                 {
@@ -129,11 +123,9 @@ namespace CarniceriaPOS.UI.Forms
                 }
                 lblMontoVal.Text = "$" + montoTotal.ToString("N2");
 
-                
                 int comprasPendientes = comprasMes.FindAll(c => c.Estado != "Completada").Count;
                 lblPendientesVal.Text = comprasPendientes.ToString();
 
-                
                 var proveedores = ObtenerRepProveedor().ObtenerTodos();
                 int proveedoresActivos = proveedores.FindAll(p => p.Activo).Count;
                 lblProveedoresVal.Text = proveedoresActivos.ToString();
@@ -197,15 +189,13 @@ namespace CarniceriaPOS.UI.Forms
             {
                 if (cmbProducto.SelectedItem is Producto producto && producto != null)
                 {
-                    
-                    
+
                     var lblPrecioUnitario = this.Controls.Find("lblPrecioUnitario", true).FirstOrDefault() as Label;
                     if (lblPrecioUnitario != null)
                     {
                         lblPrecioUnitario.Text = $"${producto.PrecioCompra:N2}";
                     }
 
-                    
                     var txtPrecioUnitario = this.Controls.Find("txtPrecioUnitario", true).FirstOrDefault() as TextBox;
                     if (txtPrecioUnitario != null)
                     {
@@ -283,7 +273,6 @@ namespace CarniceriaPOS.UI.Forms
                         MessageBox.Show("Compra guardada correctamente");
                         LimpiarFormulario();
 
-                        
                         System.Threading.Thread.Sleep(100); 
                         dgvCompras.DataSource = null; 
                         CargarComprasPorFecha(DateTime.Now);
@@ -345,7 +334,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (!int.TryParse(txtCantidad.Text, out int cantidad) || cantidad <= 0)
             {
                 MessageBox.Show("La cantidad debe ser un numero positivo mayor a 0");
@@ -353,7 +341,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (cmbProveedor.SelectedIndex < 0)
             {
                 MessageBox.Show("Seleccione un proveedor");
@@ -361,7 +348,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (cmbProducto.SelectedIndex < 0)
             {
                 MessageBox.Show("Seleccione un producto");
@@ -381,7 +367,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (cmbProveedor.SelectedIndex < 0)
             {
                 MessageBox.Show("Seleccione un proveedor");
@@ -389,7 +374,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (!Validador.ValidarRangoFechas(dtpFechaCompra.Value.Date, DateTime.Now.Date.AddDays(1)))
             {
                 MessageBox.Show("La fecha de compra no puede ser futura");

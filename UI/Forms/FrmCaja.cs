@@ -53,7 +53,6 @@ namespace CarniceriaPOS.UI.Forms
 
             this.Text = "Cierre de Caja";
 
-            
             Validador.ConfigurarMaxLengthFormulario(this.Controls);
 
             CargarDatos();
@@ -158,7 +157,6 @@ namespace CarniceriaPOS.UI.Forms
                         $"Diferencia: ${diferencia:N2}",
                         "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    
                     txtMontoReal.Clear();
                     lblMontoReal.Text = "0.00";
                     lblDiferencia.Text = "0.00";
@@ -189,7 +187,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (!decimal.TryParse(txtMontoReal.Text, out decimal montoReal))
             {
                 MessageBox.Show("El monto debe ser un valor decimal valido");
@@ -197,7 +194,6 @@ namespace CarniceriaPOS.UI.Forms
                 return false;
             }
 
-            
             if (montoReal < 0)
             {
                 MessageBox.Show("El monto no puede ser negativo");

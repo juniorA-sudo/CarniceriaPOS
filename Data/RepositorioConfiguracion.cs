@@ -8,9 +8,6 @@ namespace CarniceriaPOS.Data
     {
         private ConexionBD bd = new ConexionBD();
 
-        
-        
-        
         public string ObtenerValor(string clave, string valorPorDefecto = "")
         {
             string sql = "SELECT Valor FROM Configuracion WHERE Clave = @Clave";
@@ -30,9 +27,6 @@ namespace CarniceriaPOS.Data
             }
         }
 
-        
-        
-        
         public decimal ObtenerValorDecimal(string clave, decimal valorPorDefecto = 0)
         {
             string valor = ObtenerValor(clave);
@@ -41,9 +35,6 @@ namespace CarniceriaPOS.Data
             return valorPorDefecto;
         }
 
-        
-        
-        
         public bool ActualizarValor(string clave, string valor, string descripcion = "")
         {
             string sql = @"

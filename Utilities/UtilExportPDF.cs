@@ -9,9 +9,7 @@ namespace CarniceriaPOS.Utilities
 {
     public static class UtilExportPDF
     {
-        
-        
-        
+
         public static bool ExportarDataGridViewAPDF(DataGridView dgv, string titulo, string descripcion = "", string firmante = "")
         {
             try
@@ -19,7 +17,6 @@ namespace CarniceriaPOS.Utilities
                 
                 string nombreArchivo = $"Reporte_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
 
-                
                 SaveFileDialog saveDialog = new SaveFileDialog
                 {
                     FileName = nombreArchivo,
@@ -33,7 +30,6 @@ namespace CarniceriaPOS.Utilities
 
                 string rutaPDF = saveDialog.FileName;
 
-                
                 return GenerarHTMLyAbrir(dgv, titulo, descripcion, firmante, rutaPDF);
             }
             catch (Exception ex)
@@ -44,17 +40,11 @@ namespace CarniceriaPOS.Utilities
             }
         }
 
-        
-        
-        
         public static bool ExportarDataGridViewAPDF(DataGridView dgv, string titulo)
         {
             return ExportarDataGridViewAPDF(dgv, titulo, "", "");
         }
 
-        
-        
-        
         private static bool GenerarHTMLyAbrir(DataGridView dgv, string titulo, string descripcion, string firmante, string rutaPDF)
         {
             try
@@ -73,13 +63,11 @@ namespace CarniceriaPOS.Utilities
                 html.AppendLine("<body>");
                 html.AppendLine("<div class='contenedor'>");
 
-                
                 html.AppendLine("<div class='encabezado'>");
                 html.AppendLine($"  <h1>{titulo}</h1>");
                 html.AppendLine($"  <div class='fecha'>Fecha y hora: {DateTime.Now:dd/MM/yyyy HH:mm:ss}</div>");
                 html.AppendLine("</div>");
 
-                
                 if (!string.IsNullOrEmpty(descripcion))
                 {
                     html.AppendLine("<div class='descripcion'>");
@@ -87,7 +75,6 @@ namespace CarniceriaPOS.Utilities
                     html.AppendLine("</div>");
                 }
 
-                
                 html.AppendLine("<div class='datos'>");
                 html.AppendLine("<table>");
                 html.AppendLine("<thead><tr>");
@@ -117,7 +104,6 @@ namespace CarniceriaPOS.Utilities
                 html.AppendLine("</table>");
                 html.AppendLine("</div>");
 
-                
                 html.AppendLine("<div class='firma'>");
                 html.AppendLine("<div class='firma-titulo'>FIRMA:</div>");
                 if (string.IsNullOrEmpty(firmante))
@@ -131,23 +117,19 @@ namespace CarniceriaPOS.Utilities
                 html.AppendLine("<div class='firma-nota'>Documento interno - Uso exclusivo de la empresa</div>");
                 html.AppendLine("</div>");
 
-                
                 html.AppendLine("<div class='botones noprint'>");
                 html.AppendLine("<button onclick='window.print()'> Imprimir / Guardar como PDF</button>");
                 html.AppendLine("<button onclick='window.close()'> Cerrar</button>");
                 html.AppendLine("</div>");
 
-                
                 html.AppendLine("<div class='pie'>CarniceriaPOS - Reporte del Sistema</div>");
 
                 html.AppendLine("</div>");
                 html.AppendLine("</body>");
                 html.AppendLine("</html>");
 
-                
                 string carpetaReportes = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
-                
                 string nombreArchivo = $"Reporte_{titulo.Replace(" ", "_").Replace(":", "")}" +
                                      $"_{DateTime.Now:yyyyMMdd_HHmmss}.html";
                 string rutaHTML = Path.Combine(carpetaReportes, nombreArchivo);
@@ -178,7 +160,6 @@ namespace CarniceriaPOS.Utilities
                     }
                 }
 
-                
                 try
                 {
                     System.Diagnostics.Process.Start(rutaHTML);
@@ -203,24 +184,16 @@ namespace CarniceriaPOS.Utilities
             }
         }
 
-        
-        
-        
         private static bool GenerarHTMLyAbrir(DataGridView dgv, string titulo)
         {
             return GenerarHTMLyAbrir(dgv, titulo, "", "", "");
         }
 
-        
-        
-        
         private static void GuardarHTMLComoPDF(string rutaHTML, string rutaPDF)
         {
             try
             {
-                
-                
-                
+
                 System.Diagnostics.Process.Start($"microsoft-edge:{rutaHTML}");
             }
             catch
@@ -234,9 +207,6 @@ namespace CarniceriaPOS.Utilities
             }
         }
 
-        
-        
-        
         private static void GenerarEstilosCSS(StringBuilder html)
         {
             html.AppendLine("* { margin: 0; padding: 0; box-sizing: border-box; }");
@@ -397,9 +367,6 @@ namespace CarniceriaPOS.Utilities
             html.AppendLine("}");
         }
 
-        
-        
-        
         private static string EscapeHtml(string texto)
         {
             if (string.IsNullOrEmpty(texto))

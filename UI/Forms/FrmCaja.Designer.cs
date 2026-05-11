@@ -72,9 +72,7 @@
             this.pnlSumItem1.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
-            
-            
-            
+
             this.pnlMain.AutoScroll = true;
             this.pnlMain.Controls.Add(this.pnlContent);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -83,9 +81,7 @@
             this.pnlMain.Padding = new System.Windows.Forms.Padding(15);
             this.pnlMain.Size = new System.Drawing.Size(1024, 700);
             this.pnlMain.TabIndex = 0;
-            
-            
-            
+
             this.pnlContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.pnlContent.Controls.Add(this.pnlSalesTable);
             this.pnlContent.Controls.Add(this.pnlButtons);
@@ -98,9 +94,7 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(994, 670);
             this.pnlContent.TabIndex = 0;
-            
-            
-            
+
             this.pnlSalesTable.BackColor = System.Drawing.Color.White;
             this.pnlSalesTable.Controls.Add(this.dgvVentas);
             this.pnlSalesTable.Controls.Add(this.lblSalesTitle);
@@ -110,9 +104,7 @@
             this.pnlSalesTable.Padding = new System.Windows.Forms.Padding(15);
             this.pnlSalesTable.Size = new System.Drawing.Size(994, 160);
             this.pnlSalesTable.TabIndex = 0;
-            
-            
-            
+
             this.dgvVentas.AllowUserToAddRows = false;
             this.dgvVentas.AllowUserToDeleteRows = false;
             this.dgvVentas.BackgroundColor = System.Drawing.Color.White;
@@ -125,9 +117,7 @@
             this.dgvVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVentas.Size = new System.Drawing.Size(964, 109);
             this.dgvVentas.TabIndex = 0;
-            
-            
-            
+
             this.lblSalesTitle.AutoSize = true;
             this.lblSalesTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblSalesTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -137,9 +127,7 @@
             this.lblSalesTitle.Size = new System.Drawing.Size(185, 21);
             this.lblSalesTitle.TabIndex = 1;
             this.lblSalesTitle.Text = " Resumen de Ventas";
-            
-            
-            
+
             this.pnlButtons.BackColor = System.Drawing.Color.White;
             this.pnlButtons.Controls.Add(this.btnImprimir);
             this.pnlButtons.Controls.Add(this.btnGuardar);
@@ -151,9 +139,7 @@
             this.pnlButtons.Padding = new System.Windows.Forms.Padding(15);
             this.pnlButtons.Size = new System.Drawing.Size(994, 50);
             this.pnlButtons.TabIndex = 1;
-            
-            
-            
+
             this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -164,9 +150,7 @@
             this.btnImprimir.TabIndex = 0;
             this.btnImprimir.Text = " Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
-            
-            
-            
+
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -178,9 +162,7 @@
             this.btnGuardar.Text = " Guardar Cierre";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardarCierre_Click);
-            
-            
-            
+
             this.btnCalcular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             this.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalcular.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -192,9 +174,7 @@
             this.btnCalcular.Text = " Calcular Diferencia";
             this.btnCalcular.UseVisualStyleBackColor = false;
             this.btnCalcular.Click += new System.EventHandler(this.btnCalcularDiferencia_Click);
-            
-            
-            
+
             this.pnlStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.pnlStatus.Controls.Add(this.lblStatusPerc);
             this.pnlStatus.Controls.Add(this.lblStatusPercLabel);
@@ -209,9 +189,7 @@
             this.pnlStatus.Padding = new System.Windows.Forms.Padding(15);
             this.pnlStatus.Size = new System.Drawing.Size(994, 100);
             this.pnlStatus.TabIndex = 2;
-            
-            
-            
+
             this.lblStatusPerc.AutoSize = true;
             this.lblStatusPerc.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblStatusPerc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -220,9 +198,7 @@
             this.lblStatusPerc.Size = new System.Drawing.Size(77, 30);
             this.lblStatusPerc.TabIndex = 0;
             this.lblStatusPerc.Text = "0.00%";
-            
-            
-            
+
             this.lblStatusPercLabel.AutoSize = true;
             this.lblStatusPercLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStatusPercLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
@@ -231,9 +207,7 @@
             this.lblStatusPercLabel.Size = new System.Drawing.Size(63, 15);
             this.lblStatusPercLabel.TabIndex = 1;
             this.lblStatusPercLabel.Text = "Porcentaje";
-            
-            
-            
+
             this.lblEstado.AutoSize = true;
             this.lblEstado.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.lblEstado.ForeColor = System.Drawing.Color.Black;
@@ -242,9 +216,7 @@
             this.lblEstado.Size = new System.Drawing.Size(79, 20);
             this.lblEstado.TabIndex = 2;
             this.lblEstado.Text = "Pendiente";
-            
-            
-            
+
             this.lblStatusStateLabel.AutoSize = true;
             this.lblStatusStateLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStatusStateLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
@@ -253,9 +225,7 @@
             this.lblStatusStateLabel.Size = new System.Drawing.Size(42, 15);
             this.lblStatusStateLabel.TabIndex = 3;
             this.lblStatusStateLabel.Text = "Estado";
-            
-            
-            
+
             this.lblStatusMonto.AutoSize = true;
             this.lblStatusMonto.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblStatusMonto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -264,9 +234,7 @@
             this.lblStatusMonto.Size = new System.Drawing.Size(71, 30);
             this.lblStatusMonto.TabIndex = 4;
             this.lblStatusMonto.Text = "$0.00";
-            
-            
-            
+
             this.lblStatusMontoLabel.AutoSize = true;
             this.lblStatusMontoLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblStatusMontoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
@@ -275,9 +243,7 @@
             this.lblStatusMontoLabel.Size = new System.Drawing.Size(48, 15);
             this.lblStatusMontoLabel.TabIndex = 5;
             this.lblStatusMontoLabel.Text = "Balance";
-            
-            
-            
+
             this.pnlCashier.BackColor = System.Drawing.Color.White;
             this.pnlCashier.Controls.Add(this.lblDiferencia);
             this.pnlCashier.Controls.Add(this.lblDiferenciaLabel);
@@ -294,9 +260,7 @@
             this.pnlCashier.Padding = new System.Windows.Forms.Padding(15);
             this.pnlCashier.Size = new System.Drawing.Size(994, 180);
             this.pnlCashier.TabIndex = 3;
-            
-            
-            
+
             this.lblDiferencia.AutoSize = true;
             this.lblDiferencia.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblDiferencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -305,9 +269,7 @@
             this.lblDiferencia.Size = new System.Drawing.Size(45, 19);
             this.lblDiferencia.TabIndex = 0;
             this.lblDiferencia.Text = "$0.00";
-            
-            
-            
+
             this.lblDiferenciaLabel.AutoSize = true;
             this.lblDiferenciaLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblDiferenciaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -316,9 +278,7 @@
             this.lblDiferenciaLabel.Size = new System.Drawing.Size(63, 15);
             this.lblDiferenciaLabel.TabIndex = 1;
             this.lblDiferenciaLabel.Text = "Diferencia:";
-            
-            
-            
+
             this.lblMontoReal.AutoSize = true;
             this.lblMontoReal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblMontoReal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -327,18 +287,14 @@
             this.lblMontoReal.Size = new System.Drawing.Size(45, 19);
             this.lblMontoReal.TabIndex = 2;
             this.lblMontoReal.Text = "$0.00";
-            
-            
-            
+
             this.txtMontoReal.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMontoReal.Location = new System.Drawing.Point(280, 70);
             this.txtMontoReal.Name = "txtMontoReal";
             this.txtMontoReal.Size = new System.Drawing.Size(150, 25);
             this.txtMontoReal.TabIndex = 3;
             this.txtMontoReal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            
-            
-            
+
             this.lblMontoRealLabel.AutoSize = true;
             this.lblMontoRealLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblMontoRealLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -347,9 +303,7 @@
             this.lblMontoRealLabel.Size = new System.Drawing.Size(113, 15);
             this.lblMontoRealLabel.TabIndex = 4;
             this.lblMontoRealLabel.Text = "Monto Real en Caja:";
-            
-            
-            
+
             this.lblMontoEsperado.AutoSize = true;
             this.lblMontoEsperado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblMontoEsperado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -358,9 +312,7 @@
             this.lblMontoEsperado.Size = new System.Drawing.Size(45, 19);
             this.lblMontoEsperado.TabIndex = 5;
             this.lblMontoEsperado.Text = "$0.00";
-            
-            
-            
+
             this.lblMontoEsperadoLabel.AutoSize = true;
             this.lblMontoEsperadoLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblMontoEsperadoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -369,9 +321,7 @@
             this.lblMontoEsperadoLabel.Size = new System.Drawing.Size(149, 15);
             this.lblMontoEsperadoLabel.TabIndex = 6;
             this.lblMontoEsperadoLabel.Text = "Monto Esperado (Sistema):";
-            
-            
-            
+
             this.lblCashierTitle.AutoSize = true;
             this.lblCashierTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblCashierTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -380,9 +330,7 @@
             this.lblCashierTitle.Size = new System.Drawing.Size(115, 21);
             this.lblCashierTitle.TabIndex = 7;
             this.lblCashierTitle.Text = "Cierre de Caja";
-            
-            
-            
+
             this.pnlSummary.BackColor = System.Drawing.Color.Transparent;
             this.pnlSummary.Controls.Add(this.pnlSumItem4);
             this.pnlSummary.Controls.Add(this.pnlSumItem3);
@@ -394,9 +342,7 @@
             this.pnlSummary.Name = "pnlSummary";
             this.pnlSummary.Size = new System.Drawing.Size(994, 100);
             this.pnlSummary.TabIndex = 4;
-            
-            
-            
+
             this.pnlSumItem4.BackColor = System.Drawing.Color.White;
             this.pnlSumItem4.Controls.Add(this.lblSum4Value);
             this.pnlSumItem4.Controls.Add(this.lblSum4Label);
@@ -405,9 +351,7 @@
             this.pnlSumItem4.Padding = new System.Windows.Forms.Padding(12);
             this.pnlSumItem4.Size = new System.Drawing.Size(200, 90);
             this.pnlSumItem4.TabIndex = 0;
-            
-            
-            
+
             this.lblSum4Value.AutoSize = true;
             this.lblSum4Value.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lblSum4Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -416,9 +360,7 @@
             this.lblSum4Value.Size = new System.Drawing.Size(77, 32);
             this.lblSum4Value.TabIndex = 0;
             this.lblSum4Value.Text = "$0.00";
-            
-            
-            
+
             this.lblSum4Label.AutoSize = true;
             this.lblSum4Label.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblSum4Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
@@ -427,9 +369,7 @@
             this.lblSum4Label.Size = new System.Drawing.Size(71, 13);
             this.lblSum4Label.TabIndex = 1;
             this.lblSum4Label.Text = "Mayor Venta";
-            
-            
-            
+
             this.pnlSumItem3.BackColor = System.Drawing.Color.White;
             this.pnlSumItem3.Controls.Add(this.lblSum3Value);
             this.pnlSumItem3.Controls.Add(this.lblSum3Label);
@@ -438,9 +378,7 @@
             this.pnlSumItem3.Padding = new System.Windows.Forms.Padding(12);
             this.pnlSumItem3.Size = new System.Drawing.Size(200, 90);
             this.pnlSumItem3.TabIndex = 1;
-            
-            
-            
+
             this.lblSum3Value.AutoSize = true;
             this.lblSum3Value.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lblSum3Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -449,9 +387,7 @@
             this.lblSum3Value.Size = new System.Drawing.Size(77, 32);
             this.lblSum3Value.TabIndex = 0;
             this.lblSum3Value.Text = "$0.00";
-            
-            
-            
+
             this.lblSum3Label.AutoSize = true;
             this.lblSum3Label.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblSum3Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
@@ -460,9 +396,7 @@
             this.lblSum3Label.Size = new System.Drawing.Size(88, 13);
             this.lblSum3Label.TabIndex = 1;
             this.lblSum3Label.Text = "Venta Promedio";
-            
-            
-            
+
             this.pnlSumItem2.BackColor = System.Drawing.Color.White;
             this.pnlSumItem2.Controls.Add(this.lblSum2Value);
             this.pnlSumItem2.Controls.Add(this.lblSum2Label);
@@ -471,9 +405,7 @@
             this.pnlSumItem2.Padding = new System.Windows.Forms.Padding(12);
             this.pnlSumItem2.Size = new System.Drawing.Size(200, 90);
             this.pnlSumItem2.TabIndex = 2;
-            
-            
-            
+
             this.lblSum2Value.AutoSize = true;
             this.lblSum2Value.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lblSum2Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -482,9 +414,7 @@
             this.lblSum2Value.Size = new System.Drawing.Size(28, 32);
             this.lblSum2Value.TabIndex = 0;
             this.lblSum2Value.Text = "0";
-            
-            
-            
+
             this.lblSum2Label.AutoSize = true;
             this.lblSum2Label.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblSum2Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
@@ -493,9 +423,7 @@
             this.lblSum2Label.Size = new System.Drawing.Size(143, 13);
             this.lblSum2Label.TabIndex = 1;
             this.lblSum2Label.Text = "Cantidad de Transacciones";
-            
-            
-            
+
             this.pnlSumItem1.BackColor = System.Drawing.Color.White;
             this.pnlSumItem1.Controls.Add(this.lblSum1Value);
             this.pnlSumItem1.Controls.Add(this.lblSum1Label);
@@ -504,9 +432,7 @@
             this.pnlSumItem1.Padding = new System.Windows.Forms.Padding(12);
             this.pnlSumItem1.Size = new System.Drawing.Size(200, 90);
             this.pnlSumItem1.TabIndex = 3;
-            
-            
-            
+
             this.lblSum1Value.AutoSize = true;
             this.lblSum1Value.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.lblSum1Value.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
@@ -515,9 +441,7 @@
             this.lblSum1Value.Size = new System.Drawing.Size(77, 32);
             this.lblSum1Value.TabIndex = 0;
             this.lblSum1Value.Text = "$0.00";
-            
-            
-            
+
             this.lblSum1Label.AutoSize = true;
             this.lblSum1Label.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblSum1Label.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
@@ -526,9 +450,7 @@
             this.lblSum1Label.Size = new System.Drawing.Size(84, 13);
             this.lblSum1Label.TabIndex = 1;
             this.lblSum1Label.Text = "Total de Ventas";
-            
-            
-            
+
             this.pnlHeader.BackColor = System.Drawing.Color.White;
             this.pnlHeader.Controls.Add(this.lblHeaderDesc);
             this.pnlHeader.Controls.Add(this.lblHeaderTitle);
@@ -539,9 +461,7 @@
             this.pnlHeader.Padding = new System.Windows.Forms.Padding(15);
             this.pnlHeader.Size = new System.Drawing.Size(994, 80);
             this.pnlHeader.TabIndex = 5;
-            
-            
-            
+
             this.lblHeaderDesc.AutoSize = true;
             this.lblHeaderDesc.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblHeaderDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
@@ -550,9 +470,7 @@
             this.lblHeaderDesc.Size = new System.Drawing.Size(307, 19);
             this.lblHeaderDesc.TabIndex = 0;
             this.lblHeaderDesc.Text = "Reconciliacion de ventas del dia y balance de caja";
-            
-            
-            
+
             this.lblHeaderTitle.AutoSize = true;
             this.lblHeaderTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblHeaderTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(31)))), ((int)(((byte)(46)))));
@@ -561,23 +479,17 @@
             this.lblHeaderTitle.Size = new System.Drawing.Size(157, 30);
             this.lblHeaderTitle.TabIndex = 1;
             this.lblHeaderTitle.Text = "Cierre de Caja";
-            
-            
-            
+
             this.lblTotalVentas.Location = new System.Drawing.Point(0, 0);
             this.lblTotalVentas.Name = "lblTotalVentas";
             this.lblTotalVentas.Size = new System.Drawing.Size(100, 23);
             this.lblTotalVentas.TabIndex = 0;
-            
-            
-            
+
             this.lblCantidadVentas.Location = new System.Drawing.Point(0, 0);
             this.lblCantidadVentas.Name = "lblCantidadVentas";
             this.lblCantidadVentas.Size = new System.Drawing.Size(100, 23);
             this.lblCantidadVentas.TabIndex = 0;
-            
-            
-            
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 700);

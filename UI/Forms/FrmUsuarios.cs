@@ -60,8 +60,8 @@ namespace CarniceriaPOS.UI.Forms
         {
             FormateadorTextBox.ConfigurarTextBox(txtNombre, FormateadorTextBox.TipoValidacion.SoloLetras, 100);
             FormateadorTextBox.ConfigurarTextBox(txtEmail, FormateadorTextBox.TipoValidacion.Gmail);
-            if (txtContrasena != null)
-                txtContrasena.MaxLength = 50;
+            if (txtPassword != null)
+                txtPassword.MaxLength = 50;
         }
 
         private void CargarRoles()

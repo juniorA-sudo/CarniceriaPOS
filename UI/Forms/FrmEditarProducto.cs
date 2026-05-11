@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using CarniceriaPOS.Models;
 using CarniceriaPOS.Data;
+using CarniceriaPOS.Utilities;
 
 namespace CarniceriaPOS.UI.Forms
 {
@@ -19,8 +20,33 @@ namespace CarniceriaPOS.UI.Forms
 
         private void FrmEditarProducto_Load(object sender, EventArgs e)
         {
+            ConfigurarTextBox();
             CargarCombos();
             MapearProductoAForm();
+        }
+
+        private void ConfigurarTextBox()
+        {
+            if (txtNombre != null)
+                FormateadorTextBox.ConfigurarTextBox(txtNombre, FormateadorTextBox.TipoValidacion.SoloLetras);
+
+            if (txtCodigo != null)
+                FormateadorTextBox.ConfigurarTextBox(txtCodigo, FormateadorTextBox.TipoValidacion.Alfanumerico);
+
+            if (txtDescripcion != null)
+                FormateadorTextBox.ConfigurarTextBox(txtDescripcion, FormateadorTextBox.TipoValidacion.Alfanumerico);
+
+            if (txtPrecioCompra != null)
+                FormateadorTextBox.ConfigurarTextBox(txtPrecioCompra, FormateadorTextBox.TipoValidacion.Moneda);
+
+            if (txtPrecioVenta != null)
+                FormateadorTextBox.ConfigurarTextBox(txtPrecioVenta, FormateadorTextBox.TipoValidacion.Moneda);
+
+            if (txtStockActual != null)
+                FormateadorTextBox.ConfigurarTextBox(txtStockActual, FormateadorTextBox.TipoValidacion.SoloNumeros);
+
+            if (txtStockMinimo != null)
+                FormateadorTextBox.ConfigurarTextBox(txtStockMinimo, FormateadorTextBox.TipoValidacion.SoloNumeros);
         }
 
         private void CargarCombos()

@@ -58,18 +58,10 @@ namespace CarniceriaPOS.UI.Forms
 
         private void ConfigurarValidacionesFormulario()
         {
-            
-            txtNombre.KeyPress += (s, e) =>
-            {
-                if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '\b')
-                    e.Handled = true;
-            };
-
-            txtEmail.KeyPress += (s, e) =>
-            {
-                if (!char.IsLetterOrDigit(e.KeyChar) && "@.-_".IndexOf(e.KeyChar) < 0 && e.KeyChar != '\b')
-                    e.Handled = true;
-            };
+            FormateadorTextBox.ConfigurarTextBox(txtNombre, FormateadorTextBox.TipoValidacion.SoloLetras, 100);
+            FormateadorTextBox.ConfigurarTextBox(txtEmail, FormateadorTextBox.TipoValidacion.Gmail);
+            if (txtContrasena != null)
+                txtContrasena.MaxLength = 50;
         }
 
         private void CargarRoles()

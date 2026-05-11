@@ -56,7 +56,24 @@ namespace CarniceriaPOS.Data
             return resultado != null && resultado != DBNull.Value ? Convert.ToInt32(resultado) : 0;
         }
 
-        // CORRECCIÓN: En todas las consultas SELECT, cambié IdUsuario por IdEmpleado 
+        public Venta ObtenerVentaPorNumeroFactura(string numeroFactura)
+        {
+            string sql = @"SELECT v.*, c.Nombre as NombreCliente, u.NombreUsuario
+                          FROM Ventas v
+                          LEFT JOIN Clientes c ON v.IdCliente = c.IdCliente
+                          LEFT JOIN Usuarios u ON v.IdEmpleado = u.IdUsuario
+                          WHERE v.NumeroFactura = @NumeroFactura";
+
+            SqlParameter[] parametros = { new SqlParameter("@NumeroFactura", numeroFactura) };
+            DataTable dt = bd.ObtenerDatos(sql, parametros);
+
+            if (dt.Rows.Count > 0)
+                return MapearVenta(dt.Rows[0]);
+
+            return null;
+        }
+
+        // CORRECCIÓN: En todas las consultas SELECT, cambié IdUsuario por IdEmpleado
         // para que coincida con tu INSERT.
         public List<Venta> ObtenerVentasPorFecha(DateTime fecha)
         {

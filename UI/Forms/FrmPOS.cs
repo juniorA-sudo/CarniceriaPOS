@@ -26,13 +26,6 @@ namespace CarniceriaPOS.UI.Forms
             try
             {
                 InitializeComponent();
-
-                ventaActual = new Venta
-                {
-                    NumeroFactura = GenerarNumeroFactura(),
-                    FechaVenta = DateTime.Now,
-                    IdEmpleado = SesionActual.UsuarioActual?.IdUsuario ?? 0
-                };
             }
             catch (Exception ex)
             {
@@ -72,18 +65,30 @@ namespace CarniceriaPOS.UI.Forms
                 string fechaHoy = DateTime.Now.ToString("yyyyMMdd");
                 string prefijoFactura = $"FCT-{fechaHoy}-";
 
-                // Esta función debe ir a la base de datos y traer el MAX de hoy
-                int ultimoNumero = ObtenerRepVenta().ObtenerUltimoNumeroFactura(prefijoFactura);
+                int intentos = 0;
+                int siguienteNumero = 0;
+                string numeroFactura = "";
 
-                // Si el último fue 1, el nuevo será 2.
-                int siguienteNumero = ultimoNumero + 1;
+                while (intentos < 5)
+                {
+                    int ultimoNumero = ObtenerRepVenta().ObtenerUltimoNumeroFactura(prefijoFactura);
+                    siguienteNumero = ultimoNumero + 1;
+                    numeroFactura = $"{prefijoFactura}{siguienteNumero:D4}";
 
-                return $"{prefijoFactura}{siguienteNumero:D4}";
+                    if (ObtenerRepVenta().ObtenerVentaPorNumeroFactura(numeroFactura) == null)
+                    {
+                        return numeroFactura;
+                    }
+
+                    intentos++;
+                    System.Threading.Thread.Sleep(100);
+                }
+
+                return $"FCT-{DateTime.Now:yyyyMMddHHmmss}-{DateTime.Now.Ticks % 10000}";
             }
             catch
             {
-                // En caso de error crítico, usa Ticks para que el número sea irrepetible
-                return $"FCT-{DateTime.Now:yyyyMMddHHmmss}-{DateTime.Now.Ticks}";
+                return $"FCT-{DateTime.Now:yyyyMMddHHmmss}-{DateTime.Now.Ticks % 10000}";
             }
         }
 

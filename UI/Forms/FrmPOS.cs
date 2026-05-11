@@ -70,15 +70,18 @@ namespace CarniceriaPOS.UI.Forms
             try
             {
                 string fechaHoy = DateTime.Now.ToString("yyyyMMdd");
+                // Esta función debe ir a la base de datos y traer el MAX de hoy
                 int ultimoNumero = ObtenerRepVenta().ObtenerUltimoNumeroFactura(fechaHoy);
-                contadorVentas = ultimoNumero + 1;
 
-                return $"FCT-{fechaHoy}-{contadorVentas:D4}";
+                // Si el último fue 1, el nuevo será 2.
+                int siguienteNumero = ultimoNumero + 1;
+
+                return $"FCT-{fechaHoy}-{siguienteNumero:D4}";
             }
             catch
             {
-                contadorVentas++;
-                return $"FCT-{DateTime.Now:yyyyMMdd}-{contadorVentas:D4}";
+                // En caso de error crítico, usa Ticks para que el número sea irrepetible
+                return $"FCT-{DateTime.Now:yyyyMMdd}-{DateTime.Now.ToString("HHmmss")}";
             }
         }
 
@@ -790,101 +793,81 @@ namespace CarniceriaPOS.UI.Forms
         {
             try
             {
+                // 1. Validar si hay productos
                 if (!ValidarVenta())
                     return;
 
-                // Validación: Si no hay cliente válido, obliga a seleccionarlo
-                bool clienteValido = false;
-                while (!clienteValido)
+                // 2. Validar Cliente (Sin bucles que frisen la app)
+                if (ventaActual.IdCliente == null || ventaActual.IdCliente <= 0)
                 {
+                    MessageBox.Show(
+                        "Debe seleccionar un cliente antes de finalizar la venta.",
+                        "Cliente Requerido",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    SeleccionarCliente();
+
+                    // Si después de abrirlo sigue vacío, abortamos el proceso para que el usuario pueda elegir
                     if (ventaActual.IdCliente == null || ventaActual.IdCliente <= 0)
                     {
-                        MessageBox.Show(
-                            "Debe seleccionar un cliente antes de finalizar la venta.\n\n" +
-                            "Puede:\n" +
-                            "1. Buscar un cliente existente\n" +
-                            "2. Crear un cliente nuevo con su cedula\n" +
-                            "3. Usar 'Cliente General' para ventas rapidas",
-                            "Cliente Requerido",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
-
-                        SeleccionarCliente();
-
-                        if (ventaActual.IdCliente == null || ventaActual.IdCliente <= 0)
-                        {
-                            DialogResult resultado = MessageBox.Show(
-                                "No ha seleccionado un cliente.\n\n¿Desea intentar nuevamente?",
-                                "Cliente no seleccionado",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Question);
-
-                            if (resultado == DialogResult.No)
-                                return;
-                        }
-                        else
-                        {
-                            clienteValido = true;
-                        }
-                    }
-                    else
-                    {
-                        clienteValido = true;
+                        return;
                     }
                 }
 
-                string metodoPago =
-                    ObtenerMetodoPagoSeleccionado();
+                // 3. Obtener Método de Pago
+                string metodoPago = ObtenerMetodoPagoSeleccionado();
 
-                if (metodoPago.Equals(
-                    "Efectivo",
-                    StringComparison.OrdinalIgnoreCase))
+                // 4. Validar efectivo si corresponde
+                if (metodoPago.Equals("Efectivo", StringComparison.OrdinalIgnoreCase))
                 {
-                    if (!decimal.TryParse(
-                        txtMontoRecibido.Text,
-                        out decimal montoRecibido))
+                    if (!decimal.TryParse(txtMontoRecibido.Text, out decimal montoRecibido))
                     {
-                        MessageBox.Show(
-                            "Ingrese monto recibido valido");
-
+                        MessageBox.Show("Ingrese un monto recibido válido.");
+                        txtMontoRecibido.Focus();
                         return;
                     }
 
                     if (montoRecibido < ventaActual.Total)
                     {
-                        MessageBox.Show("Monto insuficiente");
+                        MessageBox.Show("Monto insuficiente para cubrir el total.");
                         return;
                     }
 
-                    ventaActual.MontoRecibido =
-                        montoRecibido;
-
-                    ventaActual.Cambio =
-                        montoRecibido - ventaActual.Total;
+                    ventaActual.MontoRecibido = montoRecibido;
+                    ventaActual.Cambio = montoRecibido - ventaActual.Total;
+                }
+                else
+                {
+                    // Para tarjeta o débito, el monto recibido es igual al total
+                    ventaActual.MontoRecibido = ventaActual.Total;
+                    ventaActual.Cambio = 0;
                 }
 
+                // 5. Preparar datos finales
                 ventaActual.Detalles = detallesVenta;
                 ventaActual.MetodoPago = metodoPago;
                 ventaActual.Estado = "Completada";
 
+                // 6. Guardar en Base de Datos
                 if (ObtenerRepVenta().AgregarVenta(ventaActual))
                 {
-                    MessageBox.Show(
-                        "¡Venta registrada exitosamente!");
+                    MessageBox.Show("¡Venta registrada exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    // Imprimir si es necesario
                     ImprimirTicket(null, null);
 
+                    // Limpiar para la siguiente venta
                     NuevaVenta();
                 }
                 else
                 {
-                    MessageBox.Show(
-                        "Error al guardar la venta");
+                    MessageBox.Show("Error al guardar la venta en la base de datos.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error crítico al finalizar venta: " + ex.Message);
             }
         }
 

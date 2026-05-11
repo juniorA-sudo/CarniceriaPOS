@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using CarniceriaPOS.Data;
 using CarniceriaPOS.Models;
+using CarniceriaPOS.Utilities;
 
 namespace CarniceriaPOS.UI.Forms
 {
@@ -18,6 +19,7 @@ namespace CarniceriaPOS.UI.Forms
 
         private void FrmBuscadorClienteCedula_Load(object sender, EventArgs e)
         {
+            FormateadorTextBox.ConfigurarTextBox(txtCedula, FormateadorTextBox.TipoValidacion.Cedula);
             txtCedula.Focus();
         }
 

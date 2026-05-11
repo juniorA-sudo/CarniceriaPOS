@@ -64,31 +64,9 @@ namespace CarniceriaPOS.UI.Forms
         
         private void ConfigurarValidacionesFormulario()
         {
-            
-            txtRNC.KeyPress += (s, e) =>
-            {
-                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-                {
-                    e.Handled = true;
-                }
-            };
-
-            
-            txtNombre.KeyPress += (s, e) =>
-            {
-                if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '\b')
-                {
-                    e.Handled = true;
-                }
-            };
-
-            
-            Validador.ConfigurarFormateoTelefono(txtTelefono);
-
-            
-            
-
-            
+            FormateadorTextBox.ConfigurarTextBox(txtRNC, FormateadorTextBox.TipoValidacion.RNC);
+            FormateadorTextBox.ConfigurarTextBox(txtNombre, FormateadorTextBox.TipoValidacion.SoloLetras, 100);
+            FormateadorTextBox.ConfigurarTextBox(txtTelefono, FormateadorTextBox.TipoValidacion.Telefono);
             txtDireccion.MaxLength = 150;
         }
 

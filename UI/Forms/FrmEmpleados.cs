@@ -60,66 +60,11 @@ namespace CarniceriaPOS.UI.Forms
         
         private void ConfigurarValidacionesFormulario()
         {
-            
-            txtCedula.KeyPress += (s, e) =>
-            {
-                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-                    e.Handled = true;
-            };
-
-            
-            txtCedula.TextChanged += (s, e) =>
-            {
-                try
-                {
-                    string cleaned = txtCedula.Text.Replace("-", "");
-                    if (cleaned.Length > 11)
-                        cleaned = cleaned.Substring(0, 11);
-
-                    string formatted = cleaned;
-                    if (cleaned.Length >= 3)
-                        formatted = cleaned.Substring(0, 3) + "-" + cleaned.Substring(3);
-                    if (cleaned.Length >= 10)
-                        formatted = cleaned.Substring(0, 3) + "-" + cleaned.Substring(3, 7) + "-" + cleaned.Substring(10);
-
-                    if (formatted != txtCedula.Text && !string.IsNullOrEmpty(cleaned))
-                    {
-                        int cursorPos = txtCedula.SelectionStart;
-                        txtCedula.Text = formatted;
-                        if (cursorPos <= formatted.Length)
-                            txtCedula.SelectionStart = cursorPos;
-                    }
-                }
-                catch { }
-            };
-
-            
-            txtNombre.KeyPress += (s, e) =>
-            {
-                if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '\b')
-                    e.Handled = true;
-            };
-
-            
-            txtTelefono.KeyPress += (s, e) =>
-            {
-                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
-                    e.Handled = true;
-            };
-
-            
-            txtPuesto.KeyPress += (s, e) =>
-            {
-                if (!char.IsLetterOrDigit(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != '\b')
-                    e.Handled = true;
-            };
-
-            
-            txtSalario.KeyPress += (s, e) =>
-            {
-                if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '\b')
-                    e.Handled = true;
-            };
+            FormateadorTextBox.ConfigurarTextBox(txtCedula, FormateadorTextBox.TipoValidacion.Cedula);
+            FormateadorTextBox.ConfigurarTextBox(txtNombre, FormateadorTextBox.TipoValidacion.SoloLetras, 100);
+            FormateadorTextBox.ConfigurarTextBox(txtTelefono, FormateadorTextBox.TipoValidacion.Telefono);
+            FormateadorTextBox.ConfigurarTextBox(txtPuesto, FormateadorTextBox.TipoValidacion.Alfanumerico, 100);
+            FormateadorTextBox.ConfigurarTextBox(txtSalario, FormateadorTextBox.TipoValidacion.Moneda, 15);
         }
 
         
